@@ -2,7 +2,6 @@ __author__ = 'ryanvade'
 import time, serial, sys, os
 
 tty = "/dev/ttyAMA0" # for PC
-#tty = "/dev/ttyUSB0" #for raspberry pi
 
 try:#lets try to open the getty
     with open(tty) as file:
