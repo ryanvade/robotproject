@@ -20,22 +20,10 @@ except ImportError as e:
     print(e)
     sys.exit(1)
 
-#GPIO.setmode(GPIO.BOARD)
-#GPIO.setup(7, GPIO.OUT)
-
-try: #lets try to open the getty
-    with open(tty) as file:
-        pass
-except IOError as e: #if unable to do so...
+try:
+    from nanpy import Arduino
+    from nanpy import (OneWire, LCD)
+    from nanpy import SerialManager
+except ImportError as e:
     print(e)
-    sys.exit(1) #exit with error
-
-port = serial.Serial(tty, baudrate=115200, timeout=None)
-port.flushInput()
-port.flushOutput()
-
-
-data = bytearray()
-data.append(1)
-port.write(data)
-port.close()
+    sys.exit(1)

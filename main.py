@@ -7,7 +7,6 @@ try:#lets try to open the getty
     with open(tty) as file:
         pass
 except IOError as e:#if unable to do so...
-    print(e.errno)
     print(e)
     sys.exit(1)#exit with error
 
