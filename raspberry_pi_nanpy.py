@@ -14,16 +14,23 @@ if not os.uname()[4].startswith("arm"):
 
 #Is the RPi module available?
 try:
-    
     import RPi.GPIO as GPIO
 except ImportError as e:
     print(e)
     sys.exit(1)
-
+#Is the nanpy module available?
 try:
-    from nanpy import Arduino
-    from nanpy import (OneWire, LCD)
-    from nanpy import SerialManager
+    import nanpy
+    from nanpy import (Arduino, OneWire, Lcd, SerialManager, ArduinoApi, Stepper, Servo)
 except ImportError as e:
     print(e)
     sys.exit(1)
+
+connectionName = SerialManager(device=tty)
+uno = ArduinoApi(connection=connectionName)
+
+#turn led on pin 13 on
+uno.pinMode(13,uno.OUTPUT)
+uno.digitalWrite(13, uno.HIGH)
+time.sleep(4)
+uno.digitalWrite(13, uno.LOW)
