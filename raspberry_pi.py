@@ -14,7 +14,7 @@ if not os.uname()[4].startswith("arm"):
 
 #Is the RPi module available?
 try:
-    import raspberrypi
+    
     import RPi.GPIO as GPIO
 except ImportError:
     print("Module not found")
