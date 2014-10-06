@@ -8,7 +8,7 @@ void setup()
 }
  
 void loop()
-{		//can we connect to the serial port?
+{		//is there data in the serial buffer?
         if(Serial.available() > 0)
         {
                 byte data = Serial.read();
