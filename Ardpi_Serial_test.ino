@@ -1,12 +1,14 @@
 void setup()
 {
-        Serial.begin(115200);
+        //start a serial connection
+		Serial.begin(115200);
+		//following is for LED test
         pinMode(13, OUTPUT);
         digitalWrite(13, LOW);
 }
  
 void loop()
-{
+{		//can we connect to the serial port?
         if(Serial.available() > 0)
         {
                 byte data = Serial.read();
