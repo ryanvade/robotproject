@@ -29,7 +29,7 @@ except ImportError as e:
 connectionName = SerialManager(device=tty)
 uno = ArduinoApi(connection=connectionName)
 
-#turn led on pin 13 on
+#turn led on pin 13 on for 4 seconds then turn it off
 uno.pinMode(13,uno.OUTPUT)
 uno.digitalWrite(13, uno.HIGH)
 time.sleep(4)
