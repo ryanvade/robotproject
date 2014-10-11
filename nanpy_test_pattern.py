@@ -1,10 +1,30 @@
 __author__ = 'ryanvade'
-#Program to be run on the raspberry pi
-import serial, time, os, sys, pprint, errno
+# Program to be run on the raspberry pi
+import serial, time, os, sys, pprint, errno, csv
 
 #variables
 pp = pprint.PrettyPrinter(indent=4)
 tty = "/dev/ttyAMA0"
+connectionName = SerialManager(device=tty)
+uno = ArduinoApi(connection=connectionName)
+low = uno.LOW
+high = uno.HIGH
+message = " "
+#turn led on pin 13 on for 4 seconds then turn it off
+motor1PWM = 5
+motor3PWM = 6
+motor2PWM = 9
+motor4PWM = 3
+
+
+GND1 = 12
+GND2 = 11
+
+dir1 = 4
+dir2 = 2
+dir3 = 7
+dir4 = 10
+
 
 # is this an Arm system (raspberry pi)
 if not os.uname()[4].startswith("arm"):
@@ -26,54 +46,69 @@ except ImportError as e:
     print(e)
     sys.exit(1)
 
-connectionName = SerialManager(device=tty)
-uno = ArduinoApi(connection=connectionName)
 
-#turn led on pin 13 on for 4 seconds then turn it off
-motor1PWM = 5
-motor3PWM = 6
-motor2PWM = 9
-motor4PWM = 3
+def stop():
+    uno.digitalWrite(motor1PWM, 0)
+    uno.digitalWrite(motor2PWM, 0)
+    uno.digitalWrite(motor3PWM, 0)
+    uno.digitalWrite(motor4PWM, 0)
 
-dir1 = 4
-dir2 = 2
-dir3 = 7
-dir4 = 10
 
-GND1 = 12
-GND2 = 11
+def forward():
+    uno.digitalWrite(dir1, high)
+    uno.digitalWrite(dir3, high)
+    uno.digitalWrite(dir2, low)
+    uno.digitalWrite(dir4, low)
 
-# region Description
-uno.pinMode(motor1PWM, uno.OUTPUT)
-uno.pinMode(motor2PWM, uno.OUTPUT)
-uno.pinMode(motor3PWM, uno.OUTPUT)
-uno.pinMode(motor4PWM, uno.OUTPUT)
-uno.pinMode(dir1, uno.OUTPUT)
-uno.pinMode(dir2, uno.OUTPUT)
-uno.pinMode(dir3, uno.OUTPUT)
-uno.pinMode(dir4, uno.OUTPUT)
-uno.pinMode(GND1, uno.OUTPUT)
-uno.pinMode(GND2, uno.OUTPUT)
 
-uno.digitalWrite(GND1, uno.LOW)
-uno.digitalWrite(GND2, uno.LOW)
+def left():
+    uno.digitalWrite(dir1, low)
+    uno.digitalWrite(dir3, high)
+    uno.digitalWrite(dir2, high)
+    uno.digitalWrite(dir4, low)
 
-uno.digitalWrite(dir1, uno.HIGH)
-uno.digitalWrite(dir2, uno.LOW)
-uno.digitalWrite(dir3, uno.LOW)
-uno.digitalWrite(dir4, uno.HIGH)
 
-uno.digitalWrite(motor1PWM, 35)
-uno.digitalWrite(motor2PWM, 35)
-uno.digitalWrite(motor3PWM, 35)
-uno.digitalWrite(motor4PWM, 35)
+def right():
+    uno.digitalWrite(dir1, high)
+    uno.digitalWrite(dir3, low)
+    uno.digitalWrite(dir2, low)
+    uno.digitalWrite(dir4, high)
 
-time.sleep(5)
 
-uno.digitalWrite(dir1, uno.LOW)
-uno.digitalWrite(dir2, uno.HIGH)
-uno.digitalWrite(dir3, uno.HIGH)
-uno.digitalWrite(dir4, uno.LOW)
+def reverse():
+    uno.digitalWrite(dir1, low)
+    uno.digitalWrite(dir3, low)
+    uno.digitalWrite(dir2, high)
+    uno.digitalWrite(dir4, high)
 
-time.sleep(5)
-# endregion
+
+def setspeed(speed):
+    if (speed >= 0) & (speed <= 255):
+        uno.digitalWrite(motor1PWM, speed)
+        uno.digitalWrite(motor2PWM, speed)
+        uno.digitalWrite(motor3PWM, speed)
+        uno.digitalWrite(motor4PWM, speed)
+    else:
+        print("Bad speed value")
+
+while message != "END":
+    givendirection = input('Please enter a direction: ')
+    givenspeed = input('Please enter a speed: ')
+    setspeed(givenspeed)
+    if givendirection == "left":
+        left()
+    else:
+        if givendirection == "right":
+            right()
+        else:
+            if givendirection == "forward":
+                forward()
+            else:
+                if givendirection == "reverse":
+                    reverse()
+                else:
+                    stop()
+
+
+
+
