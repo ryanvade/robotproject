@@ -113,6 +113,6 @@ while message != "END":
                     stop()
 givenspeed = int(input('Please enter a speed: '))
 setspeed(givenspeed)
-sleep()
+
 
 
