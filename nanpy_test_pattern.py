@@ -98,20 +98,19 @@ while message != "END":
     if message == "END":
         stop()
     else:
-        pass
-    if message == "left":
-        left()
-    else:
-        if message == "right":
-            right()
+        if message == "left":
+            left()
         else:
-            if message == "forward":
-                forward()
+            if message == "right":
+                right()
             else:
-                if message == "reverse":
-                    reverse()
+                if message == "forward":
+                    forward()
                 else:
-                    stop()
+                    if message == "reverse":
+                        reverse()
+                    else:
+                        stop()
 givenspeed = int(input('Please enter a speed: '))
 setspeed(givenspeed)
 
