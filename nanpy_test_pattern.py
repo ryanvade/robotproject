@@ -1,6 +1,6 @@
 __author__ = 'ryanvade'
 # Program to be run on the raspberry pi
-import serial, time, os, sys, pprint, errno, csv
+import serial, time, os, sys, pprint, errno, csv, curses
 
 # is this an Arm system (raspberry pi)
 if not os.uname()[4].startswith("arm"):
@@ -113,33 +113,27 @@ while message != "END":
     if message == "END":
         stop()
         setspeed(0)
+    elif message == "left":
+        left()
+    elif message == "right":
+        right()
+    elif message == "forward":
+        forward()
+    elif message == "reverse":
+        reverse()
+    elif message == "smoothleft":
+        givenleftspeed = int(input("Enter left speed: "))
+        givenrightspeed = int(input("Enter right speed: "))
+        smoothleft(givenleftspeed, givenrightspeed)
+    elif message == "smoothright":
+        givenleftspeed = int(input("Enter left speed: "))
+        givenrightspeed = int(input("Enter right speed: "))
+        smoothright(givenleftspeed, givenrightspeed)
     else:
-        if message == "left":
-            left()
-        else:
-            if message == "right":
-                right()
-            else:
-                if message == "forward":
-                    forward()
-                else:
-                    if message == "reverse":
-                        reverse()
-                    else:
-                        if message == "smoothleft":
-                            givenleftspeed = int(input("Enter left speed: "))
-                            givenrightspeed = int(input("Enter right speed: "))
-                            smoothleft(givenleftspeed, givenrightspeed)
-                        else:
-                            if message == "smoothright":
-                                givenleftspeed = int(input("Enter left speed: "))
-                                givenrightspeed = int(input("Enter right speed: "))
-                                smoothright(givenleftspeed, givenrightspeed)
-                            else:
-                                stop()
-        if (message != "END") & (message != "smoothleft") & (message != "smoothright"):
-            givenspeed = int(input('Please enter a speed: '))
-            setspeed(givenspeed)
+        stop()
+    if (message != "END") & (message != "smoothleft") & (message != "smoothright"):
+        givenspeed = int(input('Please enter a speed: '))
+        setspeed(givenspeed)
 
 
 

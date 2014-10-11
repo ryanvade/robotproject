@@ -25,5 +25,11 @@ while True:
     elif event == curses.KEY_RIGHT:
         screen.clear()
         screen.addstr("The User Pressed RIGHT")
+    elif event == curses.KEY_NPAGE:
+        screen.clear()
+        screen.addstr("The User Pressed PG DN")
+    elif event == curses.KEY_PPAGE:
+        screen.clear()
+        screen.addstr("The User Pressed PG UP")
 
 curses.endwin()
