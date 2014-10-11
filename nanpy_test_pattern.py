@@ -110,8 +110,8 @@ while message != "END":
                         reverse()
                     else:
                         stop()
-givenspeed = int(input('Please enter a speed: '))
-setspeed(givenspeed)
+    givenspeed = int(input('Please enter a speed: '))
+    setspeed(givenspeed)
 
 
 
