@@ -111,9 +111,9 @@ while message != "END":
                         reverse()
                     else:
                         stop()
-                        if message != "END":
-                            givenspeed = int(input('Please enter a speed: '))
-                            setspeed(givenspeed)
+        if message != "END":
+            givenspeed = int(input('Please enter a speed: '))
+            setspeed(givenspeed)
 
 
 
