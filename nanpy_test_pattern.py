@@ -98,6 +98,7 @@ while message != "END":
     setspeed(givenspeed)
     if message == "END":
         stop()
+        break
     if message == "left":
         left()
     else:
