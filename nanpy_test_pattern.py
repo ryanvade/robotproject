@@ -93,19 +93,21 @@ def setspeed(speed):
         print("Bad speed value")
 
 while message != "END":
-    givendirection = input('Please enter a direction: ')
+    message = input('Please enter a direction: ')
     givenspeed = input('Please enter a speed: ')
     setspeed(givenspeed)
-    if givendirection == "left":
+    if message == "END":
+        stop()
+    if message == "left":
         left()
     else:
-        if givendirection == "right":
+        if message == "right":
             right()
         else:
-            if givendirection == "forward":
+            if message == "forward":
                 forward()
             else:
-                if givendirection == "reverse":
+                if message == "reverse":
                     reverse()
                 else:
                     stop()
