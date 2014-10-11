@@ -98,7 +98,7 @@ def smoothleft(speedleft, speedright):
     uno.analogWrite(motor2PWM, speedleft)
     uno.analogWrite(motor3PWM,speedright)
     uno.analogWrite(motor4PWM, speedright)
-    left()
+    forward()
 
 
 def smoothright(speedleft, speedright):
@@ -106,7 +106,7 @@ def smoothright(speedleft, speedright):
     uno.analogWrite(motor2PWM, speedleft)
     uno.analogWrite(motor3PWM,speedright)
     uno.analogWrite(motor4PWM, speedright)
-    right()
+    forward()
 
 while message != "END":
     message = input('Please enter a direction: ')
