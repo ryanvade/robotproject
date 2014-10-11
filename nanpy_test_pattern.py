@@ -43,6 +43,7 @@ dir4 = 10
 GND1 = 12
 GND2 = 11
 
+# region Description
 uno.pinMode(motor1PWM, uno.OUTPUT)
 uno.pinMode(motor2PWM, uno.OUTPUT)
 uno.pinMode(motor3PWM, uno.OUTPUT)
@@ -75,3 +76,4 @@ uno.digitalWrite(dir3, uno.HIGH)
 uno.digitalWrite(dir4, uno.LOW)
 
 time.sleep(5)
+# endregion
