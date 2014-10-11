@@ -57,3 +57,21 @@ uno.pinMode(GND2, uno.OUTPUT)
 uno.digitalWrite(GND1, uno.LOW)
 uno.digitalWrite(GND2, uno.LOW)
 
+uno.digitalWrite(dir1, uno.HIGH)
+uno.digitalWrite(dir2, uno.LOW)
+uno.digitalWrite(dir3, uno.LOW)
+uno.digitalWrite(dir4, uno.HIGH)
+
+uno.digitalWrite(motor1PWM, 35)
+uno.digitalWrite(motor2PWM, 35)
+uno.digitalWrite(motor3PWM, 35)
+uno.digitalWrite(motor4PWM, 35)
+
+uno.delay(5000)
+
+uno.digitalWrite(dir1, uno.LOW)
+uno.digitalWrite(dir2, uno.HIGH)
+uno.digitalWrite(dir3, uno.HIGH)
+uno.digitalWrite(dir4, uno.LOW)
+
+uno.delay(5000)
