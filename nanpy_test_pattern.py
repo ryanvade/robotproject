@@ -2,6 +2,27 @@ __author__ = 'ryanvade'
 # Program to be run on the raspberry pi
 import serial, time, os, sys, pprint, errno, csv
 
+# is this an Arm system (raspberry pi)
+if not os.uname()[4].startswith("arm"):
+    sys.stdout.write("Cannot run on: ")
+    print(os.uname()[4])
+    sys.exit(1)
+
+#Is the RPi module available?
+try:
+    import RPi.GPIO as GPIO
+except ImportError as e:
+    print(e)
+    sys.exit(1)
+#Is the nanpy module available?
+try:
+    import nanpy
+    from nanpy import (Arduino, OneWire, Lcd, SerialManager, ArduinoApi, Stepper, Servo)
+except ImportError as e:
+    print(e)
+    sys.exit(1)
+
+
 #variables
 pp = pprint.PrettyPrinter(indent=4)
 tty = "/dev/ttyAMA0"
@@ -25,26 +46,6 @@ dir2 = 2
 dir3 = 7
 dir4 = 10
 
-
-# is this an Arm system (raspberry pi)
-if not os.uname()[4].startswith("arm"):
-    sys.stdout.write("Cannot run on: ")
-    print(os.uname()[4])
-    sys.exit(1)
-
-#Is the RPi module available?
-try:
-    import RPi.GPIO as GPIO
-except ImportError as e:
-    print(e)
-    sys.exit(1)
-#Is the nanpy module available?
-try:
-    import nanpy
-    from nanpy import (Arduino, OneWire, Lcd, SerialManager, ArduinoApi, Stepper, Servo)
-except ImportError as e:
-    print(e)
-    sys.exit(1)
 
 
 def stop():
