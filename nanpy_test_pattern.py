@@ -85,11 +85,10 @@ def reverse():
 
 def setspeed(speed):
     if (speed >= 0) & (speed <= 255):
-        while (True):
-            uno.digitalWrite(motor1PWM, speed)
-            uno.digitalWrite(motor2PWM, speed)
-            uno.digitalWrite(motor3PWM, speed)
-            uno.digitalWrite(motor4PWM, speed)
+        uno.digitalWrite(motor1PWM, speed)
+        uno.digitalWrite(motor2PWM, speed)
+        uno.digitalWrite(motor3PWM, speed)
+        uno.digitalWrite(motor4PWM, speed)
     else:
         print("Bad speed value")
 
