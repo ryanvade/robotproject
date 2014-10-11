@@ -67,11 +67,11 @@ uno.digitalWrite(motor2PWM, 35)
 uno.digitalWrite(motor3PWM, 35)
 uno.digitalWrite(motor4PWM, 35)
 
-uno.delay(5000)
+time.sleep(5)
 
 uno.digitalWrite(dir1, uno.LOW)
 uno.digitalWrite(dir2, uno.HIGH)
 uno.digitalWrite(dir3, uno.HIGH)
 uno.digitalWrite(dir4, uno.LOW)
 
-uno.delay(5000)
+time.sleep(5)
