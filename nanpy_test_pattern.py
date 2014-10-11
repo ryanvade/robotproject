@@ -92,6 +92,22 @@ def setspeed(speed):
     else:
         print("Bad speed value")
 
+
+def smoothleft(speedleft, speedright):
+    uno.analogWrite(motor1PWM, speedleft)
+    uno.analogWrite(motor2PWM, speedleft)
+    uno.analogWrite(motor3PWM,speedright)
+    uno.analogWrite(motor4PWM, speedright)
+    left()
+
+
+def smoothright(speedleft, speedright):
+    uno.analogWrite(motor1PWM, speedleft)
+    uno.analogWrite(motor2PWM, speedleft)
+    uno.analogWrite(motor3PWM,speedright)
+    uno.analogWrite(motor4PWM, speedright)
+    right()
+
 while message != "END":
     message = input('Please enter a direction: ')
     if message == "END":
@@ -110,8 +126,18 @@ while message != "END":
                     if message == "reverse":
                         reverse()
                     else:
-                        stop()
-        if message != "END":
+                        if message == "smoothleft":
+                            givenleftspeed = int(input("Enter left speed: "))
+                            givenrightspeed = int(input("Enter right speed: "))
+                            smoothleft(givenleftspeed, givenrightspeed)
+                        else:
+                            if message == "smoothright":
+                                givenleftspeed = int(input("Enter left speed: "))
+                                givenrightspeed = int(input("Enter right speed: "))
+                                smoothright(givenleftspeed, givenrightspeed)
+                            else:
+                                stop()
+        if (message != "END") & (message != "smoothleft") & (message != "smoothright"):
             givenspeed = int(input('Please enter a speed: '))
             setspeed(givenspeed)
 
