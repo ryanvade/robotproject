@@ -97,7 +97,8 @@ while message != "END":
     message = input('Please enter a direction: ')
     if message == "END":
         stop()
-       
+    else:
+        pass
     if message == "left":
         left()
     else:
