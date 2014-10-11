@@ -94,11 +94,11 @@ def setspeed(speed):
 
 while message != "END":
     message = input('Please enter a direction: ')
-    givenspeed = int(input('Please enter a speed: '))
-    setspeed(givenspeed)
     if message == "END":
         stop()
         break
+    givenspeed = int(input('Please enter a speed: '))
+    setspeed(givenspeed)
     if message == "left":
         left()
     else:
