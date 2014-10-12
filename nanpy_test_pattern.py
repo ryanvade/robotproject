@@ -146,12 +146,14 @@ curses.curs_set(0)
 screen.keypad(1)
 while True:
     event = screen.getch()
-    screen.addstr("Press q to quit,left arrow to move left, right arrow to move right,\n")
-    screen.addstr("up arrow to move forward, down arrow to move reverse. \n")
-    screen.addstr("Page Down to slow down, Page up to speed up. Press S to stop and not quit.")
+    screen.addstr("Press q to stop and quit,left arrow to move left, right arrow to move right,\n")
+    screen.addstr("up arrow to move forward, down arrow to reverse. \n")
+    screen.addstr("Page Down to slow down, Page up to speed up. Press S to stop but not quit.")
     if event == ord("q"):
         stop()
         break
+    elif event == ord("s"):
+        stop()
     elif event == curses.KEY_UP:
         screen.addstr("Changing direction to Forward. ")
         forward()
@@ -176,8 +178,7 @@ while True:
             screen.addstr("Increasing speed. ")
         else:
             screen.addstr("Cannot increase speed any farther. ")
-    elif event == ord("s"):
-        stop()
+
 
 curses.endwin()
 
