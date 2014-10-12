@@ -31,7 +31,11 @@ uno = ArduinoApi(connection=connectionName)
 low = uno.LOW
 high = uno.HIGH
 message = " "
-#turn led on pin 13 on for 4 seconds then turn it off
+screen = curses.initscr()
+defaultspeed = 127
+currentspeed = defaultspeed
+decreasespeedvalue = 5
+increasespeedvalue = 5
 motor1PWM = 5
 motor3PWM = 6
 motor2PWM = 9
@@ -108,32 +112,73 @@ def smoothright(speedleft, speedright):
     uno.analogWrite(motor4PWM, speedright)
     forward()
 
-while message != "END":
-    message = input('Please enter a direction: ')
-    if message == "END":
-        stop()
-        setspeed(0)
-    elif message == "left":
-        left()
-    elif message == "right":
-        right()
-    elif message == "forward":
-        forward()
-    elif message == "reverse":
-        reverse()
-    elif message == "smoothleft":
-        givenleftspeed = int(input("Enter left speed: "))
-        givenrightspeed = int(input("Enter right speed: "))
-        smoothleft(givenleftspeed, givenrightspeed)
-    elif message == "smoothright":
-        givenleftspeed = int(input("Enter left speed: "))
-        givenrightspeed = int(input("Enter right speed: "))
-        smoothright(givenleftspeed, givenrightspeed)
-    else:
-        stop()
-    if (message != "END") & (message != "smoothleft") & (message != "smoothright"):
-        givenspeed = int(input('Please enter a speed: '))
-        setspeed(givenspeed)
+# while message != "END":
+#     message = input('Please enter a direction: ')
+#     if message == "END":
+#         stop()
+#         setspeed(0)
+#     elif message == "left":
+#         left()
+#     elif message == "right":
+#         right()
+#     elif message == "forward":
+#         forward()
+#     elif message == "reverse":
+#         reverse()
+#     elif message == "smoothleft":
+#         givenleftspeed = int(input("Enter left speed: "))
+#         givenrightspeed = int(input("Enter right speed: "))
+#         smoothleft(givenleftspeed, givenrightspeed)
+#     elif message == "smoothright":
+#         givenleftspeed = int(input("Enter left speed: "))
+#         givenrightspeed = int(input("Enter right speed: "))
+#         smoothright(givenleftspeed, givenrightspeed)
+#     else:
+#         stop()
+#     if (message != "END") & (message != "smoothleft") & (message != "smoothright"):
+#         givenspeed = int(input('Please enter a speed: '))
+#         setspeed(givenspeed)
+#stop()
 
+stop()
+curses.noecho()
+curses.curs_set(0)
+screen.keypad(1)
+while True:
+    event = screen.getch()
+    screen.addstr("Press q to quit,left arrow to move left, right arrow to move right,\n")
+    screen.addstr("up arrow to move forward, down arrow to move reverse. \n")
+    screen.addstr("Page Down to slow down, Page up to speed up. Press S to stop and not quit.")
+    if event == ord("q"):
+        stop()
+        break
+    elif event == curses.KEY_UP:
+        screen.addstr("Changing direction to Forward. ")
+        forward()
+    elif event == curses.KEY_DOWN:
+        screen.addstr("Changing direction to Reverse. ")
+        reverse()
+    elif event == curses.KEY_LEFT:
+        screen.addstr("Changing direction to Left.")
+        left()
+    elif event == curses.KEY_RIGHT:
+        screen.addstr("Changing direction to Right.")
+        right()
+    elif event == curses.KEY_NPAGE:
+        if not currentspeed - decreasespeedvalue <= 0:
+            setspeed(currentspeed - decreasespeedvalue)
+            screen.addstr("Decreasing Speed. ")
+        else:
+            screen.addstr("Cannot decrease speed any farther.")
+    elif event == curses.KEY_PPAGE:
+        if not currentspeed + increasespeedvalue > 255:
+            setspeed(currentspeed + increasespeedvalue)
+            screen.addstr("Increasing speed. ")
+        else:
+            screen.addstr("Cannot increase speed any farther. ")
+    elif event == ord("s"):
+        stop()
+
+curses.endwin()
 
 
