@@ -156,28 +156,36 @@ while True:
         stop()
     elif event == curses.KEY_UP:
         screen.addstr("Changing direction to Forward. ")
+        screen.clear()
         forward()
     elif event == curses.KEY_DOWN:
         screen.addstr("Changing direction to Reverse. ")
         reverse()
+        screen.clear()
     elif event == curses.KEY_LEFT:
         screen.addstr("Changing direction to Left.")
         left()
+        screen.clear()
     elif event == curses.KEY_RIGHT:
         screen.addstr("Changing direction to Right.")
         right()
+        screen.clear()
     elif event == curses.KEY_NPAGE:
         if not currentspeed - decreasespeedvalue <= 0:
             setspeed(currentspeed - decreasespeedvalue)
             screen.addstr("Decreasing Speed. ")
+            screen.clear()
         else:
             screen.addstr("Cannot decrease speed any farther.")
+            screen.clear()
     elif event == curses.KEY_PPAGE:
         if not currentspeed + increasespeedvalue > 255:
             setspeed(currentspeed + increasespeedvalue)
             screen.addstr("Increasing speed. ")
+            screen.clear()
         else:
             screen.addstr("Cannot increase speed any farther. ")
+            screen.clear()
 
 
 curses.endwin()
