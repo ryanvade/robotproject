@@ -140,54 +140,42 @@ def smoothright(speedleft, speedright):
 #         setspeed(givenspeed)
 #stop()
 
-stop()
-curses.noecho()
-curses.curs_set(0)
-screen.keypad(1)
-while True:
-    event = screen.getch()
-    screen.addstr("Press q to stop and quit,left arrow to move left, right arrow to move right,\n")
-    screen.addstr("up arrow to move forward, down arrow to reverse. \n")
-    screen.addstr("Page Down to slow down, Page up to speed up. Press S to stop but not quit.")
-    if event == ord("q"):
-        stop()
-        break
-    elif event == ord("s"):
-        stop()
-    elif event == curses.KEY_UP:
-        screen.addstr("Changing direction to Forward. ")
-        screen.clear()
-        forward()
-    elif event == curses.KEY_DOWN:
-        screen.addstr("Changing direction to Reverse. ")
-        reverse()
-        screen.clear()
-    elif event == curses.KEY_LEFT:
-        screen.addstr("Changing direction to Left.")
-        left()
-        screen.clear()
-    elif event == curses.KEY_RIGHT:
-        screen.addstr("Changing direction to Right.")
-        right()
-        screen.clear()
-    elif event == ord("z"):
-        #if not currentspeed - decreasespeedvalue <= 0:
-        setspeed(currentspeed - decreasespeedvalue)
-         #   screen.addstr("Decreasing Speed. ")
-         #   screen.clear()
-        #else:
-         #   screen.addstr("Cannot decrease speed any farther.")
-          #  screen.clear()
-    elif event == ord("a"):
-        #if not currentspeed + increasespeedvalue > 255:
-        setspeed(currentspeed + increasespeedvalue)
-         #   screen.addstr("Increasing speed. ")
-          #  screen.clear()
-        #else:
-         #   screen.addstr("Cannot increase speed any farther. ")
-          #  screen.clear()
 
+stdscr = curses.initscr()
+curses.cbreak()
+stdscr.keypad(1)
+
+stdscr.addstr(0, 10, "Hit 'q' to quit")
+stdscr.refresh()
+
+key = ''
+while key != ord('q'):
+    key = stdscr.getch()
+    stdscr.addch(20,25,key)
+    stdscr.refresh()
+    if key == curses.KEY_UP:
+        stdscr.addstr(2, 20, "Up")
+        forward()
+    elif key == curses.KEY_DOWN:
+        stdscr.addstr(3, 20, "Down")
+        reverse()
+    elif key == curses.KEY_LEFT:
+        stdscr.addstr(4, 20, "LEFT")
+        left()
+    elif key == curses.KEY_RIGHT:
+        stdscr.addstr(5, 20, "RIGHT")
+        right()
+    elif key == curses.KEY_NPAGE:
+        stdscr.addstr(6 , 20, "Next Page")
+        setspeed(currentspeed + increasespeedvalue)
+    elif key == curses.KEY_PPAGE:
+        stdscr.addstr(7, 20, "PREVIOUS Page")
+        setspeed(currentspeed - decreasespeedvalue)
+    elif key == ord("s"):
+        stdscr.addstr(8, 20, "s")
+        stop()
 
 curses.endwin()
+
 
 
