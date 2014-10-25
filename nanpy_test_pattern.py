@@ -170,7 +170,7 @@ while True:
         screen.addstr("Changing direction to Right.")
         right()
         screen.clear()
-    elif event == curses.KEY_NPAGE:
+    elif event == ord("-"):
         if not currentspeed - decreasespeedvalue <= 0:
             setspeed(currentspeed - decreasespeedvalue)
             screen.addstr("Decreasing Speed. ")
@@ -178,7 +178,7 @@ while True:
         else:
             screen.addstr("Cannot decrease speed any farther.")
             screen.clear()
-    elif event == curses.KEY_PPAGE:
+    elif event == ord("="):
         if not currentspeed + increasespeedvalue > 255:
             setspeed(currentspeed + increasespeedvalue)
             screen.addstr("Increasing speed. ")
