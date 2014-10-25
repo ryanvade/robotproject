@@ -1,6 +1,6 @@
 __author__ = 'ryanvade'
 # Program to be run on the raspberry pi
-import serial, time, os, sys, pprint, errno, csv, pygame
+import serial, time, os, sys, pprint, errno, csv, curses
 
 # is this an Arm system (raspberry pi)
 if not os.uname()[4].startswith("arm"):
