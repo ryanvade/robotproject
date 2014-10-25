@@ -178,6 +178,6 @@ while key != ord('q'):
         stop()
 
 curses.endwin()
-
+stop()
 
 
