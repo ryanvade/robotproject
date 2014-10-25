@@ -171,21 +171,21 @@ while True:
         right()
         screen.clear()
     elif event == ord("z"):
-        if not currentspeed - decreasespeedvalue <= 0:
-            setspeed(currentspeed - decreasespeedvalue)
-            screen.addstr("Decreasing Speed. ")
-            screen.clear()
-        else:
-            screen.addstr("Cannot decrease speed any farther.")
-            screen.clear()
+        #if not currentspeed - decreasespeedvalue <= 0:
+        setspeed(currentspeed - decreasespeedvalue)
+         #   screen.addstr("Decreasing Speed. ")
+         #   screen.clear()
+        #else:
+         #   screen.addstr("Cannot decrease speed any farther.")
+          #  screen.clear()
     elif event == ord("a"):
-        if not currentspeed + increasespeedvalue > 255:
-            setspeed(currentspeed + increasespeedvalue)
-            screen.addstr("Increasing speed. ")
-            screen.clear()
-        else:
-            screen.addstr("Cannot increase speed any farther. ")
-            screen.clear()
+        #if not currentspeed + increasespeedvalue > 255:
+        setspeed(currentspeed + increasespeedvalue)
+         #   screen.addstr("Increasing speed. ")
+          #  screen.clear()
+        #else:
+         #   screen.addstr("Cannot increase speed any farther. ")
+          #  screen.clear()
 
 
 curses.endwin()
