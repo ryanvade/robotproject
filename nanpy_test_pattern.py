@@ -90,8 +90,8 @@ def reverse():
 
 def setspeed(speed):
     if (speed >= 0) & (speed <= 255):
-        uno.analogWrite(motor1PWM, speed)
-        uno.analogWrite(motor2PWM, speed)
+        uno.analogWrite(motor1PWM, speed-39)
+        uno.analogWrite(motor2PWM, speed-39)
         uno.analogWrite(motor3PWM, speed)
         uno.analogWrite(motor4PWM, speed)
     else:
@@ -137,30 +137,24 @@ while key != ord('q'):
 
     if key == curses.KEY_UP:
         stdscr.addstr(2, 20, "Up")
-        leftspeed = leftspeed + 1
-        setleftspeed(leftspeed)
         forward()
-        stdscr.addstr(1, 30, str(leftspeed))
     elif key == curses.KEY_DOWN:
         stdscr.addstr(3, 20, "Down")
-        leftspeed = leftspeed -1
-        setleftspeed(leftspeed)
-        stdscr.addstr(1, 30, str(leftspeed))
-        # reverse()
-    # elif key == curses.KEY_LEFT:
-    #     stdscr.addstr(4, 20, "LEFT")
-    #     left()
-    # elif key == curses.KEY_RIGHT:
-    #     stdscr.addstr(5, 20, "RIGHT")
-    #     right()
-    # elif key == curses.KEY_NPAGE:
-    #     stdscr.addstr(6 , 20, "Next Page")
-    #     currentspeed = currentspeed + increasespeedvalue
-    #     setspeed(currentspeed)
-    # elif key == curses.KEY_PPAGE:
-    #     stdscr.addstr(7, 20, "PREVIOUS Page")
-    #     currentspeed = currentspeed - decreasespeedvalue
-    #     setspeed(currentspeed)
+        reverse()
+    elif key == curses.KEY_LEFT:
+        stdscr.addstr(4, 20, "LEFT")
+        left()
+    elif key == curses.KEY_RIGHT:
+        stdscr.addstr(5, 20, "RIGHT")
+        right()
+    elif key == curses.KEY_NPAGE:
+        stdscr.addstr(6 , 20, "Next Page")
+        currentspeed = currentspeed + increasespeedvalue
+        setspeed(currentspeed)
+    elif key == curses.KEY_PPAGE:
+        stdscr.addstr(7, 20, "PREVIOUS Page")
+        currentspeed = currentspeed - decreasespeedvalue
+        setspeed(currentspeed)
     elif key == ord("s"):
         stdscr.addstr(8, 20, "s")
         stop()
