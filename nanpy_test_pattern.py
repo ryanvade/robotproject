@@ -34,7 +34,7 @@ message = " "
 screen = curses.initscr()
 defaultspeed = 127
 currentspeed = defaultspeed
-leftspeed = defaultspeed
+veercorrection = 39
 decreasespeedvalue = 5
 increasespeedvalue = 5
 motor1PWM = 5
@@ -90,8 +90,8 @@ def reverse():
 
 def setspeed(speed):
     if (speed >= 0) & (speed <= 255):
-        uno.analogWrite(motor1PWM, speed-39)
-        uno.analogWrite(motor2PWM, speed-39)
+        uno.analogWrite(motor1PWM, speed - veercorrection)
+        uno.analogWrite(motor2PWM, speed - veercorrection)
         uno.analogWrite(motor3PWM, speed)
         uno.analogWrite(motor4PWM, speed)
     else:
