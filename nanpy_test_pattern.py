@@ -140,12 +140,12 @@ while key != ord('q'):
         leftspeed = leftspeed + 1
         setleftspeed(leftspeed)
         forward()
-        stdscr.addstr(1, 30, leftspeed)
+        stdscr.addstr(1, 30, "" + leftspeed)
     elif key == curses.KEY_DOWN:
         stdscr.addstr(3, 20, "Down")
         leftspeed = leftspeed -1
         setleftspeed(leftspeed)
-        stdscr.addstr(1, 30, leftspeed)
+        stdscr.addstr(1, 30, "" + leftspeed)
         reverse()
     # elif key == curses.KEY_LEFT:
     #     stdscr.addstr(4, 20, "LEFT")
