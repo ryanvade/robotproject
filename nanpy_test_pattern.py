@@ -167,10 +167,12 @@ while key != ord('q'):
         right()
     elif key == curses.KEY_NPAGE:
         stdscr.addstr(6 , 20, "Next Page")
-        setspeed(currentspeed + increasespeedvalue)
+        changevalue = currentspeed + increasespeedvalue
+        setspeed(changevalue)
     elif key == curses.KEY_PPAGE:
         stdscr.addstr(7, 20, "PREVIOUS Page")
-        setspeed(currentspeed - decreasespeedvalue)
+        changevalue = currentspeed - decreasespeedvalue
+        setspeed(changevalue)
     elif key == ord("s"):
         stdscr.addstr(8, 20, "s")
         stop()
