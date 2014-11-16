@@ -1,9 +1,12 @@
 __author__ = 'ryanvade'
-import serial, time, os, sys, errno
 
-class ePIR:
+
+class _EPIR:
     def __init__(self):
+        ACK = char(6)
+        NACK = char(12)
 
-    def readChar(self,port, command):
+    def readChar(self, port, command):
+
 
 
