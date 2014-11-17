@@ -1,6 +1,9 @@
 __author__ = 'ryanvade'
 # Program to be run on the raspberry pi
-import serial, time, os, sys, pprint, errno, csv, curses
+import os
+import sys
+import pprint
+import curses
 
 # is this an Arm system (raspberry pi)
 if not os.uname()[4].startswith("arm"):
@@ -8,13 +11,13 @@ if not os.uname()[4].startswith("arm"):
     print(os.uname()[4])
     sys.exit(1)
 
-#Is the RPi module available?
+# Is the RPi module available?
 try:
     import RPi.GPIO as GPIO
 except ImportError as e:
     print(e)
     sys.exit(1)
-#Is the nanpy module available?
+# Is the nanpy module available?
 try:
     import nanpy
     from nanpy import (Arduino, OneWire, Lcd, SerialManager, ArduinoApi, Stepper, Servo)
@@ -42,7 +45,6 @@ motor3PWM = 6
 motor2PWM = 9
 motor4PWM = 3
 
-
 GND1 = 12
 GND2 = 11
 
@@ -50,7 +52,6 @@ dir1 = 4
 dir2 = 2
 dir3 = 7
 dir4 = 10
-
 
 
 def stop():
@@ -109,7 +110,7 @@ def setleftspeed(speed):
 def smoothleft(speedleft, speedright):
     uno.analogWrite(motor1PWM, speedleft)
     uno.analogWrite(motor2PWM, speedleft)
-    uno.analogWrite(motor3PWM,speedright)
+    uno.analogWrite(motor3PWM, speedright)
     uno.analogWrite(motor4PWM, speedright)
     forward()
 
@@ -117,9 +118,10 @@ def smoothleft(speedleft, speedright):
 def smoothright(speedleft, speedright):
     uno.analogWrite(motor1PWM, speedleft)
     uno.analogWrite(motor2PWM, speedleft)
-    uno.analogWrite(motor3PWM,speedright)
+    uno.analogWrite(motor3PWM, speedright)
     uno.analogWrite(motor4PWM, speedright)
     forward()
+
 
 stdscr = curses.initscr()
 curses.cbreak()
@@ -131,7 +133,7 @@ stdscr.refresh()
 key = ''
 while key != ord('q'):
     key = stdscr.getch()
-    stdscr.addch(20,25,key)
+    stdscr.addch(20, 25, key)
     stdscr.refresh()
     setspeed(currentspeed)
 
@@ -148,12 +150,12 @@ while key != ord('q'):
         stdscr.addstr(5, 20, "RIGHT")
         right()
     elif key == curses.KEY_NPAGE:
-        stdscr.addstr(6 , 20, "Next Page")
-        currentspeed = currentspeed + increasespeedvalue
+        stdscr.addstr(6, 20, "Next Page")
+        currentspeed += increasespeedvalue
         setspeed(currentspeed)
     elif key == curses.KEY_PPAGE:
         stdscr.addstr(7, 20, "PREVIOUS Page")
-        currentspeed = currentspeed - decreasespeedvalue
+        currentspeed -= decreasespeedvalue
         setspeed(currentspeed)
     elif key == ord("s"):
         stdscr.addstr(8, 20, "s")
