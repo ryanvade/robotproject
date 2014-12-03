@@ -8,6 +8,7 @@
     </list>
     <ignored path="robotproject.iws" />
     <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,24 +28,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="3114">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.46875" vertical-offset="594" max-vertical-offset="3258">
+              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ePIR.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ePIR.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ePIR.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="216">
-              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-              <folding>
-                <marker date="1416260774733" expanded="true" signature="38:104" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
+              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -60,15 +59,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="changedFiles">
+    <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/computerserialtest.py" />
-        <option value="$PROJECT_DIR$/Ardpi_Serial_test.ino" />
-        <option value="$PROJECT_DIR$/raspberry_pi.py" />
-        <option value="$PROJECT_DIR$/raspberry_pi_nanpy.py" />
-        <option value="$PROJECT_DIR$/curses_test.py" />
-        <option value="$PROJECT_DIR$/character_Test.py" />
-        <option value="$PROJECT_DIR$/nanpy_test_pattern.py" />
+        <option value="$PROJECT_DIR$/testFile.py" />
         <option value="$PROJECT_DIR$/ePIR.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
@@ -106,6 +99,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -126,7 +120,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,25 +153,7 @@
       <console-settings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.character_Test">
-    <configuration default="false" name="raspberry_pi" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="robotproject" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/raspberry_pi.py" />
-      <option name="PARAMETERS" value="" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.testFile">
     <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -193,6 +168,7 @@
       <module name="robotproject" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -211,6 +187,7 @@
       <module name="robotproject" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/raspberry_pi_nanpy.py" />
       <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -229,6 +206,7 @@
       <module name="robotproject" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/curses_test.py" />
       <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -247,6 +225,26 @@
       <module name="robotproject" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/character_Test.py" />
       <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="testFile" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="robotproject" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testFile.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -310,6 +308,7 @@
       <module name="robotproject" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -386,25 +385,26 @@
       <module name="robotproject" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/nanpy_test_pattern.py" />
       <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.nanpy_test_pattern" />
-      <item index="1" class="java.lang.String" itemvalue="Python.raspberry_pi" />
-      <item index="2" class="java.lang.String" itemvalue="Python.main" />
-      <item index="3" class="java.lang.String" itemvalue="Python.raspberry_pi_nanpy" />
-      <item index="4" class="java.lang.String" itemvalue="Python.curses_test" />
-      <item index="5" class="java.lang.String" itemvalue="Python.character_Test" />
+      <item index="1" class="java.lang.String" itemvalue="Python.main" />
+      <item index="2" class="java.lang.String" itemvalue="Python.raspberry_pi_nanpy" />
+      <item index="3" class="java.lang.String" itemvalue="Python.curses_test" />
+      <item index="4" class="java.lang.String" itemvalue="Python.character_Test" />
+      <item index="5" class="java.lang.String" itemvalue="Python.testFile" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.character_Test" />
-        <item index="1" class="java.lang.String" itemvalue="Python.curses_test" />
-        <item index="2" class="java.lang.String" itemvalue="Python.main" />
-        <item index="3" class="java.lang.String" itemvalue="Python.raspberry_pi_nanpy" />
-        <item index="4" class="java.lang.String" itemvalue="Python.raspberry_pi" />
+        <item index="0" class="java.lang.String" itemvalue="Python.testFile" />
+        <item index="1" class="java.lang.String" itemvalue="Python.character_Test" />
+        <item index="2" class="java.lang.String" itemvalue="Python.curses_test" />
+        <item index="3" class="java.lang.String" itemvalue="Python.main" />
+        <item index="4" class="java.lang.String" itemvalue="Python.raspberry_pi_nanpy" />
       </list>
     </recent_temporary>
   </component>
@@ -416,237 +416,358 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="cc523313-3e07-4b0c-8c7a-d1465ee12da2" name="Default" comment="" />
       <created>1412463244211</created>
+      <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
     <task id="LOCAL-00001" summary="renamed conputerserialtest.py -&gt; computerserialtest.py">
       <created>1412463368462</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
       <updated>1412463368462</updated>
     </task>
     <task id="LOCAL-00002" summary="added raspberry_pi.py&#10;">
       <created>1412464871556</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
       <updated>1412464871556</updated>
     </task>
     <task id="LOCAL-00003" summary="added exception handling">
       <created>1412469102203</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
       <updated>1412469102204</updated>
     </task>
     <task id="LOCAL-00004" summary="added some comments">
       <created>1412555443968</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
       <updated>1412555443968</updated>
     </task>
     <task id="LOCAL-00005" summary="added raspberry_pi_nanpy.py for testing nanpy&#10;changed try-catch blocks to print error object">
       <created>1412558289581</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
       <updated>1412558289581</updated>
     </task>
     <task id="LOCAL-00006" summary="added raspberry_pi_nanpy.py for testing nanpy&#10;changed try-catch blocks to print error object">
       <created>1412559076776</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
       <updated>1412559076776</updated>
     </task>
     <task id="LOCAL-00007" summary="added raspberry_pi_nanpy.py for testing nanpy&#10;changed try-catch blocks to print error object">
       <created>1412559316800</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
       <updated>1412559316800</updated>
     </task>
     <task id="LOCAL-00008" summary="main.py uses nanpy">
       <created>1412560328074</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
       <updated>1412560328074</updated>
     </task>
     <task id="LOCAL-00009" summary="main.py uses nanpy">
       <created>1413054448065</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
       <updated>1413054448065</updated>
     </task>
     <task id="LOCAL-00010" summary="main.py uses nanpy">
       <created>1413055056072</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
       <updated>1413055056072</updated>
     </task>
     <task id="LOCAL-00011" summary="main.py uses nanpy">
       <created>1413057650775</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
       <updated>1413057650775</updated>
     </task>
     <task id="LOCAL-00012" summary="main.py uses nanpy">
       <created>1413057844244</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
       <updated>1413057844245</updated>
     </task>
     <task id="LOCAL-00013" summary="main.py uses nanpy">
       <created>1413060283608</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
       <updated>1413060283608</updated>
     </task>
     <task id="LOCAL-00014" summary="main.py uses nanpy">
       <created>1413060390709</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
       <updated>1413060390709</updated>
     </task>
     <task id="LOCAL-00015" summary="main.py uses nanpy">
       <created>1413060578965</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
       <updated>1413060578965</updated>
     </task>
     <task id="LOCAL-00016" summary="main.py uses nanpy">
       <created>1413060747556</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
       <updated>1413060747556</updated>
     </task>
     <task id="LOCAL-00017" summary="main.py uses nanpy">
       <created>1413060899135</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
       <updated>1413060899135</updated>
     </task>
     <task id="LOCAL-00018" summary="main.py uses nanpy">
       <created>1413060983338</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
       <updated>1413060983338</updated>
     </task>
     <task id="LOCAL-00019" summary="main.py uses nanpy">
       <created>1413061554042</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
       <updated>1413061554042</updated>
     </task>
     <task id="LOCAL-00020" summary="main.py uses nanpy">
       <created>1413061631985</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
       <updated>1413061631985</updated>
     </task>
     <task id="LOCAL-00021" summary="main.py uses nanpy">
       <created>1413061894101</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
       <updated>1413061894101</updated>
     </task>
     <task id="LOCAL-00022" summary="main.py uses nanpy">
       <created>1413062154421</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
       <updated>1413062154421</updated>
     </task>
     <task id="LOCAL-00023" summary="main.py uses nanpy">
       <created>1413062268495</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
       <updated>1413062268495</updated>
     </task>
     <task id="LOCAL-00024" summary="main.py uses nanpy">
       <created>1413062581375</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
       <updated>1413062581375</updated>
     </task>
     <task id="LOCAL-00025" summary="main.py uses nanpy">
       <created>1413062749129</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
       <updated>1413062749129</updated>
     </task>
     <task id="LOCAL-00026" summary="main.py uses nanpy">
       <created>1413062890095</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
       <updated>1413062890095</updated>
     </task>
     <task id="LOCAL-00027" summary="main.py uses nanpy">
       <created>1413062986474</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
       <updated>1413062986474</updated>
     </task>
     <task id="LOCAL-00028" summary="main.py uses nanpy">
       <created>1413063467162</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
       <updated>1413063467162</updated>
     </task>
     <task id="LOCAL-00029" summary="main.py uses nanpy">
       <created>1413064254247</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
       <updated>1413064254247</updated>
     </task>
     <task id="LOCAL-00030" summary="main.py uses nanpy">
       <created>1413064398633</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
       <updated>1413064398633</updated>
     </task>
     <task id="LOCAL-00031" summary="added curses test">
       <created>1413069892620</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
       <updated>1413069892620</updated>
     </task>
     <task id="LOCAL-00032" summary="added curses test">
       <created>1413071159507</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
       <updated>1413071159507</updated>
     </task>
     <task id="LOCAL-00033" summary="added curses test">
       <created>1413072732097</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
       <updated>1413072732097</updated>
     </task>
     <task id="LOCAL-00034" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1413072938599</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
       <updated>1413072938599</updated>
     </task>
     <task id="LOCAL-00035" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1413225341294</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
       <updated>1413225341294</updated>
     </task>
     <task id="LOCAL-00036" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414261960468</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
       <updated>1414261960468</updated>
     </task>
     <task id="LOCAL-00037" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414262078416</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
       <updated>1414262078416</updated>
     </task>
     <task id="LOCAL-00038" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414262255128</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
       <updated>1414262255128</updated>
     </task>
     <task id="LOCAL-00039" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414262356184</created>
+      <option name="number" value="00039" />
+      <option name="project" value="LOCAL" />
       <updated>1414262356184</updated>
     </task>
     <task id="LOCAL-00040" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414262620531</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
       <updated>1414262620531</updated>
     </task>
     <task id="LOCAL-00041" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414264718453</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
       <updated>1414264718453</updated>
     </task>
     <task id="LOCAL-00042" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414264981031</created>
+      <option name="number" value="00042" />
+      <option name="project" value="LOCAL" />
       <updated>1414264981031</updated>
     </task>
     <task id="LOCAL-00043" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414265114723</created>
+      <option name="number" value="00043" />
+      <option name="project" value="LOCAL" />
       <updated>1414265114723</updated>
     </task>
     <task id="LOCAL-00044" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414265346430</created>
+      <option name="number" value="00044" />
+      <option name="project" value="LOCAL" />
       <updated>1414265346430</updated>
     </task>
     <task id="LOCAL-00045" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414265368332</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
       <updated>1414265368334</updated>
     </task>
     <task id="LOCAL-00046" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414269717852</created>
+      <option name="number" value="00046" />
+      <option name="project" value="LOCAL" />
       <updated>1414269717852</updated>
     </task>
     <task id="LOCAL-00047" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414269878860</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
       <updated>1414269878860</updated>
     </task>
     <task id="LOCAL-00048" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414269997884</created>
+      <option name="number" value="00048" />
+      <option name="project" value="LOCAL" />
       <updated>1414269997884</updated>
     </task>
     <task id="LOCAL-00049" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414270135496</created>
+      <option name="number" value="00049" />
+      <option name="project" value="LOCAL" />
       <updated>1414270135496</updated>
     </task>
     <task id="LOCAL-00050" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414270231816</created>
+      <option name="number" value="00050" />
+      <option name="project" value="LOCAL" />
       <updated>1414270231827</updated>
     </task>
     <task id="LOCAL-00051" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414270829757</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
       <updated>1414270829757</updated>
     </task>
     <task id="LOCAL-00052" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414270964914</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
       <updated>1414270964915</updated>
     </task>
     <task id="LOCAL-00053" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1416174229176</created>
+      <option name="number" value="00053" />
+      <option name="project" value="LOCAL" />
       <updated>1416174229176</updated>
     </task>
     <task id="LOCAL-00054" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1416174382430</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
       <updated>1416174382430</updated>
     </task>
     <task id="LOCAL-00055" summary="added ePIR class">
       <created>1416175713080</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
       <updated>1416175713080</updated>
     </task>
     <task id="LOCAL-00056" summary="added ePIR class">
       <created>1416175776993</created>
+      <option name="number" value="00056" />
+      <option name="project" value="LOCAL" />
       <updated>1416175776993</updated>
     </task>
     <task id="LOCAL-00057" summary="added ePIR class">
       <created>1416178352039</created>
+      <option name="number" value="00057" />
+      <option name="project" value="LOCAL" />
       <updated>1416178352040</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="reformated files">
+      <created>1416261840447</created>
+      <option name="number" value="00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1416261840448</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -674,23 +795,25 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268229" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5636071" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5632184" sideWeight="0.49962714" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24981412" sideWeight="0.49919486" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1588367" sideWeight="0.49919486" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1588367" sideWeight="0.49919486" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32840723" sideWeight="0.49962714" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24981412" sideWeight="0.50080514" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268229" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45088565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32676518" sideWeight="0.5003728" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28735632" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4499179" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39901477" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -717,12 +840,62 @@
     <MESSAGE value="added curses test" />
     <MESSAGE value="edited nanpy_test_pattern.py to use curses for keybinding support." />
     <MESSAGE value="added ePIR class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ePIR class" />
+    <MESSAGE value="reformated files" />
+    <option name="LAST_COMMIT_MESSAGE" value="reformated files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="3060">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ePIR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="234">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="3060">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ePIR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="234">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="3060">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ePIR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3114">
@@ -735,9 +908,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="216">
           <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding>
-            <marker date="1416260774733" expanded="true" signature="38:104" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -753,9 +924,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="324">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <marker date="1416260774733" expanded="true" signature="38:104" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -845,22 +1014,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ePIR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="216">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding>
-            <marker date="1416260774733" expanded="true" signature="38:104" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="3114">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.46875" vertical-offset="594" max-vertical-offset="3258">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
   </component>
 </project>
-

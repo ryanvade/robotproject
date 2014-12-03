@@ -1,3 +1,5 @@
+from ePIR import _EPIR
+
 __author__ = 'ryanvade'
 # Program to be run on the raspberry pi
 import os
@@ -44,6 +46,12 @@ motor1PWM = 5
 motor3PWM = 6
 motor2PWM = 9
 motor4PWM = 3
+
+epirPort = 7
+epirRXPort = 9
+epirTXPort = 10
+
+mainEPIR = _EPIR(epirPort, epirRXPort, epirTXPort)
 
 GND1 = 12
 GND2 = 11
