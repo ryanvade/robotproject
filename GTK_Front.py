@@ -4,7 +4,7 @@ class ButtonWindow(Gtk.Window):
 
     def __init__(self):
         Gtk.Window.__init__(self, title="Button Demo")
-        self.set_border_width(10)
+        self.set_border_width(65)
 
         hbox = Gtk.Box(spacing=6)
         self.add(hbox)
@@ -21,7 +21,7 @@ class ButtonWindow(Gtk.Window):
         button.connect("clicked", self.on_close_clicked)
         hbox.pack_start(button, True, True, 0)
 
-    def on_click_me_clicked(self, button):
+    def  on_click_me_clicked(self, button):
         print("\"Click me\" button was clicked")
 
     def on_open_clicked(self, button):
