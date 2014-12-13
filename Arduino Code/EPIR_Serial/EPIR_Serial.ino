@@ -21,9 +21,9 @@ void loop()
         if (buffer.length() > 0)
         {
                 Serial.println("+<" + buffer + ">");  //Print the assembled string. Should match what was sent
-                int n = buffer.toInt();  //convert buffer into an integer
+               // int n = buffer.toInt();  //convert buffer into an integer
  
-                ss.write(n); //write the angle to the sensor
+                ss.write(buffer); //write the angle to the sensor
                 
                 Serial.print("Rcv: "); //print the ack/nack message or present value (depending on command)
                 Serial.println(ss.read());
