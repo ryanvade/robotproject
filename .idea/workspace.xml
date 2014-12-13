@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc523313-3e07-4b0c-8c7a-d1465ee12da2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Resources/Robot_sketch.fzz" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Arduino Code/EPIR_Serial/EPIR_Serial.ino" afterPath="$PROJECT_DIR$/Arduino Code/EPIR_Serial/EPIR_Serial.ino" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GTK_Front.py" afterPath="$PROJECT_DIR$/GTK_Front.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Rover_5_interconnects.fzz" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Rover_5_interconnects_bb.png" afterPath="$PROJECT_DIR$/Resources/Rover_5_interconnects_bb.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="robotproject.iws" />
@@ -80,8 +79,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1533" />
-    <option name="y" value="114" />
+    <option name="x" value="1496" />
+    <option name="y" value="79" />
     <option name="width" value="1221" />
     <option name="height" value="662" />
   </component>
@@ -805,7 +804,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418498708884</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="GTK_tests">
+      <created>1418500182332</created>
+      <option name="number" value="00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1418500182332</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -829,7 +834,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1533" y="114" width="1221" height="662" extended-state="0" />
+    <frame x="1496" y="79" width="1221" height="662" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268229" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
