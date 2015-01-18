@@ -51,7 +51,6 @@ epirPort = 7
 epirRXPort = 9
 epirTXPort = 10
 
-mainEPIR = _EPIR(epirPort, epirRXPort, epirTXPort)
 
 GND1 = 12
 GND2 = 11
@@ -60,6 +59,9 @@ dir1 = 4
 dir2 = 2
 dir3 = 7
 dir4 = 10
+
+interuptLeft = 51
+interuptRight = 53
 
 
 def stop():
