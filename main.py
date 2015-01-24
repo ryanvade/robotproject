@@ -129,15 +129,15 @@ def smoothright(speedleft, speedright):
 
 print("Define sonar")
 def sonar(trigPin, echoPin):
-    mega.digitalWrite(trigPin, mega.HIGH)
+    mega.digitalWrite(trigPin, high)
     sleep(0.000002)
-    mega.digitalWrite(trigPin, mega.LOW)
-    mega.digitalWrite(trigPin, mega.HIGH)
+    mega.digitalWrite(trigPin, low)
+    mega.digitalWrite(trigPin, high)
     sleep(0.00001)
-    mega.digitalWrite(trigPin, mega.LOW)
-    duration = pulsein(echoPin)
-    centimeters = duration / 29 / 2
-    return centimeters
+    mega.digitalWrite(trigPin, low)
+    #duration = pulsein(echoPin)
+    #centimeters = duration / 29 / 2
+    return 80.5
 
 print("Define pulsein")
 def pulsein(echoPin):
@@ -158,8 +158,8 @@ stdscr.addstr(0, 10, "Hit 'q' to quit")
 stdscr.refresh()
 
 key = ''
-#distance = sonar(sonar1Trig, sonar1Echo)
-while key != ord('q'): #and (distance > 18.0):
+distance = sonar(sonar1Trig, sonar1Echo)
+while (key != ord('q')) and (distance > 18.0):
     key = stdscr.getch()
     stdscr.addch(20, 25, key)
     stdscr.refresh()
@@ -188,7 +188,7 @@ while key != ord('q'): #and (distance > 18.0):
     elif key == ord("s"):
         stdscr.addstr(8, 20, "s")
         stop()
-    #distance = sonar(sonar1Trig, sonar1Echo)
+    distance = sonar(sonar1Trig, sonar1Echo)
 
 curses.endwin()
 stop()
