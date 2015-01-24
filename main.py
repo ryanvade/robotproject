@@ -3,8 +3,9 @@ __author__ = 'ryanvade'
 import os
 import sys
 import curses
-from time import sleep
 import time
+from time import sleep
+
 
 # is this an Arm system (raspberry pi)
 if not os.uname()[4].startswith("arm"):
@@ -153,7 +154,6 @@ print("Done defines")
 stdscr = curses.initscr()
 #curses.cbreak()
 stdscr.keypad(1)
-print("Begin curses")
 stdscr.addstr(0, 10, "Hit 'q' to quit")
 stdscr.refresh()
 
