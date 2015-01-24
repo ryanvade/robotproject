@@ -158,8 +158,8 @@ stdscr.addstr(0, 10, "Hit 'q' to quit")
 stdscr.refresh()
 
 key = ''
-distance = sonar(sonar1Trig, sonar1Echo)
-while (key != ord('q')) and (distance > 18.0):
+#distance = sonar(sonar1Trig, sonar1Echo)
+while key != ord('q'): #and (distance > 18.0):
     key = stdscr.getch()
     stdscr.addch(20, 25, key)
     stdscr.refresh()
@@ -188,7 +188,7 @@ while (key != ord('q')) and (distance > 18.0):
     elif key == ord("s"):
         stdscr.addstr(8, 20, "s")
         stop()
-    distance = sonar(sonar1Trig, sonar1Echo)
+    #distance = sonar(sonar1Trig, sonar1Echo)
 
 curses.endwin()
 stop()
