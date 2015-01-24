@@ -3,7 +3,7 @@ __author__ = 'ryanvade'
 import os
 import sys
 import curses
-import time
+from time import *
 
 # is this an Arm system (raspberry pi)
 if not os.uname()[4].startswith("arm"):
