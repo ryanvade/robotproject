@@ -1,11 +1,10 @@
-from ePIR import _EPIR
-
 __author__ = 'ryanvade'
 # Program to be run on the raspberry pi
 import os
 import sys
-import pprint
 import curses
+from time import sleep
+import time
 
 # is this an Arm system (raspberry pi)
 if not os.uname()[4].startswith("arm"):
@@ -27,9 +26,7 @@ except ImportError as e:
     print(e)
     sys.exit(1)
 
-
 #variables
-pp = pprint.PrettyPrinter(indent=4)
 tty = "/dev/ttyAMA0"
 connectionName = SerialManager(device=tty)
 uno = ArduinoApi(connection=connectionName)
@@ -42,22 +39,18 @@ currentspeed = defaultspeed
 veercorrection = 39
 decreasespeedvalue = 5
 increasespeedvalue = 5
-motor1PWM = 5
-motor3PWM = 6
+
+motor1PWM = 46
+motor3PWM = 44
 motor2PWM = 9
 motor4PWM = 3
 
-epirPort = 7
-epirRXPort = 9
-epirTXPort = 10
+sonar1Trig = 6
+sonar1Echo = 5
 
-
-GND1 = 12
-GND2 = 11
-
-dir1 = 4
+dir1 = 7
 dir2 = 2
-dir3 = 7
+dir3 = 8
 dir4 = 10
 
 interuptLeft = 51
@@ -133,6 +126,27 @@ def smoothright(speedleft, speedright):
     forward()
 
 
+def sonar(trigPin, echoPin):
+    uno.digitalWrite(trigPin, uno.HIGH)
+    sleep(0.000002)
+    uno.digitalWrite(trigPin, uno.LOW)
+    uno.digitalWrite(trigPin, uno.HIGH)
+    sleep(0.00001)
+    uno.digitalWrite(trigPin, uno.LOW)
+    duration = pulsein(echoPin)
+    centimeters = duration / 29 / 2
+    return centimeters
+
+
+def pulsein(echoPin):
+    startTime = time.time()
+    currentTime = 0
+    while uno.digitalRead(echoPin):
+        currentTime = time.time()
+
+    pulseTime = currentTime - startTime
+    return pulseTime
+
 stdscr = curses.initscr()
 curses.cbreak()
 stdscr.keypad(1)
@@ -141,7 +155,8 @@ stdscr.addstr(0, 10, "Hit 'q' to quit")
 stdscr.refresh()
 
 key = ''
-while key != ord('q'):
+distance = sonar(sonar1Trig, sonar1Echo)
+while (key != ord('q')) and (distance > 18.0):
     key = stdscr.getch()
     stdscr.addch(20, 25, key)
     stdscr.refresh()
@@ -170,6 +185,7 @@ while key != ord('q'):
     elif key == ord("s"):
         stdscr.addstr(8, 20, "s")
         stop()
+    distance = sonar(sonar1Trig, sonar1Echo)
 
 curses.endwin()
 stop()
