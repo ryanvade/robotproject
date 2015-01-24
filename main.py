@@ -198,6 +198,7 @@ while (key != ord('q')) and (distance > 18.0):
         stop()
     distance = sonar(sonar1Trig, sonar1Echo)
 
+time.sleep(5)
 curses.endwin()
 stop()
 
