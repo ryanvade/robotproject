@@ -126,7 +126,7 @@ def smoothright(speedleft, speedright):
     mega.analogWrite(motor4PWM, speedright)
     forward()
 
-
+print("Define sonar")
 def sonar(trigPin, echoPin):
     mega.digitalWrite(trigPin, mega.HIGH)
     sleep(0.000002)
@@ -138,7 +138,7 @@ def sonar(trigPin, echoPin):
     centimeters = duration / 29 / 2
     return centimeters
 
-
+print("Define pulsein")
 def pulsein(echoPin):
     startTime = time.time()
     currentTime = 0
@@ -147,6 +147,8 @@ def pulsein(echoPin):
 
     pulseTime = currentTime - startTime
     return pulseTime
+
+print("Done defines")
 
 stdscr = curses.initscr()
 curses.cbreak()

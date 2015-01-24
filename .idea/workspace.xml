@@ -33,8 +33,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2208589" vertical-offset="0" max-vertical-offset="3600">
-              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.6993865" vertical-offset="2466" max-vertical-offset="3636">
+              <caret line="156" column="39" selection-start-line="156" selection-start-column="39" selection-end-line="156" selection-end-column="39" />
               <folding>
                 <element signature="e#64#73#0" expanded="true" />
               </folding>
@@ -448,12 +448,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00021" summary="main.py uses nanpy">
-      <created>1413061894101</created>
-      <option name="number" value="00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1413061894101</updated>
-    </task>
     <task id="LOCAL-00022" summary="main.py uses nanpy">
       <created>1413062154421</created>
       <option name="number" value="00022" />
@@ -742,7 +736,13 @@
       <option name="project" value="LOCAL" />
       <updated>1422139580452</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Sonar Sensor">
+      <created>1422139672436</created>
+      <option name="number" value="00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1422139672436</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -853,7 +853,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="252">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -881,7 +881,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="252">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -909,7 +909,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="252">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -937,7 +937,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="252">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -965,7 +965,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="252">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -985,7 +985,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="252">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1005,7 +1005,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="252">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1025,7 +1025,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1045,7 +1045,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1065,7 +1065,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="234">
           <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1085,7 +1085,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="234">
           <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1105,7 +1105,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1125,7 +1125,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="216">
           <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1145,7 +1145,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="324">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1253,7 +1253,7 @@
         <state vertical-scroll-proportion="0.8081633" vertical-offset="0" max-vertical-offset="1620">
           <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
           <folding>
-            <element signature="e#24#68#0" expanded="true" />
+            <element signature="e#24#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1271,15 +1271,15 @@
         <state vertical-scroll-proportion="0.5283019" vertical-offset="0" max-vertical-offset="477">
           <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
           <folding>
-            <element signature="e#24#52#0" expanded="true" />
+            <element signature="e#24#52#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2208589" vertical-offset="0" max-vertical-offset="3600">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.6993865" vertical-offset="2466" max-vertical-offset="3636">
+          <caret line="156" column="39" selection-start-line="156" selection-start-column="39" selection-end-line="156" selection-end-column="39" />
           <folding>
             <element signature="e#64#73#0" expanded="true" />
           </folding>
