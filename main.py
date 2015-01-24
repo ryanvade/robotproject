@@ -27,7 +27,7 @@ except ImportError as e:
     print(e)
     sys.exit(1)
 
-#variables
+# variables
 tty = "/dev/ttyAMA0"
 connectionName = SerialManager(device=tty)
 mega = ArduinoApi(connection=connectionName)
@@ -58,6 +58,7 @@ interuptLeft = 51
 interuptRight = 53
 
 print("Hello")
+
 
 def stop():
     mega.digitalWrite(motor1PWM, 0)
@@ -127,7 +128,10 @@ def smoothright(speedleft, speedright):
     mega.analogWrite(motor4PWM, speedright)
     forward()
 
+
 print("Define sonar")
+
+
 def sonar(trigPin, echoPin):
     mega.digitalWrite(trigPin, high)
     sleep(0.000002)
@@ -135,19 +139,23 @@ def sonar(trigPin, echoPin):
     mega.digitalWrite(trigPin, high)
     sleep(0.00001)
     mega.digitalWrite(trigPin, low)
-    #duration = pulsein(echoPin)
-    #centimeters = duration / 29 / 2
-    return 80.5
+    duration = pulsein(echoPin)
+    centimeters = duration / 29 / 2
+    return centimeters
+
 
 print("Define pulsein")
+
+
 def pulsein(echoPin):
     startTime = time.time()
     currentTime = 0
-    while mega.digitalRead(echoPin):
+    while mega.digitalRead(echoPin) == high:
         currentTime = time.time()
 
     pulseTime = currentTime - startTime
     return pulseTime
+
 
 print("Done defines")
 
