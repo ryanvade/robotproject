@@ -158,7 +158,8 @@ def pulsein(echoPin):
 
 
 print("Done defines")
-
+distance = sonar(sonar1Trig, sonar1Echo)
+print(distance)
 stdscr = curses.initscr()
 #curses.cbreak()
 stdscr.keypad(1)
@@ -166,7 +167,7 @@ stdscr.addstr(0, 10, "Hit 'q' to quit")
 stdscr.refresh()
 
 key = ''
-distance = sonar(sonar1Trig, sonar1Echo)
+
 while (key != ord('q')) and (distance > 18.0):
     key = stdscr.getch()
     stdscr.addch(20, 25, key)
