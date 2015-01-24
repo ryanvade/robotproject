@@ -33,8 +33,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6993865" vertical-offset="2466" max-vertical-offset="3636">
-              <caret line="156" column="39" selection-start-line="156" selection-start-column="39" selection-end-line="156" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.33128834" vertical-offset="2628" max-vertical-offset="3636">
+              <caret line="155" column="19" selection-start-line="155" selection-start-column="19" selection-end-line="155" selection-end-column="19" />
               <folding>
                 <element signature="e#64#73#0" expanded="true" />
               </folding>
@@ -448,12 +448,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00022" summary="main.py uses nanpy">
-      <created>1413062154421</created>
-      <option name="number" value="00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1413062154421</updated>
-    </task>
     <task id="LOCAL-00023" summary="main.py uses nanpy">
       <created>1413062268495</created>
       <option name="number" value="00023" />
@@ -742,7 +736,13 @@
       <option name="project" value="LOCAL" />
       <updated>1422139672436</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Sonar Sensor">
+      <created>1422139787981</created>
+      <option name="number" value="00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1422139787981</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1278,8 +1278,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6993865" vertical-offset="2466" max-vertical-offset="3636">
-          <caret line="156" column="39" selection-start-line="156" selection-start-column="39" selection-end-line="156" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.33128834" vertical-offset="2628" max-vertical-offset="3636">
+          <caret line="155" column="19" selection-start-line="155" selection-start-column="19" selection-end-line="155" selection-end-column="19" />
           <folding>
             <element signature="e#64#73#0" expanded="true" />
           </folding>

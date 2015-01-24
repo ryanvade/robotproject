@@ -153,7 +153,7 @@ print("Done defines")
 stdscr = curses.initscr()
 curses.cbreak()
 stdscr.keypad(1)
-
+print("Begin curses")
 stdscr.addstr(0, 10, "Hit 'q' to quit")
 stdscr.refresh()
 
