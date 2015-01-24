@@ -140,7 +140,7 @@ def sonar(trigPin, echoPin):
     sleep(0.00001)
     mega.digitalWrite(trigPin, low)
     duration = pulsein(echoPin)
-    centimeters = duration / 29 / 2
+    centimeters = duration / 29.0 / 2.0
     return centimeters
 
 
@@ -149,7 +149,7 @@ print("Define pulsein")
 
 def pulsein(echoPin):
     startTime = time.time()
-    currentTime = 0
+    currentTime = 0.0
     while mega.digitalRead(echoPin) == high:
         currentTime = time.time()
 
