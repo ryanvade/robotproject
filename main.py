@@ -3,7 +3,6 @@ __author__ = 'ryanvade'
 import os
 import sys
 import curses
-from time import sleep
 import time
 
 # is this an Arm system (raspberry pi)
@@ -29,9 +28,9 @@ except ImportError as e:
 #variables
 tty = "/dev/ttyAMA0"
 connectionName = SerialManager(device=tty)
-uno = ArduinoApi(connection=connectionName)
-low = uno.LOW
-high = uno.HIGH
+mega = ArduinoApi(connection=connectionName)
+low = mega.LOW
+high = mega.HIGH
 message = " "
 screen = curses.initscr()
 defaultspeed = 127
@@ -56,83 +55,84 @@ dir4 = 10
 interuptLeft = 51
 interuptRight = 53
 
+print("Hello")
 
 def stop():
-    uno.digitalWrite(motor1PWM, 0)
-    uno.digitalWrite(motor2PWM, 0)
-    uno.digitalWrite(motor3PWM, 0)
-    uno.digitalWrite(motor4PWM, 0)
+    mega.digitalWrite(motor1PWM, 0)
+    mega.digitalWrite(motor2PWM, 0)
+    mega.digitalWrite(motor3PWM, 0)
+    mega.digitalWrite(motor4PWM, 0)
 
 
 def forward():
-    uno.digitalWrite(dir1, high)
-    uno.digitalWrite(dir3, high)
-    uno.digitalWrite(dir2, low)
-    uno.digitalWrite(dir4, low)
+    mega.digitalWrite(dir1, high)
+    mega.digitalWrite(dir3, high)
+    mega.digitalWrite(dir2, low)
+    mega.digitalWrite(dir4, low)
 
 
 def left():
-    uno.digitalWrite(dir1, low)
-    uno.digitalWrite(dir3, high)
-    uno.digitalWrite(dir2, high)
-    uno.digitalWrite(dir4, low)
+    mega.digitalWrite(dir1, low)
+    mega.digitalWrite(dir3, high)
+    mega.digitalWrite(dir2, high)
+    mega.digitalWrite(dir4, low)
 
 
 def right():
-    uno.digitalWrite(dir1, high)
-    uno.digitalWrite(dir3, low)
-    uno.digitalWrite(dir2, low)
-    uno.digitalWrite(dir4, high)
+    mega.digitalWrite(dir1, high)
+    mega.digitalWrite(dir3, low)
+    mega.digitalWrite(dir2, low)
+    mega.digitalWrite(dir4, high)
 
 
 def reverse():
-    uno.digitalWrite(dir1, low)
-    uno.digitalWrite(dir3, low)
-    uno.digitalWrite(dir2, high)
-    uno.digitalWrite(dir4, high)
+    mega.digitalWrite(dir1, low)
+    mega.digitalWrite(dir3, low)
+    mega.digitalWrite(dir2, high)
+    mega.digitalWrite(dir4, high)
 
 
 def setspeed(speed):
     if (speed >= 0) & (speed <= 255):
-        uno.analogWrite(motor1PWM, speed - veercorrection)
-        uno.analogWrite(motor2PWM, speed - veercorrection)
-        uno.analogWrite(motor3PWM, speed)
-        uno.analogWrite(motor4PWM, speed)
+        mega.analogWrite(motor1PWM, speed - veercorrection)
+        mega.analogWrite(motor2PWM, speed - veercorrection)
+        mega.analogWrite(motor3PWM, speed)
+        mega.analogWrite(motor4PWM, speed)
     else:
         print("Bad speed value")
 
 
 def setleftspeed(speed):
     if (speed >= 0) & (speed <= 255):
-        uno.analogWrite(motor1PWM, speed)
-        uno.analogWrite(motor2PWM, speed)
+        mega.analogWrite(motor1PWM, speed)
+        mega.analogWrite(motor2PWM, speed)
     else:
         print("Bad speed value")
 
 
 def smoothleft(speedleft, speedright):
-    uno.analogWrite(motor1PWM, speedleft)
-    uno.analogWrite(motor2PWM, speedleft)
-    uno.analogWrite(motor3PWM, speedright)
-    uno.analogWrite(motor4PWM, speedright)
+    mega.analogWrite(motor1PWM, speedleft)
+    mega.analogWrite(motor2PWM, speedleft)
+    mega.analogWrite(motor3PWM, speedright)
+    mega.analogWrite(motor4PWM, speedright)
     forward()
 
 
 def smoothright(speedleft, speedright):
-    uno.analogWrite(motor1PWM, speedleft)
-    uno.analogWrite(motor2PWM, speedleft)
-    uno.analogWrite(motor3PWM, speedright)
-    uno.analogWrite(motor4PWM, speedright)
+    mega.analogWrite(motor1PWM, speedleft)
+    mega.analogWrite(motor2PWM, speedleft)
+    mega.analogWrite(motor3PWM, speedright)
+    mega.analogWrite(motor4PWM, speedright)
     forward()
 
 
 def sonar(trigPin, echoPin):
-    uno.digitalWrite(trigPin, uno.HIGH)
+    mega.digitalWrite(trigPin, mega.HIGH)
     sleep(0.000002)
-    uno.digitalWrite(trigPin, uno.LOW)
-    uno.digitalWrite(trigPin, uno.HIGH)
+    mega.digitalWrite(trigPin, mega.LOW)
+    mega.digitalWrite(trigPin, mega.HIGH)
     sleep(0.00001)
-    uno.digitalWrite(trigPin, uno.LOW)
+    mega.digitalWrite(trigPin, mega.LOW)
     duration = pulsein(echoPin)
     centimeters = duration / 29 / 2
     return centimeters
@@ -141,7 +141,7 @@ def sonar(trigPin, echoPin):
 def pulsein(echoPin):
     startTime = time.time()
     currentTime = 0
-    while uno.digitalRead(echoPin):
+    while mega.digitalRead(echoPin):
         currentTime = time.time()
 
     pulseTime = currentTime - startTime
