@@ -30,7 +30,7 @@ encoder_read = serial.Serial(tty, 115200)
 low = mega.LOW
 high = mega.HIGH
 message = " "
-screen = curses.initscr()
+#screen = curses.initscr()
 defaultspeed = 127
 currentspeed = defaultspeed
 veercorrection = 39
@@ -63,6 +63,7 @@ def stop():
 
 
 def forward():
+    print("forward")
     mega.digitalWrite(dir1, high)
     mega.digitalWrite(dir3, high)
     mega.digitalWrite(dir2, low)
@@ -91,6 +92,7 @@ def reverse():
 
 
 def setspeed(speed):
+    print(speed)
     if (speed >= 0) & (speed <= 255):
         mega.analogWrite(motor1PWM, speed - veercorrection)
         mega.analogWrite(motor2PWM, speed - veercorrection)
@@ -157,10 +159,11 @@ def pulsein(echoPin):
 #print(distance)
 
 forward()
-sleep(5)
+setspeed(currentspeed)
+time.sleep(5)
+stop()
 print(encoder_read.read(8))
 
-time.sleep(5)
-curses.endwin()
-stop()
+#curses.endwin()
+#stop()
 
