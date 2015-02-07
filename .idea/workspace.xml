@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc523313-3e07-4b0c-8c7a-d1465ee12da2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Encoder_Test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Encoder_Test.py" afterPath="$PROJECT_DIR$/Encoder_Test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="robotproject.iws" />
@@ -44,8 +43,8 @@
       <file leaf-file-name="Encoder_Test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Encoder_Test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.79187816" vertical-offset="2700" max-vertical-offset="3834">
-              <caret line="176" column="25" selection-start-line="176" selection-start-column="25" selection-end-line="176" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.21319798" vertical-offset="864" max-vertical-offset="3780">
+              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding>
                 <element signature="e#25#38#0" expanded="true" />
               </folding>
@@ -464,12 +463,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00035" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
-      <created>1413225341294</created>
-      <option name="number" value="00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1413225341294</updated>
-    </task>
     <task id="LOCAL-00036" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414261960468</created>
       <option name="number" value="00036" />
@@ -758,7 +751,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423341499727</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Xbone Controller stuff">
+      <created>1423347651053</created>
+      <option name="number" value="00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1423347651053</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1217,8 +1216,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Encoder_Test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79187816" vertical-offset="2700" max-vertical-offset="3834">
-          <caret line="176" column="25" selection-start-line="176" selection-start-column="25" selection-end-line="176" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.21319798" vertical-offset="864" max-vertical-offset="3780">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
             <element signature="e#25#38#0" expanded="true" />
           </folding>

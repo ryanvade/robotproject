@@ -53,10 +53,7 @@ dir4 = 10
 interuptLeft = 51
 interuptRight = 53
 
-lTrigger = 2  # from -1 to 1
-rTrigger = 5  # from -1 to 1
-lStick = array.array[0, 1] # x direction -1 -> 1 , y direction -1 -> 1
-rStick = array.array[3, 4] # x direction -1 -> 1, y direction -1 -> 1
+
 
 print("Hello")
 
