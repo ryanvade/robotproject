@@ -168,7 +168,7 @@ while key != ord('q'):
     stdscr.addch(20, 25, key)
     stdscr.refresh()
     setspeed(currentspeed)
-    stdscr.addstr(9, 20, encoder_read.read(8))
+    #stdscr.addstr(9, 20, encoder_read.read(8))
 
     if key == curses.KEY_UP:
         stdscr.addstr(2, 20, "Up")
