@@ -155,44 +155,10 @@ def pulsein(echoPin):
 #print("Done defines")
 #distance = sonar(sonar1Trig, sonar1Echo)
 #print(distance)
-stdscr = curses.initscr()
-curses.cbreak()
-stdscr.keypad(1)
-stdscr.addstr(0, 10, "Hit 'q' to quit")
-stdscr.refresh()
 
-key = ''
-
-while key != ord('q'):
-    key = stdscr.getch()
-    stdscr.addch(20, 25, key)
-    stdscr.refresh()
-    setspeed(currentspeed)
-    #stdscr.addstr(9, 20, encoder_read.read(8))
-
-    if key == curses.KEY_UP:
-        stdscr.addstr(2, 20, "Up")
-        forward()
-    elif key == curses.KEY_DOWN:
-        stdscr.addstr(3, 20, "Down")
-        reverse()
-    elif key == curses.KEY_LEFT:
-        stdscr.addstr(4, 20, "LEFT")
-        left()
-    elif key == curses.KEY_RIGHT:
-        stdscr.addstr(5, 20, "RIGHT")
-        right()
-    elif key == curses.KEY_NPAGE:
-        stdscr.addstr(6, 20, "Next Page")
-        currentspeed += increasespeedvalue
-        setspeed(currentspeed)
-    elif key == curses.KEY_PPAGE:
-        stdscr.addstr(7, 20, "PREVIOUS Page")
-        currentspeed -= decreasespeedvalue
-        setspeed(currentspeed)
-    elif key == ord("s"):
-        stdscr.addstr(8, 20, "s")
-        stop()
+forward()
+sleep(5)
+print(encoder_read.read(8))
 
 time.sleep(5)
 curses.endwin()
