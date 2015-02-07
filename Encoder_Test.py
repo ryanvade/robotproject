@@ -166,7 +166,7 @@ stdscr.refresh()
 
 key = ''
 
-while (key != ord('q')) and (distance > 18.0):
+while (key != ord('q')):
     key = stdscr.getch()
     stdscr.addch(20, 25, key)
     stdscr.refresh()
