@@ -52,9 +52,6 @@ dir4 = 10
 
 interuptLeft = 51
 interuptRight = 53
-
-
-
 print("Hello")
 
 
@@ -166,7 +163,7 @@ stdscr.refresh()
 
 key = ''
 
-while (key != ord('q')):
+while key != ord('q'):
     key = stdscr.getch()
     stdscr.addch(20, 25, key)
     stdscr.refresh()
@@ -196,7 +193,6 @@ while (key != ord('q')):
     elif key == ord("s"):
         stdscr.addstr(8, 20, "s")
         stop()
-    distance = sonar(sonar1Trig, sonar1Echo)
 
 time.sleep(5)
 curses.endwin()
