@@ -1,5 +1,6 @@
 __author__ = 'ryanvade'
-# Program to be run on the raspberry pi
+
+import serial
 import os
 import sys
 import curses
@@ -7,12 +8,6 @@ import time
 import array
 from time import sleep
 
-
-# is this an Arm system (raspberry pi)
-if not os.uname()[4].startswith("arm"):
-    sys.stdout.write("Cannot run on: ")
-    print(os.uname()[4])
-    sys.exit(1)
 
 # Is the RPi module available?
 try:
@@ -28,10 +23,10 @@ except ImportError as e:
     print(e)
     sys.exit(1)
 
-# variables
 tty = "/dev/ttyAMA0"
 connectionName = SerialManager(device=tty)
 mega = ArduinoApi(connection=connectionName)
+encoder_read = serial.Serial(tty, 115200)
 low = mega.LOW
 high = mega.HIGH
 message = " "
@@ -179,6 +174,7 @@ while (key != ord('q')) and (distance > 18.0):
     stdscr.addch(20, 25, key)
     stdscr.refresh()
     setspeed(currentspeed)
+    stdscr.addstr(9, 20, encoder_read.read(8))
 
     if key == curses.KEY_UP:
         stdscr.addstr(2, 20, "Up")
@@ -208,5 +204,4 @@ while (key != ord('q')) and (distance > 18.0):
 time.sleep(5)
 curses.endwin()
 stop()
-
 
