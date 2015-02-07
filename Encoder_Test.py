@@ -127,7 +127,7 @@ def smoothright(speedleft, speedright):
     forward()
 
 
-print("Define sonar")
+#print("Define sonar")
 
 
 def sonar(trigPin, echoPin):
@@ -142,7 +142,7 @@ def sonar(trigPin, echoPin):
     return centimeters
 
 
-print("Define pulsein")
+#print("Define pulsein")
 
 
 def pulsein(echoPin):
@@ -155,11 +155,11 @@ def pulsein(echoPin):
     return pulseTime
 
 
-print("Done defines")
-distance = sonar(sonar1Trig, sonar1Echo)
-print(distance)
+#print("Done defines")
+#distance = sonar(sonar1Trig, sonar1Echo)
+#print(distance)
 stdscr = curses.initscr()
-# curses.cbreak()
+curses.cbreak()
 stdscr.keypad(1)
 stdscr.addstr(0, 10, "Hit 'q' to quit")
 stdscr.refresh()

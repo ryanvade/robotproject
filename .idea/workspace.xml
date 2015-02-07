@@ -43,8 +43,8 @@
       <file leaf-file-name="Encoder_Test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Encoder_Test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21319798" vertical-offset="864" max-vertical-offset="3780">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.9390863" vertical-offset="2523" max-vertical-offset="3780">
+              <caret line="171" column="1" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="1" />
               <folding>
                 <element signature="e#25#38#0" expanded="true" />
               </folding>
@@ -463,12 +463,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00036" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
-      <created>1414261960468</created>
-      <option name="number" value="00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1414261960468</updated>
-    </task>
     <task id="LOCAL-00037" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414262078416</created>
       <option name="number" value="00037" />
@@ -757,7 +751,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423347651053</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="Xbone Controller stuff">
+      <created>1423347925403</created>
+      <option name="number" value="00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1423347925403</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1216,8 +1216,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Encoder_Test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21319798" vertical-offset="864" max-vertical-offset="3780">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.9390863" vertical-offset="2523" max-vertical-offset="3780">
+          <caret line="171" column="1" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="1" />
           <folding>
             <element signature="e#25#38#0" expanded="true" />
           </folding>
