@@ -1,10 +1,10 @@
-import array
-
 __author__ = 'ryanvade'
 # Program to be run on the raspberry pi
 import os
 import sys
 import curses
+import pygame
+import array
 import time
 from time import sleep
 
@@ -59,13 +59,19 @@ dir4 = 10
 interuptLeft = 51
 interuptRight = 53
 
-lTrigger = 2  # from -1 to 1
-rTrigger = 5  # from -1 to 1
-lStick = array.array[0, 1] # x direction -1 -> 1 , y direction -1 -> 1
-rStick = array.array[3, 4] # x direction -1 -> 1, y direction -1 -> 1
+# Xbone controller info
+lTrigger = 2  # from 0 to 1
+rTrigger = 5  # from 0 to 1
+aButton = 0  # 0 false, 1 true
+bButton = 1
+xButton = 2
+yButton = 3
 
-print("Hello")
-
+hatLeft = (-1, 0)# hat is dpad
+hatRight = (1, 0)
+hatUp = (0, 1)
+hatDown = (0, -1)
+hatDefault = (0, 0)
 
 def stop():
     mega.digitalWrite(motor1PWM, 0)
@@ -135,79 +141,55 @@ def smoothright(speedleft, speedright):
     mega.analogWrite(motor4PWM, speedright)
     forward()
 
+# Initialize the joysticks
+pygame.joystick.init()
+#joystick_count = pygame.joystick.get_count()
 
-print("Define sonar")
+done = False
 
+joystick_count = pygame.joystick.get_count()
+for i in range(joystick_count):
+    joystick = pygame.joystick.Joystick(i)
+    joystick.init()
+name = joystick.get_name()
+print(name)
 
-def sonar(trigPin, echoPin):
-    mega.digitalWrite(trigPin, high)
-    sleep(0.000002)
-    mega.digitalWrite(trigPin, low)
-    mega.digitalWrite(trigPin, high)
-    sleep(0.00001)
-    mega.digitalWrite(trigPin, low)
-    duration = pulsein(echoPin)
-    centimeters = duration / 29.0 / 2.0
-    return centimeters
+while done == False:
+    for event in pygame.event.get():  # User did something
+        buttons = joystick.get_numbuttons()
+        bA = joystick.get_button(aButton)
+        bB = joystick.get_button(bButton)
+        if bA == 1:
+            print("A button pressed: Exiting")
+            done = True
+        if bB == 1:
+            print("B Button pressed: stopping")
+            stop()
 
+        hats = joystick.get_numhats()
+        axes = joystick.get_numaxes()
 
-print("Define pulsein")
+        #lTriggerValue = (joystick.get_axis(lTrigger) + 1.0) / 2.0
 
+        for i in range( hats ):
+            dpadValue = joystick.get_hat( i )
+            #print(dpadValue)
+            if dpadValue == hatLeft:
+                left()
+                print("Left")
+            elif dpadValue == hatRight:
+                right()
+                print("Right")
+            elif dpadValue == hatUp:
+                forward()
+                print("Up")
+            elif dpadValue == hatDown:
+                reverse()
+                print("Reverse")
+            elif dpadValue == hatDefault:
+                print("Default")
+    rTriggerValue = 255 * ((joystick.get_axis(rTrigger) + 1.0) / 2.0)
+    setspeed(rTriggerValue)
 
-def pulsein(echoPin):
-    startTime = time.time()
-    currentTime = 0.0
-    while mega.digitalRead(echoPin) == high:
-        currentTime = time.time()
-
-    pulseTime = currentTime - startTime
-    return pulseTime
-
-
-print("Done defines")
-distance = sonar(sonar1Trig, sonar1Echo)
-print(distance)
-stdscr = curses.initscr()
-# curses.cbreak()
-stdscr.keypad(1)
-stdscr.addstr(0, 10, "Hit 'q' to quit")
-stdscr.refresh()
-
-key = ''
-
-while (key != ord('q')) and (distance > 18.0):
-    key = stdscr.getch()
-    stdscr.addch(20, 25, key)
-    stdscr.refresh()
-    setspeed(currentspeed)
-
-    if key == curses.KEY_UP:
-        stdscr.addstr(2, 20, "Up")
-        forward()
-    elif key == curses.KEY_DOWN:
-        stdscr.addstr(3, 20, "Down")
-        reverse()
-    elif key == curses.KEY_LEFT:
-        stdscr.addstr(4, 20, "LEFT")
-        left()
-    elif key == curses.KEY_RIGHT:
-        stdscr.addstr(5, 20, "RIGHT")
-        right()
-    elif key == curses.KEY_NPAGE:
-        stdscr.addstr(6, 20, "Next Page")
-        currentspeed += increasespeedvalue
-        setspeed(currentspeed)
-    elif key == curses.KEY_PPAGE:
-        stdscr.addstr(7, 20, "PREVIOUS Page")
-        currentspeed -= decreasespeedvalue
-        setspeed(currentspeed)
-    elif key == ord("s"):
-        stdscr.addstr(8, 20, "s")
-        stop()
-    distance = sonar(sonar1Trig, sonar1Echo)
-
-time.sleep(5)
-curses.endwin()
-stop()
-
-
+pygame.joystick.quit()
+pygame.quit()

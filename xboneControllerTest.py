@@ -2,8 +2,8 @@ __author__ = 'ryanvade'
 import pygame
 
 # Define some colors
-BLACK    = (   0,   0,   0)
-WHITE    = ( 255, 255, 255)
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
 
 # This is a simple class that will help us print to the screen
 # It has nothing to do with the joysticks, just outputing the
@@ -38,7 +38,7 @@ screen = pygame.display.set_mode(size)
 
 pygame.display.set_caption("My Game")
 
-#Loop until the user clicks the close button.
+# Loop until the user clicks the close button.
 done = False
 
 # Used to manage how fast the screen updates
@@ -51,11 +51,11 @@ pygame.joystick.init()
 textPrint = TextPrint()
 
 # -------- Main Program Loop -----------
-while done==False:
+while done == False:
     # EVENT PROCESSING STEP
-    for event in pygame.event.get(): # User did something
-        if event.type == pygame.QUIT: # If user clicked close
-            done=True # Flag that we are done so we exit this loop
+    for event in pygame.event.get():  # User did something
+        if event.type == pygame.QUIT:  # If user clicked close
+            done = True  # Flag that we are done so we exit this loop
 
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
         if event.type == pygame.JOYBUTTONDOWN:
@@ -73,7 +73,7 @@ while done==False:
     # Get count of joysticks
     joystick_count = pygame.joystick.get_count()
 
-    textPrint.print(screen, "Number of joysticks: {}".format(joystick_count) )
+    textPrint.print(screen, "Number of joysticks: {}".format(joystick_count))
     textPrint.indent()
 
     # For each joystick:
@@ -81,42 +81,42 @@ while done==False:
         joystick = pygame.joystick.Joystick(i)
         joystick.init()
 
-        textPrint.print(screen, "Joystick {}".format(i) )
+        textPrint.print(screen, "Joystick {}".format(i))
         textPrint.indent()
 
         # Get the name from the OS for the controller/joystick
         name = joystick.get_name()
-        textPrint.print(screen, "Joystick name: {}".format(name) )
+        textPrint.print(screen, "Joystick name: {}".format(name))
 
         # Usually axis run in pairs, up/down for one, and left/right for
         # the other.
         axes = joystick.get_numaxes()
-        textPrint.print(screen, "Number of axes: {}".format(axes) )
+        textPrint.print(screen, "Number of axes: {}".format(axes))
         textPrint.indent()
 
-        for i in range( axes ):
-            axis = joystick.get_axis( i )
-            textPrint.print(screen, "Axis {} value: {:>6.3f}".format(i, axis) )
+        for i in range(axes):
+            axis = (joystick.get_axis(i) + 1.0) / 2.0
+            textPrint.print(screen, "Axis {} value: {:>6.3f}".format(i, axis))
         textPrint.unindent()
 
         buttons = joystick.get_numbuttons()
-        textPrint.print(screen, "Number of buttons: {}".format(buttons) )
+        textPrint.print(screen, "Number of buttons: {}".format(buttons))
         textPrint.indent()
 
-        for i in range( buttons ):
-            button = joystick.get_button( i )
-            textPrint.print(screen, "Button {:>2} value: {}".format(i,button) )
+        for i in range(buttons):
+            button = joystick.get_button(i)
+            textPrint.print(screen, "Button {:>2} value: {}".format(i, button))
         textPrint.unindent()
 
         # Hat switch. All or nothing for direction, not like joysticks.
         # Value comes back in an array.
         hats = joystick.get_numhats()
-        textPrint.print(screen, "Number of hats: {}".format(hats) )
+        textPrint.print(screen, "Number of hats: {}".format(hats))
         textPrint.indent()
 
-        for i in range( hats ):
-            hat = joystick.get_hat( i )
-            textPrint.print(screen, "Hat {} value: {}".format(i, str(hat)) )
+        for i in range(hats):
+            hat = joystick.get_hat(i)
+            textPrint.print(screen, "Hat {} value: {}".format(i, str(hat)))
         textPrint.unindent()
 
         textPrint.unindent()
@@ -133,4 +133,4 @@ while done==False:
 # Close the window and quit.
 # If you forget this line, the program will 'hang'
 # on exit if running from IDLE.
-pygame.quit ()
+pygame.quit()
