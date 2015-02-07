@@ -161,6 +161,7 @@ while done == False:
         bB = joystick.get_button(bButton)
         if bA == 1:
             print("A button pressed: Exiting")
+            stop()
             done = True
         if bB == 1:
             print("B Button pressed: stopping")
