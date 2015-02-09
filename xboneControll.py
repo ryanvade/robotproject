@@ -1,9 +1,9 @@
 __author__ = 'ryanvade'
-os.environ["SDL_VIDEODRIVER"] = "dummy" # don't ask
 # Program to be run on the raspberry pi
 import os
 import sys
 import curses
+os.environ["SDL_VIDEODRIVER"] = "dummy" # don't ask
 import pygame
 import array
 import time
