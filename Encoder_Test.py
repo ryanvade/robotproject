@@ -158,6 +158,7 @@ def pulsein(echoPin):
 #distance = sonar(sonar1Trig, sonar1Echo)
 #print(distance)
 
+GPIO.wait_for_edge(5, GPIO.RISING)
 forward()
 setspeed(currentspeed)
 time.sleep(5)

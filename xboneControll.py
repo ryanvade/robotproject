@@ -1,4 +1,5 @@
 __author__ = 'ryanvade'
+os.environ["SDL_VIDEODRIVER"] = "dummy" # don't ask
 # Program to be run on the raspberry pi
 import os
 import sys
