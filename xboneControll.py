@@ -192,7 +192,7 @@ while done == False:
                 print("Reverse")
             elif dpadValue == hatDefault:
                 print("Default")
-    rTriggerValue = 255 * ((joystick.get_axis(rTrigger) + 1.0) / 2.0)
+    rTriggerValue = int(255 * ((joystick.get_axis(rTrigger) + 1.0) / 2.0))
     setspeed(rTriggerValue)
 
 pygame.joystick.quit()
