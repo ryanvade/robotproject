@@ -55,8 +55,8 @@
       <file leaf-file-name="xboneControll.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/xboneControll.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14563107" vertical-offset="0" max-vertical-offset="3636">
-              <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.27164686" vertical-offset="2468" max-vertical-offset="3672">
+              <caret line="146" column="30" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
               <folding>
                 <element signature="e#64#73#0" expanded="true" />
               </folding>
@@ -459,12 +459,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00043" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
-      <created>1414265114723</created>
-      <option name="number" value="00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1414265114723</updated>
-    </task>
     <task id="LOCAL-00044" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414265346430</created>
       <option name="number" value="00044" />
@@ -753,7 +747,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423442664929</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Xbone Controller stuff">
+      <created>1423442829809</created>
+      <option name="number" value="00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1423442829809</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1212,8 +1212,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xboneControll.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14563107" vertical-offset="0" max-vertical-offset="3636">
-          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.27164686" vertical-offset="2468" max-vertical-offset="3672">
+          <caret line="146" column="30" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
           <folding>
             <element signature="e#64#73#0" expanded="true" />
           </folding>

@@ -143,6 +143,8 @@ def smoothright(speedleft, speedright):
     forward()
 
 # Initialize the joysticks
+pygame.init()
+pygame.display.set_mode((1,1))
 pygame.joystick.init()
 #joystick_count = pygame.joystick.get_count()
 
