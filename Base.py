@@ -32,8 +32,8 @@ class Base:
         self.dir2 = dir2
         self.dir3 = dir3
         self.dir4 = dir4
-        high = self.mega.HIGH
-        low = self.mega.LOW
+        self.high = self.mega.HIGH
+        self.low = self.mega.LOW
 
     def stop(self):
         self.mega.digitalWrite(self.motor1PWM, 0)
