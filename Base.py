@@ -43,7 +43,6 @@ class Base:
 
 
     def forward(self):
-        self.mega.digitalWrite(self.dir1, self.high)
         self.mega.digitalWrite(self.dir3, self.high)
         self.mega.digitalWrite(self.dir2, self.low)
         self.mega.digitalWrite(self.dir4, self.low)
@@ -71,7 +70,7 @@ class Base:
 
 
     def setspeed(self, speed):
-        if (speed >= 0) & (speed <= 255):
+        if (speed >= 0) and (speed <= 255):
             self.mega.analogWrite(self.motor1PWM, speed - veercorrection)
             self.mega.analogWrite(self.motor2PWM, speed - veercorrection)
             self.mega.analogWrite(self.motor3PWM, speed)
@@ -81,7 +80,7 @@ class Base:
 
 
     def setleftspeed(self, speed):
-        if (speed >= 0) & (speed <= 255):
+        if (speed >= 0) and (speed <= 255):
             self.mega.analogWrite(self.motor1PWM, speed)
             self.mega.analogWrite(self.motor2PWM, speed)
         else:
@@ -106,7 +105,7 @@ class Base:
 
     def sonar(self, trigPin, echoPin):
         self.mega.digitalWrite(trigPin, self.high)
-        self.sleep(0.000002)
+        time.sleep(0.000002)
         self.mega.digitalWrite(trigPin, self.low)
         self.mega.digitalWrite(trigPin, self.high)
         time.sleep(0.00001)

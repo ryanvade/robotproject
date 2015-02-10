@@ -54,8 +54,8 @@ dir4 = 10
 interuptLeft = 51
 interuptRight = 53
 
-lTrigger = 2  # from -1 to 1
-rTrigger = 5  # from -1 to 1
+lTrigger = 2  # from 0 to 1
+rTrigger = 5  # from 0 to 1
 lStick = array.array[0, 1] # x direction -1 -> 1 , y direction -1 -> 1
 rStick = array.array[3, 4] # x direction -1 -> 1, y direction -1 -> 1
 
@@ -63,7 +63,7 @@ base = Base(mega, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, 
 
 
 print("Done defines")
-distance = sonar(sonar1Trig, sonar1Echo)
+distance = base.sonar(sonar1Trig, sonar1Echo)
 print(distance)
 stdscr = curses.initscr()
 # curses.cbreak()
