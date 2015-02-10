@@ -14,12 +14,12 @@ except ImportError as e:
     print(e)
     sys.exit(1)
 
-
 defaultspeed = 127
 currentspeed = defaultspeed
 veercorrection = 39
 decreasespeedvalue = 5
 increasespeedvalue = 5
+
 
 class Base:
     def __init__(self, arduino, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, dir4):

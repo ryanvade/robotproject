@@ -69,8 +69,8 @@
       <file leaf-file-name="Base.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0659899" vertical-offset="0" max-vertical-offset="2340">
-              <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+            <state vertical-scroll-proportion="-1.0101523" vertical-offset="1749" max-vertical-offset="2340">
+              <caret line="64" column="22" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -478,12 +478,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00056" summary="added ePIR class">
-      <created>1416175776993</created>
-      <option name="number" value="00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1416175776993</updated>
-    </task>
     <task id="LOCAL-00057" summary="added ePIR class">
       <created>1416178352039</created>
       <option name="number" value="00057" />
@@ -772,7 +766,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423586223762</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="forgot to add my self a few more times..">
+      <created>1423586303568</created>
+      <option name="number" value="00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1423586303568</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -858,7 +858,8 @@
     <MESSAGE value="implement base" />
     <MESSAGE value="optimize imports" />
     <MESSAGE value="added ePIR original zip" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ePIR original zip" />
+    <MESSAGE value="forgot to add my self a few more times.." />
+    <option name="LAST_COMMIT_MESSAGE" value="forgot to add my self a few more times.." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1267,8 +1268,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0659899" vertical-offset="0" max-vertical-offset="2340">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+        <state vertical-scroll-proportion="-1.0101523" vertical-offset="1749" max-vertical-offset="2340">
+          <caret line="64" column="22" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
           <folding />
         </state>
       </provider>
