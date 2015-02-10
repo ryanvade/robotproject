@@ -69,8 +69,8 @@
       <file leaf-file-name="Base.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9593909" vertical-offset="1767" max-vertical-offset="2358">
-              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+            <state vertical-scroll-proportion="3.4111676" vertical-offset="0" max-vertical-offset="2358">
+              <caret line="112" column="49" selection-start-line="112" selection-start-column="49" selection-end-line="112" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -473,12 +473,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00048" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
-      <created>1414269997884</created>
-      <option name="number" value="00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1414269997884</updated>
-    </task>
     <task id="LOCAL-00049" summary="edited nanpy_test_pattern.py to use curses for keybinding support.">
       <created>1414270135496</created>
       <option name="number" value="00049" />
@@ -767,7 +761,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423535799901</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="I forgot the selves...">
+      <created>1423537097925</created>
+      <option name="number" value="00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1423537097926</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -848,7 +848,8 @@
     <MESSAGE value="Sonar Sensor" />
     <MESSAGE value="Xbone Controller stuff" />
     <MESSAGE value="typecast the triger value" />
-    <option name="LAST_COMMIT_MESSAGE" value="typecast the triger value" />
+    <MESSAGE value="I forgot the selves..." />
+    <option name="LAST_COMMIT_MESSAGE" value="I forgot the selves..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1256,8 +1257,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9593909" vertical-offset="1767" max-vertical-offset="2358">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        <state vertical-scroll-proportion="3.4111676" vertical-offset="0" max-vertical-offset="2358">
+          <caret line="112" column="49" selection-start-line="112" selection-start-column="49" selection-end-line="112" selection-end-column="49" />
           <folding />
         </state>
       </provider>

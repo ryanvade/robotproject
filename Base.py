@@ -110,7 +110,7 @@ class Base:
         self.mega.digitalWrite(trigPin, self.low)
         self.mega.digitalWrite(trigPin, self.high)
         time.sleep(0.00001)
-        self.mega.digitalWrite(trigPin, low)
+        self.mega.digitalWrite(trigPin, self.low)
         duration = self.pulsein(echoPin)
         centimeters = duration / 29.0 / 2.0
         return centimeters
