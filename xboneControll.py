@@ -5,9 +5,6 @@ import sys
 import curses
 os.environ["SDL_VIDEODRIVER"] = "dummy" # don't ask
 import pygame
-import array
-import time
-from time import sleep
 
 
 # is this an Arm system (raspberry pi)

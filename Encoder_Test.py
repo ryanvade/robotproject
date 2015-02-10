@@ -1,12 +1,11 @@
 __author__ = 'ryanvade'
 
-import serial
-import os
 import sys
-import curses
 import time
-import array
 from time import sleep
+
+import serial
+
 
 
 # Is the RPi module available?

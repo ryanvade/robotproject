@@ -1,6 +1,5 @@
 __author__ = 'ryanvade'
 from subprocess import Popen
-from os import system
 
 web_directory = '/var/nginx/www/live.m3u8'
 ts_directory = 'live/%08d.ts'
