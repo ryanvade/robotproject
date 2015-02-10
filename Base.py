@@ -1,5 +1,5 @@
 __author__ = 'ryanvade'
-import sys
+import sys, time
 # Is the RPi module available?
 try:
     import RPi.GPIO as GPIO
@@ -14,8 +14,15 @@ except ImportError as e:
     print(e)
     sys.exit(1)
 
+
+defaultspeed = 127
+currentspeed = defaultspeed
+veercorrection = 39
+decreasespeedvalue = 5
+increasespeedvalue = 5
+
 class Base:
-    def __init__(self, arduino, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, dir4, ):
+    def __init__(self, arduino, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, dir4):
         self.mega = arduino
         self.motor1PWM = motor1PWM
         self.motor2PWM = motor2PWM
@@ -25,93 +32,94 @@ class Base:
         self.dir2 = dir2
         self.dir3 = dir3
         self.dir4 = dir4
-        high = mega.HIGH
-        low = mega.LOW
-    def stop():
-        mega.digitalWrite(motor1PWM, 0)
-        mega.digitalWrite(motor2PWM, 0)
-        mega.digitalWrite(motor3PWM, 0)
-        mega.digitalWrite(motor4PWM, 0)
+        high = self.mega.HIGH
+        low = self.mega.LOW
+
+    def stop(self):
+        self.mega.digitalWrite(self.motor1PWM, 0)
+        self.mega.digitalWrite(self.motor2PWM, 0)
+        self.mega.digitalWrite(self.motor3PWM, 0)
+        self.mega.digitalWrite(self.motor4PWM, 0)
 
 
-    def forward():
-        mega.digitalWrite(dir1, high)
-        mega.digitalWrite(dir3, high)
-        mega.digitalWrite(dir2, low)
-        mega.digitalWrite(dir4, low)
+    def forward(self):
+        self.mega.digitalWrite(self.dir1, self.high)
+        self.mega.digitalWrite(self.dir3, self.high)
+        self.mega.digitalWrite(self.dir2, self.low)
+        self.mega.digitalWrite(self.dir4, self.low)
 
 
-    def left():
-        mega.digitalWrite(dir1, low)
-        mega.digitalWrite(dir3, high)
-        mega.digitalWrite(dir2, high)
-        mega.digitalWrite(dir4, low)
+    def left(self):
+        self.mega.digitalWrite(self.dir1, self.low)
+        self.mega.digitalWrite(self.dir3, self.high)
+        self.mega.digitalWrite(self.dir2, self.high)
+        self.mega.digitalWrite(self.dir4, self.low)
 
 
-    def right():
-        mega.digitalWrite(dir1, high)
-        mega.digitalWrite(dir3, low)
-        mega.digitalWrite(dir2, low)
-        mega.digitalWrite(dir4, high)
+    def right(self):
+        self.mega.digitalWrite(self.dir1, self.high)
+        self.mega.digitalWrite(self.dir3, self.low)
+        self.mega.digitalWrite(self.dir2, self.low)
+        self.mega.digitalWrite(self.dir4, self.high)
 
 
-    def reverse():
-        mega.digitalWrite(dir1, low)
-        mega.digitalWrite(dir3, low)
-        mega.digitalWrite(dir2, high)
-        mega.digitalWrite(dir4, high)
+    def reverse(self):
+        self.mega.digitalWrite(self.dir1, self.low)
+        self.mega.digitalWrite(self.dir3, self.low)
+        self.mega.digitalWrite(self.dir2, self.high)
+        self.mega.digitalWrite(self.dir4, self.high)
 
 
-    def setspeed(speed):
+    def setspeed(self, speed):
         if (speed >= 0) & (speed <= 255):
-            mega.analogWrite(motor1PWM, speed - veercorrection)
-            mega.analogWrite(motor2PWM, speed - veercorrection)
-            mega.analogWrite(motor3PWM, speed)
-            mega.analogWrite(motor4PWM, speed)
+            self.mega.analogWrite(self.motor1PWM, speed - veercorrection)
+            self.mega.analogWrite(self.motor2PWM, speed - veercorrection)
+            self.mega.analogWrite(self.motor3PWM, speed)
+            self.mega.analogWrite(self.motor4PWM, speed)
         else:
             print("Bad speed value")
 
 
-    def setleftspeed(speed):
+    def setleftspeed(self, speed):
         if (speed >= 0) & (speed <= 255):
-            mega.analogWrite(motor1PWM, speed)
-            mega.analogWrite(motor2PWM, speed)
+            self.mega.analogWrite(self.motor1PWM, speed)
+            self.mega.analogWrite(self.motor2PWM, speed)
         else:
             print("Bad speed value")
 
 
-    def smoothleft(speedleft, speedright):
-        mega.analogWrite(motor1PWM, speedleft)
-        mega.analogWrite(motor2PWM, speedleft)
-        mega.analogWrite(motor3PWM, speedright)
-        mega.analogWrite(motor4PWM, speedright)
-        forward()
+    def smoothleft(self, speedleft, speedright):
+        self.mega.analogWrite(self.motor1PWM, speedleft)
+        self.mega.analogWrite(self.motor2PWM, speedleft)
+        self.mega.analogWrite(self.motor3PWM, speedright)
+        self.mega.analogWrite(self.motor4PWM, speedright)
+        self.forward()
 
 
-    def smoothright(speedleft, speedright):
-        mega.analogWrite(motor1PWM, speedleft)
-        mega.analogWrite(motor2PWM, speedleft)
-        mega.analogWrite(motor3PWM, speedright)
-        mega.analogWrite(motor4PWM, speedright)
-        forward()
+    def smoothright(self, speedleft, speedright):
+        self.mega.analogWrite(self.motor1PWM, speedleft)
+        self.mega.analogWrite(self.motor2PWM, speedleft)
+        self.mega.analogWrite(self.motor3PWM, speedright)
+        self.mega.analogWrite(self.motor4PWM, speedright)
+        self.forward()
 
 
-    def sonar(trigPin, echoPin):
-        mega.digitalWrite(trigPin, high)
-        sleep(0.000002)
-        mega.digitalWrite(trigPin, low)
-        mega.digitalWrite(trigPin, high)
-        sleep(0.00001)
-        mega.digitalWrite(trigPin, low)
-        duration = pulsein(echoPin)
+    def sonar(self, trigPin, echoPin):
+        self.mega.digitalWrite(trigPin, self.high)
+        self.sleep(0.000002)
+        self.mega.digitalWrite(trigPin, self.low)
+        self.mega.digitalWrite(trigPin, self.high)
+        time.sleep(0.00001)
+        self.mega.digitalWrite(trigPin, low)
+        duration = self.pulsein(echoPin)
         centimeters = duration / 29.0 / 2.0
         return centimeters
 
 
-    def pulsein(echoPin):
+    def pulsein(self, echoPin):
         startTime = time.time()
         currentTime = 0.0
-        while mega.digitalRead(echoPin) == high:
+        while self.mega.digitalRead(echoPin) == self.high:
             currentTime = time.time()
 
         pulseTime = currentTime - startTime
