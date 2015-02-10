@@ -1,11 +1,6 @@
 __author__ = 'ryanvade'
 # Program to be run on the raspberry pi
-import os
-import sys
-import curses
-import time
-import array
-import Base
+import os, sys, curses, time, array, Base
 from time import sleep
 
 
