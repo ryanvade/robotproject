@@ -5,6 +5,7 @@ import sys
 import curses
 import time
 import array
+import Base
 from time import sleep
 
 
@@ -63,104 +64,7 @@ rTrigger = 5  # from -1 to 1
 lStick = array.array[0, 1] # x direction -1 -> 1 , y direction -1 -> 1
 rStick = array.array[3, 4] # x direction -1 -> 1, y direction -1 -> 1
 
-print("Hello")
-
-
-def stop():
-    mega.digitalWrite(motor1PWM, 0)
-    mega.digitalWrite(motor2PWM, 0)
-    mega.digitalWrite(motor3PWM, 0)
-    mega.digitalWrite(motor4PWM, 0)
-
-
-def forward():
-    mega.digitalWrite(dir1, high)
-    mega.digitalWrite(dir3, high)
-    mega.digitalWrite(dir2, low)
-    mega.digitalWrite(dir4, low)
-
-
-def left():
-    mega.digitalWrite(dir1, low)
-    mega.digitalWrite(dir3, high)
-    mega.digitalWrite(dir2, high)
-    mega.digitalWrite(dir4, low)
-
-
-def right():
-    mega.digitalWrite(dir1, high)
-    mega.digitalWrite(dir3, low)
-    mega.digitalWrite(dir2, low)
-    mega.digitalWrite(dir4, high)
-
-
-def reverse():
-    mega.digitalWrite(dir1, low)
-    mega.digitalWrite(dir3, low)
-    mega.digitalWrite(dir2, high)
-    mega.digitalWrite(dir4, high)
-
-
-def setspeed(speed):
-    if (speed >= 0) & (speed <= 255):
-        mega.analogWrite(motor1PWM, speed - veercorrection)
-        mega.analogWrite(motor2PWM, speed - veercorrection)
-        mega.analogWrite(motor3PWM, speed)
-        mega.analogWrite(motor4PWM, speed)
-    else:
-        print("Bad speed value")
-
-
-def setleftspeed(speed):
-    if (speed >= 0) & (speed <= 255):
-        mega.analogWrite(motor1PWM, speed)
-        mega.analogWrite(motor2PWM, speed)
-    else:
-        print("Bad speed value")
-
-
-def smoothleft(speedleft, speedright):
-    mega.analogWrite(motor1PWM, speedleft)
-    mega.analogWrite(motor2PWM, speedleft)
-    mega.analogWrite(motor3PWM, speedright)
-    mega.analogWrite(motor4PWM, speedright)
-    forward()
-
-
-def smoothright(speedleft, speedright):
-    mega.analogWrite(motor1PWM, speedleft)
-    mega.analogWrite(motor2PWM, speedleft)
-    mega.analogWrite(motor3PWM, speedright)
-    mega.analogWrite(motor4PWM, speedright)
-    forward()
-
-
-print("Define sonar")
-
-
-def sonar(trigPin, echoPin):
-    mega.digitalWrite(trigPin, high)
-    sleep(0.000002)
-    mega.digitalWrite(trigPin, low)
-    mega.digitalWrite(trigPin, high)
-    sleep(0.00001)
-    mega.digitalWrite(trigPin, low)
-    duration = pulsein(echoPin)
-    centimeters = duration / 29.0 / 2.0
-    return centimeters
-
-
-print("Define pulsein")
-
-
-def pulsein(echoPin):
-    startTime = time.time()
-    currentTime = 0.0
-    while mega.digitalRead(echoPin) == high:
-        currentTime = time.time()
-
-    pulseTime = currentTime - startTime
-    return pulseTime
+base = Base(mega, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, dir4)
 
 
 print("Done defines")
@@ -178,35 +82,35 @@ while (key != ord('q')) and (distance > 18.0):
     key = stdscr.getch()
     stdscr.addch(20, 25, key)
     stdscr.refresh()
-    setspeed(currentspeed)
+    base.setspeed(currentspeed)
 
     if key == curses.KEY_UP:
         stdscr.addstr(2, 20, "Up")
-        forward()
+        base.forward()
     elif key == curses.KEY_DOWN:
         stdscr.addstr(3, 20, "Down")
-        reverse()
+        base.reverse()
     elif key == curses.KEY_LEFT:
         stdscr.addstr(4, 20, "LEFT")
-        left()
+        base.left()
     elif key == curses.KEY_RIGHT:
         stdscr.addstr(5, 20, "RIGHT")
-        right()
+        base.right()
     elif key == curses.KEY_NPAGE:
         stdscr.addstr(6, 20, "Next Page")
         currentspeed += increasespeedvalue
-        setspeed(currentspeed)
+        base.setspeed(currentspeed)
     elif key == curses.KEY_PPAGE:
         stdscr.addstr(7, 20, "PREVIOUS Page")
         currentspeed -= decreasespeedvalue
-        setspeed(currentspeed)
+        base.setspeed(currentspeed)
     elif key == ord("s"):
         stdscr.addstr(8, 20, "s")
-        stop()
-    distance = sonar(sonar1Trig, sonar1Echo)
+        base.stop()
+    distance = base.sonar(sonar1Trig, sonar1Echo)
 
 time.sleep(5)
 curses.endwin()
-stop()
+base.stop()
 
 
