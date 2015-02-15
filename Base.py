@@ -1,5 +1,6 @@
 __author__ = 'ryanvade'
 import sys, time
+
 # Is the RPi module available?
 try:
     import RPi.GPIO as GPIO
