@@ -15,14 +15,16 @@ except ImportError as e:
     print(e)
     sys.exit(1)
 
-defaultspeed = 127
-currentspeed = defaultspeed
-veercorrection = 39
-decreasespeedvalue = 5
-increasespeedvalue = 5
-
 
 class Base:
+    maxspeed = 255
+    minspeed = 0
+    defaultspeed = 127
+    currentspeed = 0
+    veercorrection = 39
+    decreasespeedvalue = 5
+    increasespeedvalue = 5
+
     def __init__(self, arduino, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, dir4):
         self.mega = arduino
         self.motor1PWM = motor1PWM
@@ -35,6 +37,8 @@ class Base:
         self.dir4 = dir4
         self.high = self.mega.HIGH
         self.low = self.mega.LOW
+        self.setspeed(self, self.defaultspeed)
+        self.currentspeed = self.defaultspeed
 
     def stop(self):
         self.mega.digitalWrite(self.motor1PWM, 0)
@@ -71,9 +75,9 @@ class Base:
 
 
     def setspeed(self, speed):
-        if (speed >= 0) and (speed <= 255):
-            self.mega.analogWrite(self.motor1PWM, speed - veercorrection)
-            self.mega.analogWrite(self.motor2PWM, speed - veercorrection)
+        if (speed >= self.minspeed) and (speed <= self.maxspeed):
+            self.mega.analogWrite(self.motor1PWM, speed - self.veercorrection)
+            self.mega.analogWrite(self.motor2PWM, speed - self.veercorrection)
             self.mega.analogWrite(self.motor3PWM, speed)
             self.mega.analogWrite(self.motor4PWM, speed)
         else:
@@ -81,7 +85,7 @@ class Base:
 
 
     def setleftspeed(self, speed):
-        if (speed >= 0) and (speed <= 255):
+        if (speed >= self.minspeed) and (speed <= self.maxspeed):
             self.mega.analogWrite(self.motor1PWM, speed)
             self.mega.analogWrite(self.motor2PWM, speed)
         else:
@@ -93,15 +97,18 @@ class Base:
         self.mega.analogWrite(self.motor2PWM, speedleft)
         self.mega.analogWrite(self.motor3PWM, speedright)
         self.mega.analogWrite(self.motor4PWM, speedright)
-        self.forward()
+
 
 
     def smoothright(self, speedleft, speedright):
-        self.mega.analogWrite(self.motor1PWM, speedleft)
-        self.mega.analogWrite(self.motor2PWM, speedleft)
-        self.mega.analogWrite(self.motor3PWM, speedright)
-        self.mega.analogWrite(self.motor4PWM, speedright)
-        self.forward()
+        if (speedleft >= self.minspeed) and (speedleft <= self.maxspeed) and (speedright >= self.minspeed) and (speedleft <= self.maxspeed):
+            self.mega.analogWrite(self.motor1PWM, speedleft)
+            self.mega.analogWrite(self.motor2PWM, speedleft)
+            self.mega.analogWrite(self.motor3PWM, speedright)
+            self.mega.analogWrite(self.motor4PWM, speedright)
+        else:
+            print("Bad speed value")
+
 
 
     def sonar(self, trigPin, echoPin):
