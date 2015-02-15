@@ -45,7 +45,7 @@ class Controller:
         pygame.init()
         pygame.display.set_mode((1, 1)) # seriously, don't ask
         pygame.joystick.init()
-        joystick_count = pygame.joystick.get_count()
+        self.joystick_count = pygame.joystick.get_count()
 
         joystick_count = pygame.joystick.get_count()
         for i in range(joystick_count):
