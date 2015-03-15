@@ -53,6 +53,10 @@ class Controller:
             self.joystick.init()
         name = self.joystick.get_name()
         print(name)
+        triggervalue = ((self.joystick.get_axis(self.rTrigger) + 1.0) / 2.0)
+        while (triggervalue < 0) or (triggervalue > 1):
+            print("Controller Not ready!")
+            triggervalue = ((self.joystick.get_axis(self.rTrigger) + 1.0) / 2.0)
 
     def runWithController(self):
         done = False
