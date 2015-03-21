@@ -61,7 +61,7 @@ class Controller:
     def runWithController(self):
         done = False
         while not done:
-            for event in pygame.event.get():  # User did something
+            for event in [ pygame.event.wait() ] + pygame.event.get():  # User did something
                 buttons = self.joystick.get_numbuttons()
                 bA = self.joystick.get_button(self.aButton)
                 bB = self.joystick.get_button(self.bButton)
@@ -97,6 +97,13 @@ class Controller:
                         print("Default")
             rTriggerValue = int(255 * ((self.joystick.get_axis(self.rTrigger) + 1.0) / 2.0))
             self.base.setspeed(rTriggerValue)
+
+    def controllerSetup(self):
+        print("Controller setup started. \n")
+        print("Please press the 'a' button.")
+        event = pygame.event.wait()
+        while event.type !=
+
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         pygame.joystick.quit()
