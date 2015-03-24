@@ -2,13 +2,6 @@ __author__ = 'ryanvade'
 
 import sys
 import time
-from time import sleep
-
-import serial
-
-
-
-# Is the RPi module available?
 
 try:
     import nanpy
@@ -23,13 +16,6 @@ mega = ArduinoApi(connection=connectionName)
 #encoder_read = serial.Serial(tty, 115200)
 low = mega.LOW
 high = mega.HIGH
-
-
-motor1PWM = 46
-motor3PWM = 44
-motor2PWM = 9
-motor4PWM = 3
-
 
 sonar1Trig = 14
 sonar1Echo = 16
