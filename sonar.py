@@ -24,30 +24,28 @@ mega.digitalWrite(14, low)
 mega.pinMode(sonar1Echo, mega.INPUT)
 print("Define sonar")
 time.sleep(0.03)
+pulseLength = 0.00001
+lowLength = 0.000002
 
 def sonar(trigPin, echoPin):
-    print("Sleep one")
-    mega.digitalWrite(trigPin, low)
+    mega.digitalWrite(trigPin, low) # to be sure we are not transmitting
+    time.sleep(lowLength) # for a low output, 2 microseconds from http://arduinobasics.blogspot.com/2012/11/arduinobasics-hc-sr04-ultrasonic-sensor.html
     mega.digitalWrite(trigPin, high)
-    time.sleep(0.0001)
-    print("Sleep two")
+    time.sleep(pulseLength) # high output for 10 microseconds
     mega.digitalWrite(trigPin, low)
     duration = pulsein(echoPin)
     print(duration)
-    centimeters = duration *17000
+    centimeters = duration * 17000 #IS this correct? or should it be / 58.2
     return centimeters
-
-
-#print("Define pulsein")
 
 
 def pulsein(echoPin):
     offTime = 0.0
     onTime = 0.0
     iteration = 0
-    while  (mega.digitalRead(echoPin) != high) and (iteration < 500):
+    while (mega.digitalRead(echoPin) != high) and (iteration < 500):
         offTime = time.clock()
-        iteration = iteration +1
+        iteration += 1
     while mega.digitalRead(echoPin) == high:
         onTime = time.clock()
     if(onTime == 0.0):
