@@ -2,6 +2,7 @@ __author__ = 'ryanvade'
 
 import sys
 import time
+import datetime
 
 try:
     import nanpy
@@ -20,21 +21,21 @@ high = mega.HIGH
 sonar1Trig = 14
 sonar1Echo = 16
 mega.pinMode(sonar1Trig, mega.OUTPUT)
-mega.digitalWrite(14, low)
 mega.pinMode(sonar1Echo, mega.INPUT)
+#mega.digitalWrite(14, low)
 print("Define sonar")
 time.sleep(0.03)
-pulseLength = 0.00001
-lowLength = 0.000002
+pulseLength = 1
+lowLength = 0.002
 
 def sonar(trigPin, echoPin):
+    duration = 0.0
     mega.digitalWrite(trigPin, low) # to be sure we are not transmitting
-    time.sleep(lowLength) # for a low output, 2 microseconds from http://arduinobasics.blogspot.com/2012/11/arduinobasics-hc-sr04-ultrasonic-sensor.html
+    #time.sleep(lowLength) # for a low output, 2 microseconds from http://arduinobasics.blogspot.com/2012/11/arduinobasics-hc-sr04-ultrasonic-sensor.html
     mega.digitalWrite(trigPin, high)
     time.sleep(pulseLength) # high output for 10 microseconds
     mega.digitalWrite(trigPin, low)
     duration = pulsein(echoPin)
-    print(duration)
     centimeters = duration * 17000 #IS this correct? or should it be / 58.2
     return centimeters
 
@@ -43,11 +44,17 @@ def pulsein(echoPin):
     offTime = 0.0
     onTime = 0.0
     iteration = 0
-    while (mega.digitalRead(echoPin) != high) and (iteration < 500):
-        offTime = time.clock()
+    startTime = mega.millis()
+    while (mega.digitalRead(echoPin) == low) and ((offTime - startTime) < 1):
+        offTime = mega.millis()
+        print("OffTime")
+        print(offTime)
         iteration += 1
     while mega.digitalRead(echoPin) == high:
-        onTime = time.clock()
+        onTime = mega.millis()
+        print("OnTime")
+        print(onTime)
+        print ('\n')
     if(onTime == 0.0):
         return onTime
     pulseTime = onTime - offTime
@@ -56,11 +63,8 @@ def pulsein(echoPin):
 
 print("Done defines")
 
-while True:
-    distance = sonar(sonar1Trig, sonar1Echo)
-    print(distance)
-    print("\n")
-
+distance = sonar(sonar1Trig, sonar1Echo)
+print(distance)
 connectionName.close()
 
 #GPIO.wait_for_edge(5, GPIO.RISING)
