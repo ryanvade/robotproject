@@ -54,14 +54,14 @@ class Controller:
         name = self.joystick.get_name()
         print(name)
         triggervalue = ((self.joystick.get_axis(self.rTrigger) + 1.0) / 2.0)
-        while (triggervalue < 0) or (triggervalue > 1):
+        while triggervalue != 0:
             print("Controller Not ready!")
             triggervalue = ((self.joystick.get_axis(self.rTrigger) + 1.0) / 2.0)
 
     def runWithController(self):
         done = False
         while not done:
-            for event in [ pygame.event.wait() ] + pygame.event.get():  # User did something
+            for event in [pygame.event.wait()] + pygame.event.get():  # User did something
                 buttons = self.joystick.get_numbuttons()
                 bA = self.joystick.get_button(self.aButton)
                 bB = self.joystick.get_button(self.bButton)
@@ -76,7 +76,6 @@ class Controller:
                 hats = self.joystick.get_numhats()
                 axes = self.joystick.get_numaxes()
 
-                #lTriggerValue = (joystick.get_axis(lTrigger) + 1.0) / 2.0
 
                 for i in range( hats ):
                     dpadValue = self.joystick.get_hat( i )
@@ -95,14 +94,14 @@ class Controller:
                         print("Reverse")
                     elif dpadValue == self.hatDefault:
                         print("Default")
-            rTriggerValue = int(255 * ((self.joystick.get_axis(self.rTrigger) + 1.0) / 2.0))
-            self.base.setspeed(rTriggerValue)
+            rTriggerValue = ((self.joystick.get_axis(self.rTrigger) + 1.0) / 2.0)
+            self.base.setspeed(int(rTriggerValue) * 255)
 
     def controllerSetup(self):
         print("Controller setup started. \n")
         print("Please press the 'a' button.")
         event = pygame.event.wait()
-        while event.type !=
+        #while event.type !=
 
 
     def __exit__(self, exc_type, exc_val, exc_tb):

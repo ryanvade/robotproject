@@ -83,6 +83,15 @@ class Base:
         else:
             print("Bad speed value")
 
+    def setspeed(self, speed, veerCorrection):
+        if (speed >= self.minspeed) and (speed <= self.maxspeed):
+            self.mega.analogWrite(self.motor1PWM, speed - veerCorrection)
+            self.mega.analogWrite(self.motor2PWM, speed - veerCorrection)
+            self.mega.analogWrite(self.motor3PWM, speed)
+            self.mega.analogWrite(self.motor4PWM, speed)
+        else:
+            print("Bad speed value")
+
 
     def setleftspeed(self, speed):
         if (speed >= self.minspeed) and (speed <= self.maxspeed):
