@@ -109,8 +109,8 @@ class Base:
 
 
     def smoothright(self, speedleft, speedright):
-        if (speedleft >= self.minspeed) and (speedleft <= self.maxspeed) and (speedright >= self.minspeed) and (
-            speedleft <= self.maxspeed):
+        if (speedleft >= self.minspeed) and (speedleft <= self.maxspeed) and (speedright >= self.minspeed) and \
+                (speedleft <= self.maxspeed):
             self.mega.analogWrite(self.motor1PWM, speedleft)
             self.mega.analogWrite(self.motor2PWM, speedleft)
             self.mega.analogWrite(self.motor3PWM, speedright)
