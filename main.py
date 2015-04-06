@@ -1,7 +1,12 @@
 __author__ = 'ryanvade'
 # Program to be run on the raspberry pi
-import os, sys, curses, time, array, Base, Controller
-from time import sleep
+import os
+import sys
+import curses
+import time
+import array
+
+import Base
 
 
 # is this an Arm system (raspberry pi)
@@ -56,11 +61,10 @@ interuptRight = 53
 
 lTrigger = 2  # from 0 to 1
 rTrigger = 5  # from 0 to 1
-lStick = array.array[0, 1] # x direction -1 -> 1 , y direction -1 -> 1
-rStick = array.array[3, 4] # x direction -1 -> 1, y direction -1 -> 1
+lStick = array.array[0, 1]  # x direction -1 -> 1 , y direction -1 -> 1
+rStick = array.array[3, 4]  # x direction -1 -> 1, y direction -1 -> 1
 
 base = Base(mega, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, dir4)
-
 
 print("Done defines")
 distance = base.sonar(sonar1Trig, sonar1Echo)

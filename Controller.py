@@ -1,7 +1,11 @@
 __author__ = 'ryanvade'
 # Program to be run on the raspberry pi
-import os, sys, Base, pygame
-os.environ["SDL_VIDEODRIVER"] = "dummy" # don't ask
+import os
+import sys
+
+import pygame
+
+os.environ["SDL_VIDEODRIVER"] = "dummy"  # don't ask
 
 # is this an Arm system (raspberry pi)
 if not os.uname()[4].startswith("arm"):
@@ -23,6 +27,7 @@ except ImportError as e:
     print(e)
     sys.exit(1)
 
+
 class Controller:
     # Xbone controller info
     lTrigger = 2  # from 0 to 1
@@ -32,7 +37,7 @@ class Controller:
     xButton = 2
     yButton = 3
 
-    hatLeft = (-1, 0)# hat is dpad
+    hatLeft = (-1, 0)  # hat is dpad
     hatRight = (1, 0)
     hatUp = (0, 1)
     hatDown = (0, -1)
@@ -43,7 +48,7 @@ class Controller:
 
         # Initialize the joysticks
         pygame.init()
-        pygame.display.set_mode((1, 1)) # seriously, don't ask
+        pygame.display.set_mode((1, 1))  # seriously, don't ask
         pygame.joystick.init()
         self.joystick_count = pygame.joystick.get_count()
 
@@ -76,10 +81,9 @@ class Controller:
                 hats = self.joystick.get_numhats()
                 axes = self.joystick.get_numaxes()
 
-
-                for i in range( hats ):
-                    dpadValue = self.joystick.get_hat( i )
-                    #print(dpadValue)
+                for i in range(hats):
+                    dpadValue = self.joystick.get_hat(i)
+                    # print(dpadValue)
                     if dpadValue == self.hatLeft:
                         self.base.left()
                         print("Left")
@@ -101,7 +105,7 @@ class Controller:
         print("Controller setup started. \n")
         print("Please press the 'a' button.")
         event = pygame.event.wait()
-        #while event.type !=
+        # while event.type !=
 
 
     def __exit__(self, exc_type, exc_val, exc_tb):

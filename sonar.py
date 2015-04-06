@@ -2,7 +2,6 @@ __author__ = 'ryanvade'
 
 import sys
 import time
-import datetime
 
 try:
     import nanpy
@@ -14,7 +13,7 @@ except ImportError as e:
 tty = "/dev/ttyACM0"
 connectionName = SerialManager(device=tty)
 mega = ArduinoApi(connection=connectionName)
-#encoder_read = serial.Serial(tty, 115200)
+# encoder_read = serial.Serial(tty, 115200)
 low = mega.LOW
 high = mega.HIGH
 
@@ -28,15 +27,16 @@ time.sleep(0.03)
 pulseLength = 1
 lowLength = 0.002
 
+
 def sonar(trigPin, echoPin):
     duration = 0.0
-    mega.digitalWrite(trigPin, low) # to be sure we are not transmitting
+    mega.digitalWrite(trigPin, low)  # to be sure we are not transmitting
     #time.sleep(lowLength) # for a low output, 2 microseconds from http://arduinobasics.blogspot.com/2012/11/arduinobasics-hc-sr04-ultrasonic-sensor.html
     mega.digitalWrite(trigPin, high)
-    time.sleep(pulseLength) # high output for 10 microseconds
+    time.sleep(pulseLength)  # high output for 10 microseconds
     mega.digitalWrite(trigPin, low)
     duration = pulsein(echoPin)
-    centimeters = duration * 17000 #IS this correct? or should it be / 58.2
+    centimeters = duration * 17000  #IS this correct? or should it be / 58.2
     return centimeters
 
 
@@ -54,8 +54,8 @@ def pulsein(echoPin):
         onTime = mega.millis()
         print("OnTime")
         print(onTime)
-        print ('\n')
-    if(onTime == 0.0):
+        print('\n')
+    if (onTime == 0.0):
         return onTime
     pulseTime = onTime - offTime
     return pulseTime
