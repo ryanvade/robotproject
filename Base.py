@@ -10,7 +10,6 @@ except ImportError as e:
     sys.exit(1)
 # Is the nanpy module available?
 try:
-    import nanpy
     from nanpy import (Arduino, OneWire, Lcd, SerialManager, ArduinoApi, Stepper, Servo)
 except ImportError as e:
     print(e)
