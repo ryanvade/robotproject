@@ -4,7 +4,6 @@ from nanpy.arduinoboard import (arduinoobjectmethod, returns)
 
 
 class Epir(ArduinoObject):
-
     def __init__(self, serialport, mdrpin, slppin, connection=None):
         ArduinoObject.__init__(self, connection=connection)
         self.id = self.call('new', serialport, mdrpin, slppin)

@@ -2,13 +2,6 @@ __author__ = 'ryanvade'
 
 import sys
 import time
-from time import sleep
-
-import serial
-
-
-
-# Is the RPi module available?
 
 try:
     import nanpy
@@ -20,51 +13,49 @@ except ImportError as e:
 tty = "/dev/ttyACM0"
 connectionName = SerialManager(device=tty)
 mega = ArduinoApi(connection=connectionName)
-#encoder_read = serial.Serial(tty, 115200)
+# encoder_read = serial.Serial(tty, 115200)
 low = mega.LOW
 high = mega.HIGH
-
-
-motor1PWM = 46
-motor3PWM = 44
-motor2PWM = 9
-motor4PWM = 3
-
 
 sonar1Trig = 14
 sonar1Echo = 16
 mega.pinMode(sonar1Trig, mega.OUTPUT)
-mega.digitalWrite(14, low)
 mega.pinMode(sonar1Echo, mega.INPUT)
+#mega.digitalWrite(14, low)
 print("Define sonar")
 time.sleep(0.03)
+pulseLength = 1
+lowLength = 0.002
+
 
 def sonar(trigPin, echoPin):
-    print("Sleep one")
-    mega.digitalWrite(trigPin, low)
+    duration = 0.0
+    mega.digitalWrite(trigPin, low)  # to be sure we are not transmitting
+    #time.sleep(lowLength) # for a low output, 2 microseconds from http://arduinobasics.blogspot.com/2012/11/arduinobasics-hc-sr04-ultrasonic-sensor.html
     mega.digitalWrite(trigPin, high)
-    time.sleep(0.0001)
-    print("Sleep two")
+    time.sleep(pulseLength)  # high output for 10 microseconds
     mega.digitalWrite(trigPin, low)
     duration = pulsein(echoPin)
-    print(duration)
-    centimeters = duration *17000
+    centimeters = duration * 17000  #IS this correct? or should it be / 58.2
     return centimeters
-
-
-#print("Define pulsein")
 
 
 def pulsein(echoPin):
     offTime = 0.0
     onTime = 0.0
     iteration = 0
-    while  (mega.digitalRead(echoPin) != high) and (iteration < 500):
-        offTime = time.clock()
-        iteration = iteration +1
+    startTime = mega.millis()
+    while (mega.digitalRead(echoPin) == low) and ((offTime - startTime) < 1):
+        offTime = mega.millis()
+        print("OffTime")
+        print(offTime)
+        iteration += 1
     while mega.digitalRead(echoPin) == high:
-        onTime = time.clock()
-    if(onTime == 0.0):
+        onTime = mega.millis()
+        print("OnTime")
+        print(onTime)
+        print('\n')
+    if (onTime == 0.0):
         return onTime
     pulseTime = onTime - offTime
     return pulseTime
@@ -72,11 +63,8 @@ def pulsein(echoPin):
 
 print("Done defines")
 
-while True:
-    distance = sonar(sonar1Trig, sonar1Echo)
-    print(distance)
-    print("\n")
-
+distance = sonar(sonar1Trig, sonar1Echo)
+print(distance)
 connectionName.close()
 
 #GPIO.wait_for_edge(5, GPIO.RISING)

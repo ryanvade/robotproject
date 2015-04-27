@@ -1,5 +1,6 @@
 __author__ = 'ryanvade'
-import sys, time
+import sys
+import time
 
 # Is the RPi module available?
 try:
@@ -9,7 +10,6 @@ except ImportError as e:
     sys.exit(1)
 # Is the nanpy module available?
 try:
-    import nanpy
     from nanpy import (Arduino, OneWire, Lcd, SerialManager, ArduinoApi, Stepper, Servo)
 except ImportError as e:
     print(e)
@@ -83,6 +83,15 @@ class Base:
         else:
             print("Bad speed value")
 
+    def setspeed(self, speed, veerCorrection):
+        if (speed >= self.minspeed) and (speed <= self.maxspeed):
+            self.mega.analogWrite(self.motor1PWM, speed - veerCorrection)
+            self.mega.analogWrite(self.motor2PWM, speed - veerCorrection)
+            self.mega.analogWrite(self.motor3PWM, speed)
+            self.mega.analogWrite(self.motor4PWM, speed)
+        else:
+            print("Bad speed value")
+
 
     def setleftspeed(self, speed):
         if (speed >= self.minspeed) and (speed <= self.maxspeed):
@@ -99,16 +108,15 @@ class Base:
         self.mega.analogWrite(self.motor4PWM, speedright)
 
 
-
     def smoothright(self, speedleft, speedright):
-        if (speedleft >= self.minspeed) and (speedleft <= self.maxspeed) and (speedright >= self.minspeed) and (speedleft <= self.maxspeed):
+        if (speedleft >= self.minspeed) and (speedleft <= self.maxspeed) and (speedright >= self.minspeed) and \
+                (speedleft <= self.maxspeed):
             self.mega.analogWrite(self.motor1PWM, speedleft)
             self.mega.analogWrite(self.motor2PWM, speedleft)
             self.mega.analogWrite(self.motor3PWM, speedright)
             self.mega.analogWrite(self.motor4PWM, speedright)
         else:
             print("Bad speed value")
-
 
 
     def sonar(self, trigPin, echoPin):
