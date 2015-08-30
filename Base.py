@@ -1,6 +1,6 @@
 __author__ = 'ryanvade'
 import sys
-import time
+import BaseSerial
 
 # Is the RPi module available?
 try:
@@ -24,9 +24,10 @@ class Base:
     veercorrection = 39
     decreasespeedvalue = 5
     increasespeedvalue = 5
+    serial = None
 
-    def __init__(self, arduino, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, dir4):
-        self.mega = arduino
+
+    def __init__(self, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, dir4):
         self.motor1PWM = motor1PWM
         self.motor2PWM = motor2PWM
         self.motor3PWM = motor3PWM
@@ -35,107 +36,33 @@ class Base:
         self.dir2 = dir2
         self.dir3 = dir3
         self.dir4 = dir4
-        self.high = self.mega.HIGH
-        self.low = self.mega.LOW
-        self.setspeed(self, self.defaultspeed)
-        self.currentspeed = self.defaultspeed
+        self.serial = BaseSerial.serialManager()
 
     def stop(self):
-        self.mega.digitalWrite(self.motor1PWM, 0)
-        self.mega.digitalWrite(self.motor2PWM, 0)
-        self.mega.digitalWrite(self.motor3PWM, 0)
-        self.mega.digitalWrite(self.motor4PWM, 0)
+        self.serial.send_command()
+        stop_ack = self.serial.receive_acknowledge()
+        print(stop_ack)
+
 
 
     def forward(self):
-        self.mega.digitalWrite(self.dir3, self.high)
-        self.mega.digitalWrite(self.dir2, self.low)
-        self.mega.digitalWrite(self.dir4, self.low)
+        self.serial.send_command()
+        drive_ack = self.serial.receive_acknowledge()
+        print(drive_ack)
 
 
     def left(self):
-        self.mega.digitalWrite(self.dir1, self.low)
-        self.mega.digitalWrite(self.dir3, self.high)
-        self.mega.digitalWrite(self.dir2, self.high)
-        self.mega.digitalWrite(self.dir4, self.low)
-
+        self.serial.send_command()
+        left_ack = self.serial.receive_acknowledge()
+        print(left_ack)
 
     def right(self):
-        self.mega.digitalWrite(self.dir1, self.high)
-        self.mega.digitalWrite(self.dir3, self.low)
-        self.mega.digitalWrite(self.dir2, self.low)
-        self.mega.digitalWrite(self.dir4, self.high)
+        self.serial.send_command()
+        right_ack = self.serial.receive_acknowledge()
+        print(right_ack)
 
 
     def reverse(self):
-        self.mega.digitalWrite(self.dir1, self.low)
-        self.mega.digitalWrite(self.dir3, self.low)
-        self.mega.digitalWrite(self.dir2, self.high)
-        self.mega.digitalWrite(self.dir4, self.high)
-
-
-    def setspeed(self, speed):
-        if (speed >= self.minspeed) and (speed <= self.maxspeed):
-            self.mega.analogWrite(self.motor1PWM, speed - self.veercorrection)
-            self.mega.analogWrite(self.motor2PWM, speed - self.veercorrection)
-            self.mega.analogWrite(self.motor3PWM, speed)
-            self.mega.analogWrite(self.motor4PWM, speed)
-        else:
-            print("Bad speed value")
-
-    def setspeed(self, speed, veerCorrection):
-        if (speed >= self.minspeed) and (speed <= self.maxspeed):
-            self.mega.analogWrite(self.motor1PWM, speed - veerCorrection)
-            self.mega.analogWrite(self.motor2PWM, speed - veerCorrection)
-            self.mega.analogWrite(self.motor3PWM, speed)
-            self.mega.analogWrite(self.motor4PWM, speed)
-        else:
-            print("Bad speed value")
-
-
-    def setleftspeed(self, speed):
-        if (speed >= self.minspeed) and (speed <= self.maxspeed):
-            self.mega.analogWrite(self.motor1PWM, speed)
-            self.mega.analogWrite(self.motor2PWM, speed)
-        else:
-            print("Bad speed value")
-
-
-    def smoothleft(self, speedleft, speedright):
-        self.mega.analogWrite(self.motor1PWM, speedleft)
-        self.mega.analogWrite(self.motor2PWM, speedleft)
-        self.mega.analogWrite(self.motor3PWM, speedright)
-        self.mega.analogWrite(self.motor4PWM, speedright)
-
-
-    def smoothright(self, speedleft, speedright):
-        if (speedleft >= self.minspeed) and (speedleft <= self.maxspeed) and (speedright >= self.minspeed) and \
-                (speedleft <= self.maxspeed):
-            self.mega.analogWrite(self.motor1PWM, speedleft)
-            self.mega.analogWrite(self.motor2PWM, speedleft)
-            self.mega.analogWrite(self.motor3PWM, speedright)
-            self.mega.analogWrite(self.motor4PWM, speedright)
-        else:
-            print("Bad speed value")
-
-
-    def sonar(self, trigPin, echoPin):
-        self.mega.digitalWrite(trigPin, self.high)
-        time.sleep(0.000002)
-        self.mega.digitalWrite(trigPin, self.low)
-        self.mega.digitalWrite(trigPin, self.high)
-        time.sleep(0.00001)
-        self.mega.digitalWrite(trigPin, self.low)
-        duration = self.pulsein(echoPin)
-        centimeters = duration / 29.0 / 2.0
-        return centimeters
-
-
-    def pulsein(self, echoPin):
-        startTime = time.time()
-        currentTime = 0.0
-        while self.mega.digitalRead(echoPin) == self.high:
-            currentTime = time.time()
-
-        pulseTime = currentTime - startTime
-        return pulseTime
+        self.serial.send_command()
+        reverse_ack = self.serial.receive_acknowledge()
+        print(reverse_ack)

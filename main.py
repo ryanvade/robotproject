@@ -21,20 +21,10 @@ try:
 except ImportError as e:
     print(e)
     sys.exit(1)
-# Is the nanpy module available?
-try:
-    import nanpy
-    from nanpy import (Arduino, OneWire, Lcd, SerialManager, ArduinoApi, Stepper, Servo)
-except ImportError as e:
-    print(e)
-    sys.exit(1)
 
 # variables
 tty = "/dev/ttyAMA0"
-connectionName = SerialManager(device=tty)
-mega = ArduinoApi(connection=connectionName)
-low = mega.LOW
-high = mega.HIGH
+baud_rate = 19200
 message = " "
 screen = curses.initscr()
 defaultspeed = 127
@@ -64,11 +54,7 @@ rTrigger = 5  # from 0 to 1
 lStick = array.array[0, 1]  # x direction -1 -> 1 , y direction -1 -> 1
 rStick = array.array[3, 4]  # x direction -1 -> 1, y direction -1 -> 1
 
-base = Base(mega, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, dir4)
 
-print("Done defines")
-distance = base.sonar(sonar1Trig, sonar1Echo)
-print(distance)
 stdscr = curses.initscr()
 # curses.cbreak()
 stdscr.keypad(1)
