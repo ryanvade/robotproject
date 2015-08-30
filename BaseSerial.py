@@ -47,7 +47,7 @@ class serialManager:
             self.character_code_list.append(str(character_code))
         except serial.SerialTimeoutException as e:
             print(e)
-            return 0
+            return 1
 
         if(not paramater1 == None):
             try:
@@ -55,7 +55,7 @@ class serialManager:
                 self.paramater_list.append(str(paramater1))
             except serial.SerialTimeoutException as e:
                 print(e)
-                return 0
+                return 1
 
         if(not paramater2 == None):
             try:
@@ -63,9 +63,9 @@ class serialManager:
                 self.paramater_list.append(str(paramater2))
             except serial.SerialTimeoutException as e:
                 print(e)
-                return 0
+                return 1
         self.expecting_acknowledge = True
-        return 1
+        return 0
 
     def receive_full_buffer(self):
         try:
