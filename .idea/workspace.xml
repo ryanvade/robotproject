@@ -62,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/BaseSerial.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+              <caret line="127" column="23" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="23" />
               <folding>
                 <element signature="e#25#35#0" expanded="true" />
               </folding>
@@ -560,12 +560,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00088" summary="Xbone Controller stuff">
-      <created>1423348426166</created>
-      <option name="number" value="00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1423348426166</updated>
-    </task>
     <task id="LOCAL-00089" summary="Xbone Controller stuff">
       <created>1423348500293</created>
       <option name="number" value="00089" />
@@ -854,7 +848,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442082236676</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="curses print">
+      <created>1442082320271</created>
+      <option name="number" value="00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1442082320271</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1286,22 +1286,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BaseSerial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="127" column="23" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="23" />
+          <folding>
+            <element signature="e#25#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
           <folding>
             <element signature="e#24#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BaseSerial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-          <folding>
-            <element signature="e#25#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
