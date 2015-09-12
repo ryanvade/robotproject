@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc523313-3e07-4b0c-8c7a-d1465ee12da2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSerial.py" afterPath="$PROJECT_DIR$/BaseSerial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="robotproject.iws" />
@@ -34,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.94708997">
+              <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
               <folding>
                 <element signature="e#64#73#0" expanded="true" />
               </folding>
@@ -58,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseSerial.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BaseSerial.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BaseSerial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47089946">
+            <state vertical-scroll-proportion="0.0">
               <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
               <folding>
                 <element signature="e#25#35#0" expanded="true" />
@@ -112,8 +112,8 @@
         <option value="$PROJECT_DIR$/opencvTest3.py" />
         <option value="$PROJECT_DIR$/faceDetect.py" />
         <option value="$PROJECT_DIR$/Base.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/BaseSerial.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -560,12 +560,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00080" summary="Sonar Sensor">
-      <created>1422140756975</created>
-      <option name="number" value="00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1422140756975</updated>
-    </task>
     <task id="LOCAL-00081" summary="Sonar Sensor">
       <created>1422146527824</created>
       <option name="number" value="00081" />
@@ -854,7 +848,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442081200280</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="remove sonar">
+      <created>1442081331004</created>
+      <option name="number" value="00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1442081331005</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1286,16 +1286,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
-          <folding>
-            <element signature="e#64#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1308,10 +1298,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BaseSerial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47089946">
+        <state vertical-scroll-proportion="0.0">
           <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
           <folding>
             <element signature="e#25#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.94708997">
+          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding>
+            <element signature="e#64#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
