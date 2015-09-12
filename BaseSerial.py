@@ -40,6 +40,8 @@ class serialManager:
         else:
             print("Connection Established on:" +  port)
 
+        return self
+
     def send_command(self, character_code, paramater1 = None, paramater2 = None):
 
         try:
