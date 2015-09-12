@@ -69,20 +69,20 @@ while (key != ord('q')): #and (distance > 18.0):
     key = stdscr.getch()
     stdscr.addch(20, 25, key)
     stdscr.refresh()
-    base.setspeed(currentspeed)
+    #base.setspeed(currentspeed)
 
     if key == curses.KEY_UP:
         stdscr.addstr(2, 20, "Up")
-        base.forward()
+        base.forward(10)
     elif key == curses.KEY_DOWN:
         stdscr.addstr(3, 20, "Down")
-        base.reverse()
+        base.reverse(10)
     elif key == curses.KEY_LEFT:
         stdscr.addstr(4, 20, "LEFT")
-        base.left()
+        base.left(10)
     elif key == curses.KEY_RIGHT:
         stdscr.addstr(5, 20, "RIGHT")
-        base.right()
+        base.right(10)
     elif key == curses.KEY_NPAGE:
         stdscr.addstr(6, 20, "Next Page")
         currentspeed += increasespeedvalue
