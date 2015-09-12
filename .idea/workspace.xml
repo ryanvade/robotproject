@@ -61,8 +61,8 @@
       <file leaf-file-name="BaseSerial.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BaseSerial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73544973">
-              <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.47089946">
+              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
               <folding>
                 <element signature="e#25#35#0" expanded="true" />
               </folding>
@@ -560,12 +560,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00079" summary="Sonar Sensor">
-      <created>1422140636170</created>
-      <option name="number" value="00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1422140636170</updated>
-    </task>
     <task id="LOCAL-00080" summary="Sonar Sensor">
       <created>1422140756975</created>
       <option name="number" value="00080" />
@@ -854,7 +848,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442081116778</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="remove sonar">
+      <created>1442081200280</created>
+      <option name="number" value="00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1442081200280</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1308,8 +1308,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BaseSerial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73544973">
-          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.47089946">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
           <folding>
             <element signature="e#25#35#0" expanded="true" />
           </folding>
