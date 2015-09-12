@@ -59,3 +59,6 @@ class Base:
         self.serialManager.send_command('db', speed, '\r')
         reverse_ack = self.serialManager.receive_acknowledge()
         print(reverse_ack)
+
+    def close(self):
+        self.serialManager.close_connection()

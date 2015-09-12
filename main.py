@@ -65,7 +65,7 @@ stdscr.refresh()
 
 key = ''
 
-while (key != ord('q')) and (distance > 18.0):
+while (key != ord('q')): #and (distance > 18.0):
     key = stdscr.getch()
     stdscr.addch(20, 25, key)
     stdscr.refresh()
@@ -94,10 +94,11 @@ while (key != ord('q')) and (distance > 18.0):
     elif key == ord("s"):
         stdscr.addstr(8, 20, "s")
         base.stop()
-    distance = base.sonar(sonar1Trig, sonar1Echo)
+    #distance = base.sonar(sonar1Trig, sonar1Echo)
 
 time.sleep(5)
 curses.endwin()
 base.stop()
+base.close()
 
 

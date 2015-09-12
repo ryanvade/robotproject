@@ -120,3 +120,6 @@ class serialManager:
 
     def get_last_paramater(self):
         return self.paramater_list[-1]
+
+    def close_connection(self):
+        self.connection.close()
