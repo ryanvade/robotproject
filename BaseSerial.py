@@ -15,6 +15,7 @@ class serialManager:
     global character_code_list
     global paramater_list
     global response_list
+    global connection
     constant_communication = False
 
     def __init__(self, port="/dev/ttyACM0", baud_rate=19200):

@@ -73,16 +73,20 @@ while (key != ord('q')): #and (distance > 18.0):
 
     if key == curses.KEY_UP:
         stdscr.addstr(2, 20, "Up")
-        base.forward(10)
+        fack = base.forward(10)
+        stdscr.addstr(2, 25, fack)
     elif key == curses.KEY_DOWN:
         stdscr.addstr(3, 20, "Down")
-        base.reverse(10)
+        back = base.reverse(10)
+        stdscr.addstr(3, 25, rack)
     elif key == curses.KEY_LEFT:
         stdscr.addstr(4, 20, "LEFT")
-        base.left(10)
+        lack = base.left(10)
+        stdscr.addstr(4, 25, lack)
     elif key == curses.KEY_RIGHT:
         stdscr.addstr(5, 20, "RIGHT")
-        base.right(10)
+        rack  = base.right(10)
+        stdscr.addstr(5, 25, rack)
     elif key == curses.KEY_NPAGE:
         stdscr.addstr(6, 20, "Next Page")
         currentspeed += increasespeedvalue
@@ -93,7 +97,8 @@ while (key != ord('q')): #and (distance > 18.0):
         #base.setspeed(currentspeed)
     elif key == ord("s"):
         stdscr.addstr(8, 20, "s")
-        base.stop()
+        sack = base.stop()
+        stdscr.addstr(8, 25, sack)
     #distance = base.sonar(sonar1Trig, sonar1Echo)
 
 time.sleep(5)

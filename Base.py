@@ -34,31 +34,31 @@ class Base:
     def stop(self):
         self.serialManager.send_command('h', '\r')
         stop_ack = self.serialManager.receive_acknowledge()
-        print(stop_ack)
+        return stop_ack
 
 
 
     def forward(self, speed):
         self.serialManager.send_command('df', speed, '\r')
         drive_ack = self.serialManager.receive_acknowledge()
-        print(drive_ack)
+        return drive_ack
 
 
     def left(self, speed):
         self.serialManager.send_command('tl', speed, '\r')
         left_ack = self.serialManager.receive_acknowledge()
-        print(left_ack)
+        return left_ack
 
     def right(self, speed):
         self.serialManager.send_command('tr', speed, '\r')
         right_ack = self.serialManager.receive_acknowledge()
-        print(right_ack)
+        return right_ack
 
 
     def reverse(self, speed):
         self.serialManager.send_command('db', speed, '\r')
         reverse_ack = self.serialManager.receive_acknowledge()
-        print(reverse_ack)
+        return reverse_ack
 
     def close(self):
         self.serialManager.close_connection()
