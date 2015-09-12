@@ -49,6 +49,8 @@ dir4 = 10
 interuptLeft = 51
 interuptRight = 53
 
+base = Base.Base(motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir3, dir3, dir4)
+
 lTrigger = 2  # from 0 to 1
 rTrigger = 5  # from 0 to 1
 lStick = array.array[0, 1]  # x direction -1 -> 1 , y direction -1 -> 1

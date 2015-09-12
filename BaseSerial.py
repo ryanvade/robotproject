@@ -27,7 +27,7 @@ class serialManager:
             self.connection = serial.Serial(port, baud_rate, timeout=1)
         except serial.SerialException as e:
             print(e)
-            return 0
+            return 1
 
         self.character_code_list = []
         self.paramater_list = []

@@ -8,13 +8,6 @@ try:
 except ImportError as e:
     print(e)
     sys.exit(1)
-# Is the nanpy module available?
-try:
-    from nanpy import (Arduino, OneWire, Lcd, SerialManager, ArduinoApi, Stepper, Servo)
-except ImportError as e:
-    print(e)
-    sys.exit(1)
-
 
 class Base:
     maxspeed = 255
@@ -24,7 +17,7 @@ class Base:
     veercorrection = 39
     decreasespeedvalue = 5
     increasespeedvalue = 5
-    serial = None
+    serialManager = None
 
 
     def __init__(self, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, dir4):
@@ -36,33 +29,33 @@ class Base:
         self.dir2 = dir2
         self.dir3 = dir3
         self.dir4 = dir4
-        self.serial = BaseSerial.serialManager()
+        self.serialManager = BaseSerial.serialManager()
 
     def stop(self):
-        self.serial.send_command()
-        stop_ack = self.serial.receive_acknowledge()
+        self.serialManager.send_command('h', '\r')
+        stop_ack = self.serialManager.receive_acknowledge()
         print(stop_ack)
 
 
 
-    def forward(self):
-        self.serial.send_command()
-        drive_ack = self.serial.receive_acknowledge()
+    def forward(self, speed):
+        self.serialManager.send_command('df', speed, '\r')
+        drive_ack = self.serialManager.receive_acknowledge()
         print(drive_ack)
 
 
-    def left(self):
-        self.serial.send_command()
-        left_ack = self.serial.receive_acknowledge()
+    def left(self, speed):
+        self.serialManager.send_command('tl', speed, '\r')
+        left_ack = self.serialManager.receive_acknowledge()
         print(left_ack)
 
-    def right(self):
-        self.serial.send_command()
-        right_ack = self.serial.receive_acknowledge()
+    def right(self, speed):
+        self.serialManager.send_command('tr', speed, '\r')
+        right_ack = self.serialManager.receive_acknowledge()
         print(right_ack)
 
 
-    def reverse(self):
-        self.serial.send_command()
-        reverse_ack = self.serial.receive_acknowledge()
+    def reverse(self, speed):
+        self.serialManager.send_command('db', speed, '\r')
+        reverse_ack = self.serialManager.receive_acknowledge()
         print(reverse_ack)
