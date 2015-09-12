@@ -23,10 +23,9 @@ class serialManager:
         self.baud_rate = baud_rate
         self.expecting_response = False
         self.expecting_acknowledge = False
-        self.connection = serial
 
         try:
-            self.connection = serial.Serial(port, baud_rate, timeout=1)
+            connection = serial.Serial(port, baud_rate, timeout=1)
         except serial.SerialException as e:
             print(e)
             return None
@@ -35,7 +34,7 @@ class serialManager:
         self.paramater_list = []
         self.response_list = []
 
-        if(not self.connection.isOpen()):
+        if(not connection.isOpen()):
             print("No serial connection")
             #TODO what to do if no connection is created
             sys.exit(1)
@@ -47,7 +46,7 @@ class serialManager:
     def send_command(self, character_code, paramater1 = None, paramater2 = None):
 
         try:
-            self.connection.write(character_code)
+            connection.write(character_code)
             self.character_code_list.append(str(character_code))
         except serial.SerialTimeoutException as e:
             print(e)
@@ -55,7 +54,7 @@ class serialManager:
 
         if(not paramater1 == None):
             try:
-                self.connection.write(paramater1)
+                connection.write(paramater1)
                 self.paramater_list.append(str(paramater1))
             except serial.SerialTimeoutException as e:
                 print(e)
@@ -63,7 +62,7 @@ class serialManager:
 
         if(not paramater2 == None):
             try:
-                self.connection.write(paramater2)
+                connection.write(paramater2)
                 self.paramater_list.append(str(paramater2))
             except serial.SerialTimeoutException as e:
                 print(e)
@@ -74,7 +73,7 @@ class serialManager:
     def receive_full_buffer(self):
         try:
             self.expecting_response = False
-            return self.connection.read(self.conection.inWaiting()) #return the full buffer
+            return connection.read(connection.inWaiting()) #return the full buffer
         except serial.SerialException as e:
             print(e)
             return 0
@@ -82,7 +81,7 @@ class serialManager:
     def receive_byte_buffer(self,size=1):#where size is the number of bytes
         try:
             self.expecting_response = False
-            return self.connection.read(size)
+            return connection.read(size)
         except serial.SerialException as e:
             print(e)
             return 0
@@ -90,7 +89,7 @@ class serialManager:
     def recive_full_line_buffer(self, size=None, eol='\n'): #where size is the max number of bytes
         try:
             self.expecting_response = False
-            return self.connection.readline(size, eol)
+            return connection.readline(size, eol)
         except serial.SerialException as e:
             print(e)
             return 0
@@ -126,4 +125,4 @@ class serialManager:
         return self.paramater_list[-1]
 
     def close_connection(self):
-        self.connection.close()
+        connection.close()
