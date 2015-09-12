@@ -37,8 +37,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8201058">
-              <caret line="88" column="21" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.73544973">
+              <caret line="88" column="9" selection-start-line="88" selection-start-column="9" selection-end-line="88" selection-end-column="9" />
               <folding>
                 <element signature="e#64#73#0" expanded="true" />
               </folding>
@@ -560,12 +560,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00082" summary="Xbone Controller stuff">
-      <created>1423341430807</created>
-      <option name="number" value="00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1423341430807</updated>
-    </task>
     <task id="LOCAL-00083" summary="Xbone Controller stuff">
       <created>1423341499727</created>
       <option name="number" value="00083" />
@@ -854,7 +848,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442081403490</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="remove sonar">
+      <created>1442081505951</created>
+      <option name="number" value="00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1442081505951</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1308,8 +1308,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8201058">
-          <caret line="88" column="21" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.73544973">
+          <caret line="88" column="9" selection-start-line="88" selection-start-column="9" selection-end-line="88" selection-end-column="9" />
           <folding>
             <element signature="e#64#73#0" expanded="true" />
           </folding>

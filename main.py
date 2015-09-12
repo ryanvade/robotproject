@@ -86,11 +86,11 @@ while (key != ord('q')): #and (distance > 18.0):
     elif key == curses.KEY_NPAGE:
         stdscr.addstr(6, 20, "Next Page")
         currentspeed += increasespeedvalue
-        base.setspeed(currentspeed)
+        #base.setspeed(currentspeed)
     elif key == curses.KEY_PPAGE:
         stdscr.addstr(7, 20, "PREVIOUS Page")
         currentspeed -= decreasespeedvalue
-        base.setspeed(currentspeed)
+        #base.setspeed(currentspeed)
     elif key == ord("s"):
         stdscr.addstr(8, 20, "s")
         base.stop()
