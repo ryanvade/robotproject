@@ -23,6 +23,7 @@ class serialManager:
         self.baud_rate = baud_rate
         self.expecting_response = False
         self.expecting_acknowledge = False
+        self.connection = None
 
         try:
             self.connection = serial.Serial(port, baud_rate, timeout=1)
