@@ -30,17 +30,15 @@ class Base:
         self.dir2 = dir2
         self.dir3 = dir3
         self.dir4 = dir4
-        self.serialManager = BaseSerial.serialManager
+        self.serialManager = BaseSerial.BaseSerial
 
     def stop(self):
         self.serialManager.send_command('h', self.rcar)
         stop_ack = self.serialManager.receive_acknowledge()
         return stop_ack
 
-
-
-    def forward(self, speed):
-        self.serialManager.send_command('df', speed, self.rcar)
+    def forward(self,speed):
+        self.serialManager.send_command('df'.encode(), speed, self.rcar)
         drive_ack = self.serialManager.receive_acknowledge()
         return drive_ack
 

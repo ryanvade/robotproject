@@ -36,31 +36,32 @@ class BaseSerial:
             print("Connection Established on:" +  port)
 
     def send_command(self, character_code, paramater1 = None, paramater2 = None):
+        print(character_code)
+        print(paramater1)
+        print(paramater2)
 
         try:
-            self.connection.write(character_code.encode())
+            self.connection.write(character_code)
             #self.character_code_list.append(str(character_code))
         except serial.SerialTimeoutException as e:
             print(e)
-            return 1
 
-        if(not paramater1 == None):
+        if(not paramater1 is None):
             try:
-                self.connection.write(paramater1.encode())
+                self.connection.write(paramater1)
                 self.paramater_list.append(str(paramater1))
             except serial.SerialTimeoutException as e:
                 print(e)
                 return 1
 
-        if(not paramater2 == None):
+        if(not paramater2 is None):
             try:
-                self.connection.write(paramater2.encode())
+                self.connection.write(paramater2)
                 self.paramater_list.append(str(paramater2))
             except serial.SerialTimeoutException as e:
                 print(e)
-                return 1
         self.expecting_acknowledge = True
-        return 0
+
 
     def receive_full_buffer(self):
         try:
