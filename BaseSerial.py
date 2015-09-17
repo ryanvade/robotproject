@@ -33,6 +33,7 @@ class BaseSerial:
             #TODO what to do if no self.connection is created
             sys.exit(1)
         else:
+            self.flush()
             print("Connection Established on:" + self.port + " At " + str(self.baud_rate))
 
     def send_command(self, character_code, paramater1 = None, paramater2 = None):
@@ -63,11 +64,13 @@ class BaseSerial:
         self.constant_communication = True
 
     def get_response(self,):
+        while(self.connection.inWaiting() == 0):
+            print("Waiting for response")
         response = self.connection.read(self.connection.inWaiting())
         self.response_list.append(response)
         self.expecting_response = False
         self.expecting_acknowldege = False
-        return response
+        return str(response)
 
     def get_last_response(self):
         return self.response_list[-1]
@@ -80,4 +83,10 @@ class BaseSerial:
 
     def close_connection(self):
         print("Closing Port")
+        self.flush()
         self.connection.close()
+
+    def flush(self):
+        self.connection.flushInput()
+        self.connection.flushOutput()
+        self.connection.flush()

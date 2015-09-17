@@ -18,10 +18,9 @@ class Base:
     decreasespeedvalue = 5
     increasespeedvalue = 5
     serialManager = None
-    rcar = '\r'.encode()
 
 
-    def __init__(self, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, dir4):
+    def __init__(self, motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir2, dir3, dir4, port, baud_rate):
         self.motor1PWM = motor1PWM
         self.motor2PWM = motor2PWM
         self.motor3PWM = motor3PWM
@@ -30,33 +29,35 @@ class Base:
         self.dir2 = dir2
         self.dir3 = dir3
         self.dir4 = dir4
-        self.serialManager = BaseSerial.BaseSerial
+        self.port = port
+        self.baud_rate = baud_rate
+        self.serialManager = BaseSerial.BaseSerial(self.port, self.baud_rate)
 
     def stop(self):
-        self.serialManager.send_command('h', self.rcar)
-        stop_ack = self.serialManager.receive_acknowledge()
+        self.serialManager.send_command('h', '\r')
+        stop_ack = self.serialManager.get_response()
         return stop_ack
 
     def forward(self,speed):
-        self.serialManager.send_command('df'.encode(), speed, self.rcar)
-        drive_ack = self.serialManager.receive_acknowledge()
+        self.serialManager.send_command('df', speed, '\r')
+        drive_ack = self.serialManager.get_response()
         return drive_ack
 
 
     def left(self, speed):
-        self.serialManager.send_command('tl', speed, self.rcar)
-        left_ack = self.serialManager.receive_acknowledge()
+        self.serialManager.send_command('tl', speed, '\r')
+        left_ack = self.serialManager.get_response()
         return left_ack
 
     def right(self, speed):
-        self.serialManager.send_command('tr', speed, self.rcar)
-        right_ack = self.serialManager.receive_acknowledge()
+        self.serialManager.send_command('tr', speed, '\r')
+        right_ack = self.serialManager.get_response()
         return right_ack
 
 
     def reverse(self, speed):
-        self.serialManager.send_command('db', speed, self.rcar)
-        reverse_ack = self.serialManager.receive_acknowledge()
+        self.serialManager.send_command('db', speed, '\r')
+        reverse_ack = self.serialManager.get_response()
         return reverse_ack
 
     def close(self):

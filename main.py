@@ -1,15 +1,13 @@
 __author__ = 'ryanvade'
 # Program to be run on the raspberry pi
 # import os
-# import sys
+#import sys
 # import curses
-# import time
+import time
 # import array
 
 #import Base
 import BaseSerial
-#import serial
-import time
 
 # # is this an Arm system (raspberry pi)
 # if not os.uname()[4].startswith("arm"):
@@ -49,7 +47,7 @@ import time
 # dir4 = 10
 
 
-# base = Base.Base(motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir3, dir3, dir4)
+# base = Base.Base(motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir3, dir3, dir4, tty, baud_rate)
 
 #lTrigger = 2  # from 0 to 1
 #rTrigger = 5  # from 0 to 1
@@ -63,38 +61,35 @@ import time
 # stdscr.addstr(0, 10, "Hit 'q' to quit")
 # stdscr.refresh()
 
-
-# connection = serial.Serial("/dev/ttyACM0", 19200)
-# connection.write('df100\r'.encode())
-# time.sleep(2)
-# print(connection.read(connection.inWaiting() - 2 ))
-#
-# connection = serial.Serial("/dev/ttyACM0", 19200)
-# connection.write('h\r'.encode())
-# time.sleep(2)
-# print(connection.read(connection.inWaiting() - 2 ))
+waitTime = 0.5 #seconds
 serial = BaseSerial.BaseSerial("/dev/ttyACM0", 19200)
+serial.flush()
 
+serial.send_command("df", "255",  "\r")
+time.sleep(waitTime)
 
-serial.send_command("df100", "\r")
-time.sleep(2)
+print(serial.get_response())
 
-resp = serial.get_response()
-print(resp)
-
-
-
+time.sleep(4)
 serial.send_command("h", "\r")
-time.sleep(2)
+time.sleep(waitTime)
 print(serial.get_response())
 
 serial.send_command("tl100", "\r")
+time.sleep(waitTime)
+print(serial.get_response())
 time.sleep(2)
+
+serial.send_command("h", "\r")
+time.sleep(waitTime)
 print(serial.get_response())
 
-serial.send_command("100", "\r")
-time.sleep(2)
+serial.send_command("db", "255",  "\r")
+time.sleep(waitTime)
+
 print(serial.get_response())
+
+time.sleep(4)
 
 # back = base.reverse(100)
 # lack = base.left(100)
