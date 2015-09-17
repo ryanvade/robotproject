@@ -12,7 +12,7 @@ import serial
 class BaseSerial:
     constant_communication = False
 
-    def __init__(self, port="/dev/ttyACM0", baud_rate=19200):
+    def __init__(self, port, baud_rate):
         self.port = port
         self.baud_rate = baud_rate
         self.expecting_response = False
@@ -33,22 +33,18 @@ class BaseSerial:
             #TODO what to do if no self.connection is created
             sys.exit(1)
         else:
-            print("Connection Established on:" +  port)
+            print("Connection Established on:" + self.port + " At " + str(self.baud_rate))
 
     def send_command(self, character_code, paramater1 = None, paramater2 = None):
-        print(character_code)
-        print(paramater1)
-        print(paramater2)
-
         try:
-            self.connection.write(character_code)
+            self.connection.write(str(character_code).encode())
             #self.character_code_list.append(str(character_code))
         except serial.SerialTimeoutException as e:
             print(e)
 
         if(not paramater1 is None):
             try:
-                self.connection.write(paramater1)
+                self.connection.write(str(paramater1).encode())
                 self.paramater_list.append(str(paramater1))
             except serial.SerialTimeoutException as e:
                 print(e)
@@ -56,58 +52,22 @@ class BaseSerial:
 
         if(not paramater2 is None):
             try:
-                self.connection.write(paramater2)
+                self.connection.write(str(paramater2).encode())
                 self.paramater_list.append(str(paramater2))
             except serial.SerialTimeoutException as e:
                 print(e)
         self.expecting_acknowledge = True
 
-
-    def receive_full_buffer(self):
-        try:
-            self.expecting_response = False
-            return self.connection.read(self.connection.inWaiting()) #return the full buffer
-        except serial.SerialException as e:
-            print(e)
-            exit(1)
-
-    def receive_byte_buffer(self,size=1):#where size is the number of bytes
-        try:
-            self.expecting_response = False
-            return self.connection.read(size)
-        except serial.SerialException as e:
-            print(e)
-            return 0
-
-    def recive_full_line_buffer(self, size=None, eol='\n'): #where size is the max number of bytes
-        try:
-            self.expecting_response = False
-            return self.connection.readline(size)
-        except serial.SerialException as e:
-            print(e)
-            return 0
-
     def start_constant_communication(self):
         #TODO process for constant listening
         self.constant_communication = True
 
-    def get_response(self, type="full", size=1):
-        if type == "full":
-            response = self.receive_full_buffer()
-        elif type == "line":
-            response = self.recive_full_line_buffer(size)
-        else:
-            response = self.receive_byte_buffer(size)
+    def get_response(self,):
+        response = self.connection.read(self.connection.inWaiting())
         self.response_list.append(response)
         self.expecting_response = False
-        print(response)
+        self.expecting_acknowldege = False
         return response
-
-    def receive_acknowledge(self):
-            self.expecting_acknowldege = False
-            ack = self.receive_full_buffer()
-            self.response_list.append(ack)
-            return ack
 
     def get_last_response(self):
         return self.response_list[-1]
@@ -119,4 +79,5 @@ class BaseSerial:
         return self.paramater_list[-1]
 
     def close_connection(self):
+        print("Closing Port")
         self.connection.close()

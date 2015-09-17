@@ -7,8 +7,9 @@ __author__ = 'ryanvade'
 # import array
 
 #import Base
-#import BaseSerial
-import serial
+import BaseSerial
+#import serial
+import time
 
 # # is this an Arm system (raspberry pi)
 # if not os.uname()[4].startswith("arm"):
@@ -63,16 +64,44 @@ import serial
 # stdscr.refresh()
 
 
-connection = serial.Serial("/dev/ttyACM0", 19200)
-connection.write('h\r'.encode())
-print(connection.read(connection.inWaiting()))
+# connection = serial.Serial("/dev/ttyACM0", 19200)
+# connection.write('df100\r'.encode())
+# time.sleep(2)
+# print(connection.read(connection.inWaiting() - 2 ))
+#
+# connection = serial.Serial("/dev/ttyACM0", 19200)
+# connection.write('h\r'.encode())
+# time.sleep(2)
+# print(connection.read(connection.inWaiting() - 2 ))
+serial = BaseSerial.BaseSerial("/dev/ttyACM0", 19200)
+
+
+serial.send_command("df100", "\r")
+time.sleep(2)
+
+resp = serial.get_response()
+print(resp)
+
+
+
+serial.send_command("h", "\r")
+time.sleep(2)
+print(serial.get_response())
+
+serial.send_command("tl100", "\r")
+time.sleep(2)
+print(serial.get_response())
+
+serial.send_command("100", "\r")
+time.sleep(2)
+print(serial.get_response())
 
 # back = base.reverse(100)
 # lack = base.left(100)
 # rack = base.right(100)
 # stop = base.stop()
 
-connection.close()
+serial.close_connection()
 
 
 
