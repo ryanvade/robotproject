@@ -92,6 +92,10 @@ print(serial.get_response())
 
 time.sleep(4)
 
+serial.send_command("h", "\r")
+time.sleep(waitTime)
+print(serial.get_response())
+
 # back = base.reverse(100)
 # lack = base.left(100)
 # rack = base.right(100)
