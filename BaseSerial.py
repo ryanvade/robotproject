@@ -90,3 +90,6 @@ class BaseSerial:
         self.connection.flushInput()
         self.connection.flushOutput()
         self.connection.flush()
+
+    def getByteSize(self):
+        return self.connection.getByteSize

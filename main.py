@@ -62,8 +62,10 @@ import BaseSerial
 # stdscr.refresh()
 
 waitTime = 0.5 #seconds
-serial = BaseSerial.BaseSerial("/dev/ttyACM0", 19200)
+serial = BaseSerial.BaseSerial("/dev/ttyAMA0", 19200)
 serial.flush()
+print(serial.baud_rate)
+print(serial.getByteSize())
 
 serial.send_command("df", "255",  "\r")
 time.sleep(waitTime)
