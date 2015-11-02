@@ -64,7 +64,7 @@ import BaseSerial
 waitTime = 0.5 #seconds
 serial = BaseSerial.BaseSerial("/dev/ttyAMA0", 19200)
 serial.flush()
-print(serial.getConnectionInfo())
+print(serial.get_connection_info())
 
 serial.send_command("df", "255",  "\r")
 time.sleep(waitTime)
