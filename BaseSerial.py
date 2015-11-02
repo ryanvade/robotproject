@@ -80,7 +80,7 @@ class BaseSerial:
     def get_last_character_code(self):
         return self.__character_code_list[-1]
 
-    def get_last_paramater(self):
+    def get_last_parameter(self):
         return self.__parameter_list[-1]
 
     def close_connection(self):
