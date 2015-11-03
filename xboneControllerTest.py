@@ -5,8 +5,9 @@ import pygame
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
+
 # This is a simple class that will help us print to the screen
-# It has nothing to do with the joysticks, just outputing the
+# It has nothing to do with the joysticks, just output the
 # information.
 class TextPrint:
     def __init__(self):
@@ -50,7 +51,6 @@ pygame.joystick.init()
 # Get ready to print
 textPrint = TextPrint()
 
-# -------- Main Program Loop -----------
 while done == False:
     # EVENT PROCESSING STEP
     for event in pygame.event.get():  # User did something
@@ -62,7 +62,6 @@ while done == False:
             print("Joystick button pressed.")
         if event.type == pygame.JOYBUTTONUP:
             print("Joystick button released.")
-
 
     # DRAWING STEP
     # First, clear the screen to white. Don't put other drawing commands

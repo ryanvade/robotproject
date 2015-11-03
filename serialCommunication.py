@@ -14,7 +14,7 @@ import serial
 class BaseSerial:
     constant_communication = False
 
-    def __init__(self, port="/dev/ttyACM0", baud_rate=19200):
+    def __init__(self, port, baud_rate):
         self.__port = port
         self.__baud_rate = baud_rate
         self.__expecting_response = False

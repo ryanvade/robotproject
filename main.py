@@ -7,7 +7,7 @@ import time
 # import array
 
 #import Base
-import BaseSerial
+import serialCommunication
 
 # # is this an Arm system (raspberry pi)
 # if not os.uname()[4].startswith("arm"):
@@ -62,7 +62,7 @@ import BaseSerial
 # stdscr.refresh()
 
 waitTime = 0.5 #seconds
-serial = BaseSerial.BaseSerial("/dev/ttyAMA0", 19200)
+serial = serialCommunication.BaseSerial("/dev/ttyAMA0", 19200)
 serial.flush()
 print(serial.get_connection_info())
 
