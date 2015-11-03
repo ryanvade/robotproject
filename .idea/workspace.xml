@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc523313-3e07-4b0c-8c7a-d1465ee12da2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ePIR.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sonar.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BaseSerial.py" afterPath="$PROJECT_DIR$/serialCommunication.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Base.py" afterPath="$PROJECT_DIR$/Base.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllerClass.py" afterPath="$PROJECT_DIR$/controllerClass.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xboneControllerTest.py" afterPath="$PROJECT_DIR$/xboneControllerTest.py" />
     </list>
     <ignored path="robotproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,14 +52,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controller.py">
+      <file leaf-file-name="controllerClass.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllerClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.6483052">
-              <caret line="125" column="17" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
+            <state vertical-scroll-proportion="7.0974574">
+              <caret line="335" column="65" selection-start-line="335" selection-start-column="65" selection-end-line="335" selection-end-column="65" />
               <folding>
-                <element signature="e#24#37#0" expanded="true" />
+                <element signature="e#24#33#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controller.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,6 +124,7 @@
         <option value="$PROJECT_DIR$/Base.py" />
         <option value="$PROJECT_DIR$/xboneControllerTest.py" />
         <option value="$PROJECT_DIR$/controller.py" />
+        <option value="$PROJECT_DIR$/controllerClass.py" />
       </list>
     </option>
   </component>
@@ -575,24 +580,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00100" summary="moving files">
-      <created>1423585519747</created>
-      <option name="number" value="00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1423585519747</updated>
-    </task>
-    <task id="LOCAL-00101" summary="implement base">
-      <created>1423585831342</created>
-      <option name="number" value="00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1423585831342</updated>
-    </task>
-    <task id="LOCAL-00102" summary="optimize imports">
-      <created>1423585873950</created>
-      <option name="number" value="00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1423585873950</updated>
-    </task>
     <task id="LOCAL-00103" summary="optimize imports">
       <created>1423586100088</created>
       <option name="number" value="00103" />
@@ -869,7 +856,25 @@
       <option name="project" value="LOCAL" />
       <updated>1446506850733</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="Repository cleanup and beginning of controller.py">
+      <created>1446511218976</created>
+      <option name="number" value="00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1446511218976</updated>
+    </task>
+    <task id="LOCAL-00150" summary="Further work on  controller.py">
+      <created>1446517878606</created>
+      <option name="number" value="00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1446517878606</updated>
+    </task>
+    <task id="LOCAL-00151" summary="renamed controller.py to controllerClass.py">
+      <created>1446517960432</created>
+      <option name="number" value="00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1446517960432</updated>
+    </task>
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -931,9 +936,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="typecast the triger value" />
-    <MESSAGE value="I forgot the selves..." />
-    <MESSAGE value="moving files" />
     <MESSAGE value="implement base" />
     <MESSAGE value="optimize imports" />
     <MESSAGE value="added ePIR original zip" />
@@ -956,7 +958,10 @@
     <MESSAGE value="New GetInfo method" />
     <MESSAGE value="removed unneeded files" />
     <MESSAGE value="BaseSerial is now fully Python-ic" />
-    <option name="LAST_COMMIT_MESSAGE" value="BaseSerial is now fully Python-ic" />
+    <MESSAGE value="Repository cleanup and beginning of controller.py" />
+    <MESSAGE value="Further work on  controller.py" />
+    <MESSAGE value="renamed controller.py to controllerClass.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed controller.py to controllerClass.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1145,13 +1150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.8674698">
-          <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_12">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1270,12 +1268,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller.py">
+    <entry file="file://$PROJECT_DIR$/Controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.6483052">
-          <caret line="125" column="17" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllerClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="7.0974574">
+          <caret line="335" column="65" selection-start-line="335" selection-start-column="65" selection-end-line="335" selection-end-column="65" />
           <folding>
-            <element signature="e#24#37#0" expanded="true" />
+            <element signature="e#24#33#0" expanded="true" />
           </folding>
         </state>
       </provider>

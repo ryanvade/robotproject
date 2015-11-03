@@ -1,9 +1,8 @@
 __author__ = 'ryanvade'
-import pygame
 import os
-import sys
 import threading
-import time
+
+import pygame
 
 """
 NOTES - pygame events and values derived from xboneControllerTest.py
