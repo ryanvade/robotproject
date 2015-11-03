@@ -4,7 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc523313-3e07-4b0c-8c7a-d1465ee12da2" name="Default" comment="">
+    <list default="true" id="cc523313-3e07-4b0c-8c7a-d1465ee12da2" name="Default" comment="forgot the deletes">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllerClass.py" afterPath="$PROJECT_DIR$/controllerClass.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -55,8 +55,8 @@
       <file leaf-file-name="controllerClass.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllerClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="7.0974574">
-              <caret line="335" column="65" selection-start-line="335" selection-start-column="65" selection-end-line="335" selection-end-column="65" />
+            <state vertical-scroll-proportion="-0.22881356">
+              <caret line="514" column="8" selection-start-line="514" selection-start-column="8" selection-end-line="514" selection-end-column="8" />
               <folding>
                 <element signature="e#24#33#0" expanded="true" />
               </folding>
@@ -580,12 +580,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00103" summary="optimize imports">
-      <created>1423586100088</created>
-      <option name="number" value="00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1423586100088</updated>
-    </task>
     <task id="LOCAL-00104" summary="added ePIR original zip">
       <created>1423586223762</created>
       <option name="number" value="00104" />
@@ -874,7 +868,13 @@
       <option name="project" value="LOCAL" />
       <updated>1446517960432</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="optimized imports for controllerClass.py">
+      <created>1446518044339</created>
+      <option name="number" value="00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1446518044339</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -905,7 +905,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32702702" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256579" sideWeight="0.5003728" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3243243" sideWeight="0.5003728" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24981412" sideWeight="0.50080514" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28432956" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -936,7 +936,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implement base" />
     <MESSAGE value="optimize imports" />
     <MESSAGE value="added ePIR original zip" />
     <MESSAGE value="forgot to add my self a few more times.." />
@@ -961,7 +960,8 @@
     <MESSAGE value="Repository cleanup and beginning of controller.py" />
     <MESSAGE value="Further work on  controller.py" />
     <MESSAGE value="renamed controller.py to controllerClass.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="renamed controller.py to controllerClass.py" />
+    <MESSAGE value="optimized imports for controllerClass.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized imports for controllerClass.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1278,8 +1278,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllerClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.0974574">
-          <caret line="335" column="65" selection-start-line="335" selection-start-column="65" selection-end-line="335" selection-end-column="65" />
+        <state vertical-scroll-proportion="-0.22881356">
+          <caret line="514" column="8" selection-start-line="514" selection-start-column="8" selection-end-line="514" selection-end-column="8" />
           <folding>
             <element signature="e#24#33#0" expanded="true" />
           </folding>

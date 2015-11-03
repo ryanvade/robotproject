@@ -54,7 +54,7 @@ class XboxControls:
         self.__X_BUTTON = 8
         self.__Y_BUTTON = 9
         self.__L_BUMPER = 10
-        self.__R_BUMPTER = 11
+        self.__R_BUMPER = 11
         self.__BACK_BUTTON = 12
         self.__START_BUTTON = 13
         self.__XBOX_BUTTON = 14
@@ -66,109 +66,145 @@ class XboxControls:
 
     def set_l_thumb_x(self, value): self.__L_THUMB_X = value
 
-    L_THUMB_X = property(get_l_thumb_x, set_l_thumb_x, "Left Stick X direction map")
+    def del_l_thumb_x(self): del self.__L_THUMB_X
+
+    L_THUMB_X = property(get_l_thumb_x, set_l_thumb_x, del_l_thumb_x, "Left Stick X direction map")
 
     def get_l_thumb_y(self): return self.__L_THUMB_Y
 
     def set_l_thumb_y(self, value): self.__L_THUMB_Y = value
 
-    L_THUMB_Y = property(get_l_thumb_y, set_l_thumb_y, "Left Stick Y direction map")
+    def del_l_thumb_y(self): del self.__L_THUMB_Y
+
+    L_THUMB_Y = property(get_l_thumb_y, set_l_thumb_y, del_l_thumb_y, "Left Stick Y direction map")
 
     def get_r_thumb_x(self): return self.__R_THUMB_X
 
     def set_r_thumb_x(self, value): self.__R_THUMB_X = value
 
-    R_THUMB_X = property(get_r_thumb_x, set_r_thumb_x, "Right Stick X direction map")
+    def del_r_thumb_x(self): del self.__R_THUMB_X
+
+    R_THUMB_X = property(get_r_thumb_x, set_r_thumb_x, del_r_thumb_x, "Right Stick X direction map")
 
     def get_r_thumb_y(self): return self.__R_THUMB_Y
 
     def set_r_thumb_y(self, value): self.__R_THUMB_Y = value
 
-    R_THUMB_Y = property(get_r_thumb_y, set_r_thumb_y, "Right Stick Y direction map")
+    def del_r_thumb_Y(self): del self.__R_THUMB_Y
+
+    R_THUMB_Y = property(get_r_thumb_y, set_r_thumb_y, del_r_thumb_Y, "Right Stick Y direction map")
 
     def get_r_trigger(self): return self.__R_TRIGGER
 
     def set_r_trigger(self, value): self.__R_TRIGGER = value
 
-    R_TRIGGER = property(get_r_trigger, set_r_trigger, "Right Trigger map")
+    def del_r_trigger(self): del self.__R_TRIGGER
+
+    R_TRIGGER = property(get_r_trigger, set_r_trigger, del_r_trigger, "Right Trigger map")
 
     def get_l_trigger(self): return self.__L_TRIGGER
 
     def set_l_trigger(self, value): self.__L_TRIGGER = value
 
-    L_TRIGGER = property(get_l_trigger, set_l_trigger, "Left Trigger map")
+    def del_l_trigger(self): del self.__L_TRIGGER
+
+    L_TRIGGER = property(get_l_trigger, set_l_trigger, del_l_trigger, "Left Trigger map")
 
     def get_a_button(self): return self.__A_BUTTON
 
     def set_a_button(self, value): self.__A_BUTTON = value
 
-    A_BUTTON = property(get_a_button, set_a_button, "A Button map")
+    def del_a_button(self): del self.__A_BUTTON
+
+    A_BUTTON = property(get_a_button, set_a_button, del_a_button, "A Button map")
 
     def get_b_button(self): return self.__B_BUTTON
 
     def set_b_button(self, value): self.__B_BUTTON = value
 
-    B_BUTTON = property(get_b_button, set_b_button, "B Button map")
+    def del_b_button(self): del self.__B_BUTTON
+
+    B_BUTTON = property(get_b_button, set_b_button, del_b_button, "B Button map")
 
     def get_x_button(self): return self.__X_BUTTON
 
     def set_x_button(self, value): self.__X_BUTTON = value
 
-    X_BUTTON = property(get_x_button, set_x_button, "X Button map")
+    def del_x_button(self): del self.__X_BUTTON
+
+    X_BUTTON = property(get_x_button, set_x_button, del_x_button, "X Button map")
 
     def get_y_button(self): return self.__Y_BUTTON
 
     def set_y_button(self, value): self.__Y_BUTTON = value
 
-    Y_BUTTON = property(get_y_button, set_y_button, "Y Button map")
+    def del_y_button(self): del self.__Y_BUTTON
+
+    Y_BUTTON = property(get_y_button, set_y_button, del_y_button, "Y Button map")
 
     def get_l_bumper(self): return self.__L_BUMPER
 
     def set_l_bumper(self, value): self.__L_BUMPER = value
 
-    LEFT_BUMPER = property(get_l_bumper, set_l_bumper, "Left Bumper map")
+    def del_l_bumper(self): del self.__L_BUMPER
+
+    LEFT_BUMPER = property(get_l_bumper, set_l_bumper, del_l_bumper, "Left Bumper map")
 
     def get_r_bumper(self): return self.__R_BUMPER
 
     def set_r_bumper(self, value): self.__R_BUMPER = value
 
-    RIGHT_BUMPER = property(get_r_bumper, set_r_bumper, "Right Bumper map")
+    def del_r_bumper(self): del self.__R_BUMPER
+
+    RIGHT_BUMPER = property(get_r_bumper, set_r_bumper, del_r_bumper, "Right Bumper map")
 
     def get_back_button(self): return self.__BACK_BUTTON
 
     def set_back_button(self, value): self.__BACK_BUTTON = value
 
-    BACK_BUTTON = property(get_back_button, set_back_button, "Back Button map")
+    def del_back_button(self): del self.__BACK_BUTTON
+
+    BACK_BUTTON = property(get_back_button, set_back_button, del_back_button, "Back Button map")
 
     def get_start_button(self): return self.__START_BUTTON
 
     def set_start_button(self, value): self.__START_BUTTON = value
 
-    START_BUTTON = property(get_start_button, set_start_button, "Start Button map")
+    def del_start_button(self): del self.__START_BUTTON
+
+    START_BUTTON = property(get_start_button, set_start_button, del_start_button, "Start Button map")
 
     def get_xbox_button(self): return self.__XBOX_BUTTON
 
     def set_xbox_button(self, value): self.__XBOX_BUTTON = value
 
-    XBOX_BUTTON = property(get_back_button, set_back_button, "XBOX Button map")
+    def del_xbox_button(self): del self.__XBOX_BUTTON
+
+    XBOX_BUTTON = property(get_back_button, set_back_button, del_xbox_button, "XBOX Button map")
 
     def get_l_thumb(self): return self.__LEFT_THUMB
 
     def set_l_thumb(self, value): self.__LEFT_THUMB = value
 
-    LEFT_THUMB = property(get_l_thumb, set_l_thumb, "Left Stick Press map")
+    def del_l_thumb(self): del self.__LEFT_THUMB
+
+    LEFT_THUMB = property(get_l_thumb, set_l_thumb, del_l_thumb, "Left Stick Press map")
 
     def get_r_thumb(self): return self.__RIGHT_THUMB
 
     def set_r_thumb(self, value): self.__RIGHT_THUMB = value
 
-    RIGHT_THUMB = property(get_r_thumb, set_r_thumb, "Right Stick Press map")
+    def del_r_thumb(self): del self.__RIGHT_THUMB
+
+    RIGHT_THUMB = property(get_r_thumb, set_r_thumb, del_r_thumb, "Right Stick Press map")
 
     def get_d_pad(self): return self.__D_PAD
 
     def set_d_pad(self, value): self.__D_PAD = value
 
-    D_PAD = property(get_d_pad, set_d_pad, "D Pad map")
+    def del_d_pad(self): del self.__D_PAD
+
+    D_PAD = property(get_d_pad, set_d_pad, del_d_pad, "D Pad map")
 
 
 # pygame axis constants for the analogue controls (Sticks)
@@ -185,37 +221,49 @@ class PyGameAxis:
 
     def set_l_thumb_x(self, value): self.__L_THUMB_X = value
 
-    L_THUMB_X = property(get_l_thumb_x, set_l_thumb_x, "Left Stick X Direction map - Pygame")
+    def del_l_thumb_x(self): del self.__L_THUMB_X
+
+    L_THUMB_X = property(get_l_thumb_x, set_l_thumb_x, del_l_thumb_x, "Left Stick X Direction map - Pygame")
 
     def get_l_thumb_y(self): return self.__L_THUMB_Y
 
     def set_l_thumb_y(self, value): self.__L_THUMB_Y = value
 
-    L_THUMB_Y = property(get_l_thumb_y, set_l_thumb_y, "Left Stick Y Direction map - Pygame")
+    def del_l_thumb_y(self): del self.__L_THUMB_Y
+
+    L_THUMB_Y = property(get_l_thumb_y, set_l_thumb_y, del_l_thumb_y, "Left Stick Y Direction map - Pygame")
 
     def get_r_thumb_x(self): return self.__R_THUMB_X
 
     def set_r_thumb_x(self, value): self.__R_THUMB_X = value
 
-    R_THUMB_X = property(get_r_thumb_x, set_r_thumb_x, "Right Stick X Direction map - Pygame")
+    def del_r_thumb_x(self): del self.__R_THUMB_X
+
+    R_THUMB_X = property(get_r_thumb_x, set_r_thumb_x, del_r_thumb_x, "Right Stick X Direction map - Pygame")
 
     def get_r_thumb_y(self): return self.__R_THUMB_Y
 
     def set_r_thumb_y(self, value): self.__R_THUMB_Y = value
 
-    R_THUMB_Y = property(get_r_thumb_y, set_r_thumb_y, "Right Stick Y Direction map - Pygame")
+    def del_r_thumb_y(self): del self.__R_THUMB_Y
+
+    R_THUMB_Y = property(get_r_thumb_y, set_r_thumb_y, del_r_thumb_y, "Right Stick Y Direction map - Pygame")
 
     def get_r_trigger(self): return self.__R_TRIGGER
 
     def set_r_trigger(self, value): self.__R_TRIGGER = value
 
-    R_TRIGGER = property(get_r_trigger, set_r_trigger, "Right Trigger map - Pygame")
+    def del_r_trigger(self): del self.R_TRIGGER
+
+    R_TRIGGER = property(get_r_trigger, set_r_trigger, del_r_trigger, "Right Trigger map - Pygame")
 
     def get_l_trigger(self): return self.__L_TRIGGER
 
     def set_l_trigger(self, value): self.__L_TRIGGER = value
 
-    L_TRIGGER = property(get_l_trigger, set_l_trigger, "Left Trigger map - Pygame")
+    def del_l_trigger(self): del self.__L_TRIGGER
+
+    L_TRIGGER = property(get_l_trigger, set_l_trigger, del_l_trigger, "Left Trigger map - Pygame")
 
 
 # pygame constants for the buttons
@@ -237,67 +285,89 @@ class PyGameButtons:
 
     def set_a_buton(self, value): self.__A_BUTTON = value
 
-    A_BUTTON = property(get_a_button, set_a_buton, "A Button Map - Pygame")
+    def del_a_button(self): del self.__A_BUTTON
+
+    A_BUTTON = property(get_a_button, set_a_buton, del_a_button, "A Button Map - Pygame")
 
     def get_b_button(self): return self.__B_BUTTON
 
     def set_b_buton(self, value): self.__B_BUTTON = value
 
-    B_BUTTON = property(get_b_button, set_b_buton, "B Button Map - Pygame")
+    def del_b_button(self): del self.__B_BUTTON
+
+    B_BUTTON = property(get_b_button, set_b_buton, del_b_button, "B Button Map - Pygame")
 
     def get_x_button(self): return self.__X_BUTTON
 
     def set_x_buton(self, value): self.__X_BUTTON = value
 
-    X_BUTTON = property(get_x_button, set_x_buton, "X Button Map - Pygame")
+    def del_x_button(self): del self.__X_BUTTON
+
+    X_BUTTON = property(get_x_button, set_x_buton, del_x_button, "X Button Map - Pygame")
 
     def get_y_button(self): return self.__Y_BUTTON
 
     def set_y_buton(self, value): self.__Y_BUTTON = value
 
-    Y_BUTTON = property(get_y_button, set_y_buton, "Y Button Map - Pygame")
+    def del_y_button(self): del self.__Y_BUTTON
+
+    Y_BUTTON = property(get_y_button, set_y_buton, del_y_button, "Y Button Map - Pygame")
 
     def get_left_bumper(self): return self.__LEFT_BUMPER
 
     def set_left_bumper(self, value): self.__LEFT_BUMPER = value
 
-    LEFT_BUMPER = property(get_left_bumper, set_left_bumper, "Left Bumper map - Pygame")
+    def del_left_bumper(self): del self.__LEFT_BUMPER
+
+    LEFT_BUMPER = property(get_left_bumper, set_left_bumper, del_left_bumper, "Left Bumper map - Pygame")
 
     def get_right_bumper(self): return self.__RIGHT_BUMPER
 
     def set_right_bumper(self, value): self.__RIGHT_BUMPER = value
 
-    RIGHT_BUMPER = property(get_left_bumper, set_left_bumper, "Right Bumper map - Pygame")
+    def del_right_bumper(self): del self.__RIGHT_BUMPER
+
+    RIGHT_BUMPER = property(get_left_bumper, set_left_bumper, del_right_bumper, "Right Bumper map - Pygame")
 
     def get_back_button(self): return self.__BACK_BUTTON
 
     def set_back_button(self, value): self.__BACK_BUTTON = value
 
-    BACK_BUTTON = property(get_back_button, set_back_button, "Back Button map - Pygame")
+    def del_back_button(self): del self.__BACK_BUTTON
+
+    BACK_BUTTON = property(get_back_button, set_back_button, del_back_button, "Back Button map - Pygame")
 
     def get_start_button(self): return self.__START_BUTTON
 
     def set_start_button(self, value): self.__START_BUTTON = value
 
-    START_BUTTON = property(get_start_button, set_start_button, "Start Button map - Pygame")
+    def del_start_button(self): del self.__START_BUTTON
+
+    START_BUTTON = property(get_start_button, set_start_button, del_start_button, "Start Button map - Pygame")
 
     def get_home_button(self): return self.__HOME_BUTTON
 
     def set_home_button(self, value): self.__HOME_BUTTON = value
 
-    HOME_BUTTON = property(get_home_button, set_home_button, "Home Button map - Pygame")
+    def del_home_button(self): del self.__HOME_BUTTON
+
+    HOME_BUTTON = property(get_home_button, set_home_button, del_home_button, "Home Button map - Pygame")
 
     def get_left_thumb(self): return self.__LEFT_THUMB
 
     def set_left_thumb(self, value): self.__LEFT_THUMB = value
 
-    LEFT_THUMB = property(get_left_thumb, set_left_thumb, "Left Stick press map - Pygame")
+    def del_left_thumb(self): del self.__LEFT_THUMB
+
+    LEFT_THUMB = property(get_left_thumb, set_left_thumb, del_left_thumb, "Left Stick press map - Pygame")
 
     def get_right_thumb(self): return self.__RIGHT_THUMB
 
     def set_right_thumb(self, value): self.__RIGHT_THUMB = value
 
-    RIGHT_THUMB = property(get_right_thumb, set_right_thumb, "Right Stick press map - Pygame")
+    def del_right_thumb(self): del self.__RIGHT_THUMB
+
+    RIGHT_THUMB = property(get_right_thumb, set_right_thumb, del_right_thumb, "Right Stick press map - Pygame")
 
 
 class Controller(threading.Thread):
