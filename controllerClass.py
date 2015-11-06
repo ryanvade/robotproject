@@ -435,89 +435,90 @@ class Controller(threading.Thread):
                                         self.__controller_mapping.LEFT_THUMB: 0,
                                         self.__controller_mapping.RIGHT_THUMB: 0,
                                         self.__controller_mapping.D_PAD: (0, 0)}
-
-            # Create controller properties
-            @property
-            def l_thumb_x(self):
-                return self.__controller_values[self.__controller_mapping.L_THUMB_X]
-
-            @property
-            def l_thumb_y(self):
-                return self.__controller_values[self.__controller_mapping.L_THUMB_Y]
-
-            @property
-            def r_thumb_x(self):
-                return self.__controller_values[self.__controller_mapping.R_THUMB_X]
-
-            @property
-            def r_thumb_y(self):
-                return self.__controller_values[self.__controller_mapping.R_THUMB_Y]
-
-            @property
-            def r_trigger(self):
-                return self.__controller_values[self.__controller_mapping.R_TRIGGER]
-
-            @property
-            def l_trigger(self):
-                return self.__controller_values[self.__controller_mapping.L_TRIGGER]
-
-            @property
-            def a_button(self):
-                return self.__controller_values[self.__controller_mapping.A_BUTTON]
-
-            @property
-            def b_button(self):
-                return self.__controller_values[self.__controller_mapping.B_BUTTON]
-
-            @property
-            def x_button(self):
-                return self.__controller_values[self.__controller_mapping.X_BUTTON]
-
-            @property
-            def y_button(self):
-                return self.__controller_values[self.__controller_mapping.Y_BUTTON]
-
-            @property
-            def left_bumper(self):
-                return self.__controller_values[self.__controller_mapping.LEFT_BUMPER]
-
-            @property
-            def right_button(self):
-                return self.__controller_values[self.__controller_mapping.RIGHT_BUMPER]
-
-            @property
-            def back_button(self):
-                return self.__controller_values[self.__controller_mapping.BACK_BUTTON]
-
-            @property
-            def start_button(self):
-                return self.__controller_values[self.__controller_mapping.START_BUTTON]
-
-            @property
-            def home_button(self):
-                return self.__controller_values[self.__controller_mapping.HOME_BUTTON]
-
-            @property
-            def left_thumb(self):
-                return self.__controller_values[self.__controller_mapping.LEFT_THUMB]
-
-            @property
-            def right_thumb(self):
-                return self.__controller_values[self.__controller_mapping.RIGHT_THUMB]
-
-            @property
-            def d_pad(self):
-                return self.__controller_values[self.__controller_mapping.D_PAD]
         else:
             print("Not using an Xbox Controller")
             # TODO generic controller mappings
+
+            # Create controller properties
+        @property
+        def l_thumb_x(self):
+            return self.__controller_values[self.__controller_mapping.L_THUMB_X]
+
+        @property
+        def l_thumb_y(self):
+            return self.__controller_values[self.__controller_mapping.L_THUMB_Y]
+
+        @property
+        def r_thumb_x(self):
+            return self.__controller_values[self.__controller_mapping.R_THUMB_X]
+
+        @property
+        def r_thumb_y(self):
+            return self.__controller_values[self.__controller_mapping.R_THUMB_Y]
+
+        @property
+        def r_trigger(self):
+            return self.__controller_values[self.__controller_mapping.R_TRIGGER]
+
+        @property
+        def l_trigger(self):
+            return self.__controller_values[self.__controller_mapping.L_TRIGGER]
+
+        @property
+        def a_button(self):
+            return self.__controller_values[self.__controller_mapping.A_BUTTON]
+
+        @property
+        def b_button(self):
+            return self.__controller_values[self.__controller_mapping.B_BUTTON]
+
+        @property
+        def x_button(self):
+            return self.__controller_values[self.__controller_mapping.X_BUTTON]
+
+        @property
+        def y_button(self):
+            return self.__controller_values[self.__controller_mapping.Y_BUTTON]
+
+        @property
+        def left_bumper(self):
+            return self.__controller_values[self.__controller_mapping.LEFT_BUMPER]
+
+        @property
+        def right_button(self):
+            return self.__controller_values[self.__controller_mapping.RIGHT_BUMPER]
+
+        @property
+        def back_button(self):
+            return self.__controller_values[self.__controller_mapping.BACK_BUTTON]
+
+        @property
+        def start_button(self):
+            return self.__controller_values[self.__controller_mapping.START_BUTTON]
+
+        @property
+        def home_button(self):
+            return self.__controller_values[self.__controller_mapping.HOME_BUTTON]
+
+        @property
+        def left_thumb(self):
+            return self.__controller_values[self.__controller_mapping.LEFT_THUMB]
+
+        @property
+        def right_thumb(self):
+            return self.__controller_values[self.__controller_mapping.RIGHT_THUMB]
+
+        @property
+        def d_pad(self):
+            return self.__controller_values[self.__controller_mapping.D_PAD]
+
 
         # call pygame setup
         self._setup_pygame(self.__joystick_number)
 
     # setup pygame
     @staticmethod
-    def _setup_pygame(self, joystickNo):
+    def _setup_pygame(joystick_number):
         # set SDL to use the dummy NULL video driver, so it doesn't need a windowing system.
         os.environ["SDL_VIDEODRIVER"] = "dummy"
         # init pygame
@@ -527,7 +528,7 @@ class Controller(threading.Thread):
         # init the joystick control
         pygame.joystick.init()
         # get the first joystick
-        joy = pygame.joystick.Joystick(joystickNo)
+        joy = pygame.joystick.Joystick(joystick_number)
         # init that joystick
         joy.init()
 
@@ -592,9 +593,9 @@ class Controller(threading.Thread):
             self.__controller_call_back[control](value)
 
     # used to add a specific callback to a control
-    def __setup_control_call_back(self, control, callbackFunction):
+    def setup_control_call_back(self, control, call_back_function):
         # add callback to the dictionary
-        self.__control_call_backs[control] = callbackFunction
+        self.__control_call_backs[control] = call_back_function
 
     # scales the axis values, applies the deadzone
     def _rebase_axis_value(self, value, y_axis=False):
@@ -616,47 +617,7 @@ class Controller(threading.Thread):
 
     # turns the event type (up/down) into a value
     @staticmethod
-    def _rebase_button_value(self, event_type):
+    def _rebase_button_value(event_type):
         # if the button is down its 1, if the button is up its 0
         value = 1 if event_type == pygame.JOYBUTTONDOWN else 0
         return value
-
-# #tests
-# if __name__ == '__main__':
-#
-#     #generic call back
-#     def controlCallBack(xboxControlId, value):
-#         print "Control Id = {}, Value = {}".format(xboxControlId, value)
-#
-#     #specific callbacks for the left thumb (X & Y)
-#     def leftThumbX(xValue):
-#         print "LX {}".format(xValue)
-#     def leftThumbY(yValue):
-#         print "LY {}".format(yValue)
-#
-#     #setup xbox controller, set out the deadzone and scale, also invert the Y Axis (for some reason in Pygame negative is up - wierd!
-#     xboxCont = XboxController(controlCallBack, deadzone = 30, scale = 100, invertYAxis = True)
-#
-#     #setup the left thumb (X & Y) callbacks
-#     xboxCont.setupControlCallback(xboxCont.XboxControls.LTHUMBX, leftThumbX)
-#     xboxCont.setupControlCallback(xboxCont.XboxControls.LTHUMBY, leftThumbY)
-#
-#     try:
-#         #start the controller
-#         xboxCont.start()
-#         print "xbox controller running"
-#         while True:
-#             time.sleep(1)
-#
-#     #Ctrl C
-#     except KeyboardInterrupt:
-#         print "User cancelled"
-#
-#     #error
-#     except:
-#         print "Unexpected error:", sys.exc_info()[0]
-#         raise
-#
-#     finally:
-#         #stop the controller
-#         xboxCont.stop()
