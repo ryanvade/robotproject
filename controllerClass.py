@@ -381,7 +381,7 @@ class Controller(threading.Thread):
         self.__upper_dead_zone = dead_zone
         self.__scale = scale
         self.__invert_Y_axis = invert_Y_axis
-        self.__control_call_backs = {}
+        self.__controller_call_backs = {}
         self.__controller_is_xbox = controller_is_xbox
         self.__pygame_axis = PyGameAxis()
         self.__pygame_buttons = PyGameButtons()
@@ -416,7 +416,7 @@ class Controller(threading.Thread):
                                          self.__pygame_buttons.LEFT_THUMB: self.__controller_mapping.LEFT_THUMB,
                                          self.__pygame_buttons.RIGHT_THUMB: self.__controller_mapping.RIGHT_THUMB}
 
-            # initial controller values
+            # initial controller v__controller_call_backsalues
             self.__controller_values = {self.__controller_mapping.L_THUMB_X: 0,
                                         self.__controller_mapping.L_THUMB_Y: 0,
                                         self.__controller_mapping.R_THUMB_X: 0,
@@ -512,7 +512,6 @@ class Controller(threading.Thread):
         def d_pad(self):
             return self.__controller_values[self.__controller_mapping.D_PAD]
 
-
         # call pygame setup
         self._setup_pygame(self.__joystick_number)
 
@@ -589,13 +588,13 @@ class Controller(threading.Thread):
         if self.__controller_call_back is not None: self.__controller_call_back(control, value)
 
         # has a specific callback been setup?
-        if control in self.__control_call_backs:
-            self.__controller_call_back[control](value)
+        if control in self.__controller_call_backs:
+            self.__controller_call_backs[control](value)
 
     # used to add a specific callback to a control
     def setup_control_call_back(self, control, call_back_function):
         # add callback to the dictionary
-        self.__control_call_backs[control] = call_back_function
+        self.__controller_call_backs[control] = call_back_function
 
     # scales the axis values, applies the deadzone
     def _rebase_axis_value(self, value, y_axis=False):
