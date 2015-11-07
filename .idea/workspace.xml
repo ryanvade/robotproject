@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cc523313-3e07-4b0c-8c7a-d1465ee12da2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllerClass.py" afterPath="$PROJECT_DIR$/controllerClass.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllerClassTest.py" afterPath="$PROJECT_DIR$/controllerClassTest.py" />
     </list>
     <ignored path="robotproject.iws" />
@@ -22,11 +23,11 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/robotproject$opencv.coverage" NAME="opencv Coverage Results" MODIFIED="1446341521705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/robotproject$scratch_16.coverage" NAME="scratch_16 Coverage Results" MODIFIED="1445113132357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
-    <SUITE FILE_PATH="coverage/robotproject$xboneControllerTest.coverage" NAME="xboneControllerTest Coverage Results" MODIFIED="1446868140609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/robotproject$xboneControllerTest.coverage" NAME="xboneControllerTest Coverage Results" MODIFIED="1446870211922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/robotproject$opencvTest.coverage" NAME="opencvTest Coverage Results" MODIFIED="1435367461499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/robotproject$scratch_19.coverage" NAME="scratch_19 Coverage Results" MODIFIED="1446867843979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/robotproject$scratch_12.coverage" NAME="scratch_12 Coverage Results" MODIFIED="1442084981099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
-    <SUITE FILE_PATH="coverage/robotproject$controllerClassTest.coverage" NAME="controllerClassTest Coverage Results" MODIFIED="1446869629784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/robotproject$controllerClassTest.coverage" NAME="controllerClassTest Coverage Results" MODIFIED="1446870955488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/robotproject$main.coverage" NAME="main Coverage Results" MODIFIED="1442525808809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/robotproject$scratch_17.coverage" NAME="scratch_17 Coverage Results" MODIFIED="1445447136230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/robotproject$scratch_14.coverage" NAME="scratch_14 Coverage Results" MODIFIED="1442713100326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
@@ -44,42 +45,72 @@
     <favorites_list name="robotproject" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Base.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllerClassTest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllerClassTest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="62" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="68" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllerClass.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllerClass.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6972973">
-              <caret line="561" column="20" selection-start-line="561" selection-start-column="20" selection-end-line="561" selection-end-column="20" />
-              <folding>
-                <element signature="e#24#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Base.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Base.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="xboneControllerTest.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/xboneControllerTest.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="104" column="12" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="12" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="controllerClassTest.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/controllerClassTest.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-0.17567568">
+                  <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
+                  <folding>
+                    <element signature="e#0#22#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="controllerClass.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/controllerClass.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-1.5">
+                  <caret line="495" column="48" selection-start-line="495" selection-start-column="48" selection-end-line="495" selection-end-column="48" />
+                  <folding>
+                    <element signature="e#24#33#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="controllerClass.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/controllerClass.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.4945946">
+                  <caret line="500" column="12" selection-start-line="500" selection-start-column="12" selection-end-line="500" selection-end-column="12" />
+                  <folding>
+                    <element signature="e#24#33#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -579,12 +610,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00107" summary="auto indent">
-      <created>1423971235364</created>
-      <option name="number" value="00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1423971235366</updated>
-    </task>
     <task id="LOCAL-00108" summary="class implementations">
       <created>1423973235070</created>
       <option name="number" value="00108" />
@@ -873,7 +898,13 @@
       <option name="project" value="LOCAL" />
       <updated>1446869266832</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="small changes">
+      <created>1446869665156</created>
+      <option name="number" value="00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1446869665156</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1284,14 +1315,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xboneControllerTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6081081">
-          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1318,10 +1341,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllerClassTest.py">
+    <entry file="file://$PROJECT_DIR$/xboneControllerTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="62" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="68" />
+          <caret line="104" column="12" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllerClassTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.17567568">
+          <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
@@ -1330,8 +1361,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllerClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6972973">
-          <caret line="561" column="20" selection-start-line="561" selection-start-column="20" selection-end-line="561" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.4945946">
+          <caret line="500" column="12" selection-start-line="500" selection-start-column="12" selection-end-line="500" selection-end-column="12" />
           <folding>
             <element signature="e#24#33#0" expanded="true" />
           </folding>

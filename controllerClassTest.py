@@ -24,7 +24,7 @@ def right_trigger(value):
     print("Right Trigger: " + str(value))
 
 if __name__ == '__main__':
-    controller = controllerClass.Controller(controller_call_back=None, joystick_number=0, dead_zone=0.1, scale=1, invert_Y_axis=True, controller_is_xbox=True)
+    controller = controllerClass.Controller(controller_call_back=None, dead_zone=0.1, scale=1, invert_Y_axis=True, controller_is_xbox=True)
     xboxControls = controllerClass.XboxControls
     # controller.setup_control_call_back(controller.controller_mapping.L_THUMB_X, left_thumb_x)
     # controller.setup_control_call_back(controller.controller_mapping.L_THUMB_Y, left_thumb_y)

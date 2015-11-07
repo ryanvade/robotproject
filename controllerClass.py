@@ -5,42 +5,6 @@ import threading
 import pygame
 from pygame.locals import *
 
-"""
-NOTES - pygame events and values derived from xboneControllerTest.py
-JOYAXISMOTION
-event.axis              event.value
-0 - x axis left thumb   (+1 is right, -1 is left)
-1 - y axis left thumb   (+1 is down, -1 is up)
-2 - x axis right thumb  (+1 is right, -1 is left)
-3 - y axis right thumb  (+1 is down, -1 is up)
-4 - right trigger
-5 - left trigger
-JOYBUTTONDOWN | JOYBUTTONUP
-event.button
-A = 0
-B = 1
-X = 2
-Y = 3
-LB = 4
-RB = 5
-BACK = 6
-START = 7
-XBOX = 8
-LEFTTHUMB = 9
-RIGHTTHUMB = 10
-JOYHATMOTION
-event.value
-[0] - horizontal
-[1] - vertival
-[0].0 - middle
-[0].-1 - left
-[0].+1 - right
-[1].0 - middle
-[1].-1 - bottom
-[1].+1 - top
-"""
-
-
 # internal ids for the xbox controls
 class XboxControls:
     def __init__(self):
@@ -372,12 +336,11 @@ class PyGameButtons:
 
 
 class Controller(threading.Thread):
-    def __init__(self, controller_call_back=None, joystick_number=0, dead_zone=0.1, scale=1,
+    def __init__(self, controller_call_back=None, dead_zone=0.1, scale=1,
                  invert_Y_axis=False, controller_is_xbox=True):
         threading.Thread.__init__(self)
         self.__running = False
         self.__controller_call_back = controller_call_back
-        self.__joystick_number = joystick_number
         self.__lower_dead_zone = dead_zone * -1
         self.__upper_dead_zone = dead_zone
         self.__scale = scale
@@ -442,7 +405,7 @@ class Controller(threading.Thread):
 
 
         # call pygame setup
-        self._setup_pygame(self.__joystick_number)
+        self._setup_pygame()
 
         # Create controller properties
     @property
@@ -523,19 +486,19 @@ class Controller(threading.Thread):
 
     # setup pygame
     @staticmethod
-    def _setup_pygame(joystick_number):
+    def _setup_pygame():
         # set SDL to use the dummy NULL video driver, so it doesn't need a windowing system.
         os.environ["SDL_VIDEODRIVER"] = "dummy"
         # init pygame
         pygame.init()
+        pygame.joystick.init()
         # create a 1x1 pixel screen, its not used so it doesnt matter
         screen = pygame.display.set_mode((1, 1))
-        # init the joystick control
-        pygame.joystick.init()
-        # get the first joystick
-        joy = pygame.joystick.Joystick(joystick_number)
-        # init that joystick
-        joy.init()
+        # Get count of joysticks
+
+        # For each joystick:
+        for i in range(pygame.joystick.get_count()):
+            pygame.joystick.Joystick(i).init()
 
     # override run in threading.Thread
     def run(self):
