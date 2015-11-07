@@ -28,8 +28,8 @@ if __name__ == '__main__':
     xboxControls = controllerClass.XboxControls
     # controller.setup_control_call_back(controller.controller_mapping.L_THUMB_X, left_thumb_x)
     # controller.setup_control_call_back(controller.controller_mapping.L_THUMB_Y, left_thumb_y)
-    # controller.setup_control_call_back(controller.controller_mapping.L_TRIGGER, left_trigger)
-    # controller.setup_control_call_back(controller.controller_mapping.R_TRIGGER, right_trigger)
+    controller.setup_control_call_back(controller.controller_mapping.L_TRIGGER, left_trigger)
+    controller.setup_control_call_back(controller.controller_mapping.R_TRIGGER, right_trigger)
 
     try:
         controller.start()
