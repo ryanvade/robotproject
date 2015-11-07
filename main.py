@@ -61,7 +61,7 @@ import serialCommunication
 # stdscr.addstr(0, 10, "Hit 'q' to quit")
 # stdscr.refresh()
 
-waitTime = 0.5 #seconds
+waitTime = 5 #seconds
 serial = serialCommunication.BaseSerial("/dev/ttyAMA0", 19200)
 serial.flush()
 print(serial.get_connection_info())
@@ -71,29 +71,7 @@ time.sleep(waitTime)
 
 print(serial.get_response())
 
-time.sleep(4)
 serial.send_command("h", "\r")
-time.sleep(waitTime)
-print(serial.get_response())
-
-serial.send_command("tl100", "\r")
-time.sleep(waitTime)
-print(serial.get_response())
-time.sleep(2)
-
-serial.send_command("h", "\r")
-time.sleep(waitTime)
-print(serial.get_response())
-
-serial.send_command("db", "255",  "\r")
-time.sleep(waitTime)
-
-print(serial.get_response())
-
-time.sleep(4)
-
-serial.send_command("h", "\r")
-time.sleep(waitTime)
 print(serial.get_response())
 
 # back = base.reverse(100)
