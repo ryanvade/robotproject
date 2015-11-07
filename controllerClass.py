@@ -3,6 +3,7 @@ import os
 import threading
 
 import pygame
+from pygame.locals import *
 
 """
 NOTES - pygame events and values derived from xboneControllerTest.py
@@ -180,7 +181,7 @@ class XboxControls:
 
     def del_xbox_button(self): del self.__XBOX_BUTTON
 
-    XBOX_BUTTON = property(get_back_button, set_back_button, del_xbox_button, "XBOX Button map")
+    XBOX_BUTTON = property(get_xbox_button, set_xbox_button, del_xbox_button, "XBOX Button map")
 
     def get_l_thumb(self): return self.__LEFT_THUMB
 
@@ -327,7 +328,7 @@ class PyGameButtons:
 
     def del_right_bumper(self): del self.__RIGHT_BUMPER
 
-    RIGHT_BUMPER = property(get_left_bumper, set_left_bumper, del_right_bumper, "Right Bumper map - Pygame")
+    RIGHT_BUMPER = property(get_right_bumper, set_right_bumper, del_right_bumper, "Right Bumper map - Pygame")
 
     def get_back_button(self): return self.__BACK_BUTTON
 
@@ -445,75 +446,79 @@ class Controller(threading.Thread):
 
         # Create controller properties
     @property
-    def l_thumb_x(self):
+    def controller_mapping(self):
+        return self.__controller_mapping
+
+    @property
+    def l_thumb_x_value(self):
         return self.__controller_values[self.__controller_mapping.L_THUMB_X]
 
     @property
-    def l_thumb_y(self):
+    def l_thumb_y_value(self):
         return self.__controller_values[self.__controller_mapping.L_THUMB_Y]
 
     @property
-    def r_thumb_x(self):
+    def r_thumb_x_value(self):
         return self.__controller_values[self.__controller_mapping.R_THUMB_X]
 
     @property
-    def r_thumb_y(self):
+    def r_thumb_y_value(self):
         return self.__controller_values[self.__controller_mapping.R_THUMB_Y]
 
     @property
-    def r_trigger(self):
+    def r_trigger_value(self):
         return self.__controller_values[self.__controller_mapping.R_TRIGGER]
 
     @property
-    def l_trigger(self):
+    def l_trigger_value(self):
         return self.__controller_values[self.__controller_mapping.L_TRIGGER]
 
     @property
-    def a_button(self):
+    def a_button_value(self):
         return self.__controller_values[self.__controller_mapping.A_BUTTON]
 
     @property
-    def b_button(self):
+    def b_button_value(self):
        return self.__controller_values[self.__controller_mapping.B_BUTTON]
 
     @property
-    def x_button(self):
+    def x_button_value(self):
         return self.__controller_values[self.__controller_mapping.X_BUTTON]
 
     @property
-    def y_button(self):
+    def y_button_value(self):
         return self.__controller_values[self.__controller_mapping.Y_BUTTON]
 
     @property
-    def left_bumper(self):
+    def left_bumper_value(self):
         return self.__controller_values[self.__controller_mapping.LEFT_BUMPER]
 
     @property
-    def right_button(self):
+    def right_button_value(self):
         return self.__controller_values[self.__controller_mapping.RIGHT_BUMPER]
 
     @property
-    def back_button(self):
+    def back_button_value(self):
         return self.__controller_values[self.__controller_mapping.BACK_BUTTON]
 
     @property
-    def start_button(self):
+    def start_button_value(self):
         return self.__controller_values[self.__controller_mapping.START_BUTTON]
 
     @property
-    def home_button(self):
+    def home_button_value(self):
         return self.__controller_values[self.__controller_mapping.HOME_BUTTON]
 
     @property
-    def left_thumb(self):
+    def left_thumb_value(self):
         return self.__controller_values[self.__controller_mapping.LEFT_THUMB]
 
     @property
-    def right_thumb(self):
+    def right_thumb_value(self):
             return self.__controller_values[self.__controller_mapping.RIGHT_THUMB]
 
     @property
-    def d_pad(self):
+    def d_pad_value(self):
         return self.__controller_values[self.__controller_mapping.D_PAD]
 
     # setup pygame

@@ -17,11 +17,19 @@ def right_thumb_y(yValue):
 def left_thumb_y(yValue):
     print("LY" + str(yValue))
 
+def left_trigger(value):
+    print("Left Trigger:" + str(value))
+
+def right_trigger(value):
+    print("Right Trigger: " + str(value))
+
 if __name__ == '__main__':
     controller = controllerClass.Controller(controller_call_back=None, joystick_number=0, dead_zone=0.1, scale=1, invert_Y_axis=True, controller_is_xbox=True)
     xboxControls = controllerClass.XboxControls
-    controller.setup_control_call_back(controller.l_thumb_x, left_thumb_x)
-    controller.setup_control_call_back(controller.l_thumb_y, left_thumb_y)
+    # controller.setup_control_call_back(controller.controller_mapping.L_THUMB_X, left_thumb_x)
+    # controller.setup_control_call_back(controller.controller_mapping.L_THUMB_Y, left_thumb_y)
+    # controller.setup_control_call_back(controller.controller_mapping.L_TRIGGER, left_trigger)
+    # controller.setup_control_call_back(controller.controller_mapping.R_TRIGGER, right_trigger)
 
     try:
         controller.start()
