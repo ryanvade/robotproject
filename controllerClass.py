@@ -177,11 +177,11 @@ class PyGameAxis:
     def __init__(self):
         self.__L_THUMB_X = 0
         self.__L_THUMB_Y = 1
+        self.__L_TRIGGER = 2
         self.__R_THUMB_X = 3
         self.__R_THUMB_Y = 4
         self.__R_TRIGGER = 5
-        self.__L_TRIGGER = 2
-
+        
     def get_l_thumb_x(self): return self.__L_THUMB_X
 
     def set_l_thumb_x(self, value): self.__L_THUMB_X = value
