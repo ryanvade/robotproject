@@ -177,10 +177,10 @@ class PyGameAxis:
     def __init__(self):
         self.__L_THUMB_X = 0
         self.__L_THUMB_Y = 1
-        self.__R_THUMB_X = 2
-        self.__R_THUMB_Y = 3
-        self.__R_TRIGGER = 4
-        self.__L_TRIGGER = 5
+        self.__R_THUMB_X = 3
+        self.__R_THUMB_Y = 4
+        self.__R_TRIGGER = 5
+        self.__L_TRIGGER = 2
 
     def get_l_thumb_x(self): return self.__L_THUMB_X
 
@@ -514,6 +514,11 @@ class Controller(threading.Thread):
                 # thumb sticks, trigger buttons
                 if event.type == pygame.JOYAXISMOTION:
                     # is this axis on our controller
+                    # print("Axis Control Map:")
+                    # print(self.__axis_control_map)
+                    # print("Trigger Control Map: ")
+                    # print(self.__trigger_control_map)
+                    # print ("Event Axis: "  + str(event.axis))
                     if event.axis in self.__axis_control_map:
                         # is this a y axis
                         y_axis = True if (event.axis == self.__pygame_axis.L_THUMB_Y or
