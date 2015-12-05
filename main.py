@@ -25,6 +25,8 @@ waitTime = 5  # seconds
 control = Base.Base(port=tty, baud_rate=baud_rate)
 time.sleep(waitTime)
 print(control.connection_information())
+time.sleep(2)
+print(control.get_last_response_from_serial())
 
 # control.drive_forward(255)
 # time.sleep(waitTime)

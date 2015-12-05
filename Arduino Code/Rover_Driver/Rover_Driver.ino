@@ -167,7 +167,7 @@ void setup()
   while(!Serial){
     ;
   }
-  //Serial.println("Ready!");
+  Serial.println("Ready!");
 }
 
 void loop()
