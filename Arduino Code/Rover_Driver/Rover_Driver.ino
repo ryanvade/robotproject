@@ -209,7 +209,6 @@ void loop()
   switch (command)
   {
     case DRIVE_CODE: //drive request made
-      {
         /*
         Read an 8 byte packet. 8 bytes not really needed, just gives extra padding
         to ensure terminator '\r' is received. If terminator is received then
@@ -254,7 +253,7 @@ void loop()
 
       Serial.flush(); //clear the buffer
   }
-}
+
 
 /*
 Initiates forward or backward movement of the rover.
