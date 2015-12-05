@@ -1,6 +1,7 @@
 __author__ = 'ryanvade'
 import serialCommunication
 
+
 # Is the RPi module available?
 # try:
 #     import RPi.GPIO as GPIO
@@ -31,7 +32,7 @@ class Base:
             self.__serial_connection.send_command('df', speed, '\r')
 
     def turn_left(self, speed):
-         if self.__min__speed <= speed <= self.__max_speed:
+        if self.__min__speed <= speed <= self.__max_speed:
             self.__serial_connection.send_command('tl', speed, '\r')
 
     def turn_right(self, speed):
@@ -39,7 +40,7 @@ class Base:
             self.__serial_connection.send_command('tr', speed, '\r')
 
     def drive_reverse(self, speed):
-         if self.__min__speed <= speed <= self.__max_speed:
+        if self.__min__speed <= speed <= self.__max_speed:
             self.__serial_connection.send_command('db', speed, '\r')
 
     def close(self):
