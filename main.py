@@ -6,8 +6,8 @@ __author__ = 'ryanvade'
 import time
 # import array
 
-#import Base
-import serialCommunication
+import Base
+#import serialCommunication
 
 # # is this an Arm system (raspberry pi)
 # if not os.uname()[4].startswith("arm"):
@@ -46,9 +46,6 @@ import serialCommunication
 # dir3 = 8
 # dir4 = 10
 
-
-# base = Base.Base(motor1PWM, motor2PWM, motor3PWM, motor4PWM, dir1, dir3, dir3, dir4, tty, baud_rate)
-
 #lTrigger = 2  # from 0 to 1
 #rTrigger = 5  # from 0 to 1
 #lStick = array.array[0, 1]  # x direction -1 -> 1 , y direction -1 -> 1
@@ -62,24 +59,23 @@ import serialCommunication
 # stdscr.refresh()
 
 waitTime = 5 #seconds
-serial = serialCommunication.BaseSerial("/dev/ttyAMA0", 19200)
-serial.flush()
-print(serial.get_connection_info())
+control = Base.Base(port="/dev/ttyACM0", baud_rate=19200)
+print(control.connection_information())
 
-serial.send_command("df", "255",  "\r")
+control.drive_forward(255)
 time.sleep(waitTime)
 
-print(serial.get_response())
+print(control.get_last_response_from_serial())
 
-serial.send_command("h", "\r")
-print(serial.get_response())
+control.stop()
+print(control.get_last_response_from_serial())
 
 # back = base.reverse(100)
 # lack = base.left(100)
 # rack = base.right(100)
 # stop = base.stop()
 
-serial.close_connection()
+control.close()
 
 
 

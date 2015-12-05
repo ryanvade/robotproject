@@ -21,31 +21,28 @@ class Base:
 
     def __init__(self, port="/dev/ttyACM0", baud_rate=19200):
         self.__serial_connection = serialCommunication.BaseSerial(port, baud_rate)
+        self.__serial_connection.flush()
 
     def stop(self):
         self.__serial_connection.send_command('h', '\r')
-        response_ack = self.__serial_connection.get_response()
-        return response_ack
 
-    def forward(self,speed):
+    def drive_forward(self, speed):
         self.__serial_connection.send_command('df', speed, '\r')
-        response_ack = self.__serial_connection.get_response()
-        return response_ack
 
-    def left(self, speed):
+    def turn_left(self, speed):
         self.__serial_connection.send_command('tl', speed, '\r')
-        response_ack = self.__serial_connection.get_response()
-        return response_ack
 
-    def right(self, speed):
+    def turn_right(self, speed):
         self.__serial_connection.send_command('tr', speed, '\r')
-        response_ack = self.__serial_connection.get_response()
-        return response_ack
 
-    def reverse(self, speed):
+    def drive_reverse(self, speed):
         self.__serial_connection.send_command('db', speed, '\r')
-        response_ack = self.__serial_connection.get_response()
-        return response_ack
 
     def close(self):
         self.__serial_connection.close_connection()
+
+    def connection_information(self):
+        return self.__serial_connection.get_connection_info()
+
+    def get_last_response_from_serial(self):
+        return self.__serial_connection.get_response()
