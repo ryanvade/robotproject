@@ -22,7 +22,6 @@ class Base:
 
     def __init__(self, port="/dev/ttyACM0", baud_rate=19200):
         self.__serial_connection = serialCommunication.BaseSerial(port, baud_rate)
-        self.__serial_connection.flush()
 
     def stop(self):
         self.__serial_connection.send_command('h', '\r')

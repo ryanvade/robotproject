@@ -50,7 +50,7 @@ Encoder input pins used to trigger encoder count interrupts.
 
 /*
 Command characters and event characters:
-d = request to use drive function.
+d = request to use drive function.This pin is attached to a built in LED on teh arduino.
 p = request to use ping function
 h = request to use halt function
 t = request to use turn function
@@ -164,6 +164,9 @@ void setup()
   */
   pinMode(13, OUTPUT);
   digitalWrite(13, HIGH);
+  while(!Serial){
+    ;
+  }
   //Serial.println("Ready!");
 }
 

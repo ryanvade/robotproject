@@ -66,7 +66,7 @@ class BaseSerial:
         self.constant_communication = True
 
     def get_response(self):
-        while self.__connection.inWaiting() == 0 and self.__expecting_response:
+        while self.__connection.inWaiting() == 0:
             print("Waiting for response")
         response = self.__connection.read(self.__connection.inWaiting())
         self.__response_list.append(response)

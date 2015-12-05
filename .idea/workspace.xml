@@ -9,7 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cc523313-3e07-4b0c-8c7a-d1465ee12da2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Arduino Code/Rover_Driver/Rover_Driver.ino" afterPath="$PROJECT_DIR$/Arduino Code/Rover_Driver/Rover_Driver.ino" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Base.py" afterPath="$PROJECT_DIR$/Base.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serialCommunication.py" afterPath="$PROJECT_DIR$/serialCommunication.py" />
     </list>
     <ignored path="robotproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,26 +44,6 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="Rover_Driver.ino" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/Arduino Code/Rover_Driver/Rover_Driver.ino">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="-1.3513514">
-                    <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="robotproject" />
@@ -73,8 +55,8 @@
           <file leaf-file-name="Base.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Base.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.908362">
-                  <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
+                <state vertical-scroll-proportion="0.8717068">
+                  <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
                   <folding />
                 </state>
               </provider>
@@ -106,10 +88,10 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.69644904">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
                   <folding>
                     <element signature="e#24#33#0" expanded="true" />
@@ -118,18 +100,17 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="serialCommunication.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="serialCommunication.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/serialCommunication.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
+                <state vertical-scroll-proportion="0.56815577">
+                  <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
                   <folding>
-                    <element signature="e#254#991#0" expanded="false" />
-                    <element signature="e#2541#2578#0" expanded="false" />
-                    <element signature="e#2622#2654#0" expanded="false" />
-                    <element signature="e#2696#2772#0" expanded="false" />
-                    <element signature="e#2803#2907#0" expanded="false" />
-                    <element signature="e#2952#2988#0" expanded="false" />
+                    <element signature="e#2511#2548#0" expanded="false" />
+                    <element signature="e#2592#2624#0" expanded="false" />
+                    <element signature="e#2666#2742#0" expanded="false" />
+                    <element signature="e#2773#2877#0" expanded="false" />
+                    <element signature="e#2922#2958#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -204,6 +185,7 @@
         <option value="$PROJECT_DIR$/controllerClass.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/Base.py" />
+        <option value="$PROJECT_DIR$/serialCommunication.py" />
       </list>
     </option>
   </component>
@@ -731,12 +713,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00117" summary="code cleanup">
-      <created>1428355325867</created>
-      <option name="number" value="00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1428355325867</updated>
-    </task>
     <task id="LOCAL-00118" summary="code cleanup">
       <created>1428355403940</created>
       <option name="number" value="00118" />
@@ -1025,7 +1001,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449354664733</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL-00166" summary="stuff">
+      <created>1449354704626</created>
+      <option name="number" value="00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1449354704626</updated>
+    </task>
+    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1484,32 +1466,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serialCommunication.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
-          <folding>
-            <element signature="e#254#991#0" expanded="false" />
-            <element signature="e#2541#2578#0" expanded="false" />
-            <element signature="e#2622#2654#0" expanded="false" />
-            <element signature="e#2696#2772#0" expanded="false" />
-            <element signature="e#2803#2907#0" expanded="false" />
-            <element signature="e#2952#2988#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Arduino Code/Rover_Driver/Rover_Driver.ino">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3513514">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69644904">
+        <state vertical-scroll-proportion="0.0">
           <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
           <folding>
             <element signature="e#24#33#0" expanded="true" />
@@ -1517,11 +1476,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Arduino Code/Rover_Driver/Rover_Driver.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5751634">
+          <caret line="165" column="25" selection-start-line="165" selection-start-column="25" selection-end-line="165" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.908362">
-          <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.8717068">
+          <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serialCommunication.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56815577">
+          <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+          <folding>
+            <element signature="e#2511#2548#0" expanded="false" />
+            <element signature="e#2592#2624#0" expanded="false" />
+            <element signature="e#2666#2742#0" expanded="false" />
+            <element signature="e#2773#2877#0" expanded="false" />
+            <element signature="e#2922#2958#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
