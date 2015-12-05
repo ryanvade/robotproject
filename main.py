@@ -23,6 +23,7 @@ tty = "/dev/ttyAMA0"
 baud_rate = 19200
 waitTime = 5  # seconds
 control = Base.Base(port=tty, baud_rate=baud_rate)
+time.sleep(waitTime)
 print(control.connection_information())
 
 # control.drive_forward(255)
@@ -33,8 +34,8 @@ print(control.connection_information())
 # control.stop()
 # print(control.get_last_response_from_serial())
 
-for i in range(255):
+for i in range(128):
     print(control.get_ping_distance())
-    time.sleep(1)
+    time.sleep(waitTime)
 
 control.close()
