@@ -9,7 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cc523313-3e07-4b0c-8c7a-d1465ee12da2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Base.py" afterPath="$PROJECT_DIR$/Base.py" />
     </list>
     <ignored path="robotproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,8 +73,8 @@
           <file leaf-file-name="Base.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Base.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.8900344">
-                  <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+                <state vertical-scroll-proportion="0.908362">
+                  <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
                   <folding />
                 </state>
               </provider>
@@ -202,8 +202,8 @@
         <option value="$PROJECT_DIR$/xboneControllerTest.py" />
         <option value="$PROJECT_DIR$/controllerClassTest.py" />
         <option value="$PROJECT_DIR$/controllerClass.py" />
-        <option value="$PROJECT_DIR$/Base.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/Base.py" />
       </list>
     </option>
   </component>
@@ -731,12 +731,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00116" summary="code cleanup">
-      <created>1428355273371</created>
-      <option name="number" value="00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1428355273371</updated>
-    </task>
     <task id="LOCAL-00117" summary="code cleanup">
       <created>1428355325867</created>
       <option name="number" value="00117" />
@@ -1025,7 +1019,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449354417403</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="stuff">
+      <created>1449354664733</created>
+      <option name="number" value="00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1449354664733</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1499,14 +1499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8900344">
-          <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Arduino Code/Rover_Driver/Rover_Driver.ino">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.3513514">
@@ -1522,6 +1514,14 @@
           <folding>
             <element signature="e#24#33#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.908362">
+          <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
