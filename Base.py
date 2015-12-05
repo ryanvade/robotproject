@@ -51,3 +51,8 @@ class Base:
 
     def get_last_response_from_serial(self):
         return self.__serial_connection.get_response()
+
+    def get_ping_distance(self):
+        self.__serial_connection.flush()
+        self.__serial_connection.send_command('p', '\r')
+        return self.__serial_connection.get_response()

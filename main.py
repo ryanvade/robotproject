@@ -25,12 +25,16 @@ waitTime = 5  # seconds
 control = Base.Base(port=tty, baud_rate=baud_rate)
 print(control.connection_information())
 
-control.drive_forward(255)
-time.sleep(waitTime)
+# control.drive_forward(255)
+# time.sleep(waitTime)
+#
+# print(control.get_last_response_from_serial())
+#
+# control.stop()
+# print(control.get_last_response_from_serial())
 
-print(control.get_last_response_from_serial())
-
-control.stop()
-print(control.get_last_response_from_serial())
+for i in range(255):
+    print(control.get_ping_distance())
+    time.sleep(1)
 
 control.close()
