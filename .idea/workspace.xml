@@ -8,8 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc523313-3e07-4b0c-8c7a-d1465ee12da2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Arduino Code/Rover_Driver/Rover_Driver.ino" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <ignored path="robotproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,11 +86,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+                <state vertical-scroll-proportion="0.10996564">
+                  <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
                   <folding>
                     <element signature="e#24#33#0" expanded="true" />
                   </folding>
@@ -98,10 +98,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Rover_Driver.ino" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Rover_Driver.ino" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Arduino Code/Rover_Driver/Rover_Driver.ino">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.38487974">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
                   <folding />
                 </state>
@@ -721,12 +721,6 @@
       <option name="number" value="Default" />
       <updated>1412463244211</updated>
     </task>
-    <task id="LOCAL-00114" summary="renamed file to sonar.py">
-      <created>1427576467937</created>
-      <option name="number" value="00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1427576467939</updated>
-    </task>
     <task id="LOCAL-00115" summary="renamed file to sonar.py">
       <created>1428355146397</created>
       <option name="number" value="00115" />
@@ -1015,7 +1009,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449353790934</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="stuff">
+      <created>1449354332593</created>
+      <option name="number" value="00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1449354332593</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1497,21 +1497,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/Arduino Code/Rover_Driver/Rover_Driver.ino">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
-          </folding>
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Arduino Code/Rover_Driver/Rover_Driver.ino">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38487974">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
+        <state vertical-scroll-proportion="0.10996564">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <folding>
+            <element signature="e#24#33#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

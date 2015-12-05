@@ -5,7 +5,7 @@ import time
 import Base
 
 __debugging__ = True
-if __debugging__:
+if not __debugging__:
     # is this an Arm system (raspberry pi)
     if not os.uname()[4].startswith("arm"):
         sys.stdout.write("Cannot run on: ")
