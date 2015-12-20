@@ -1,12 +1,12 @@
 __author__ = 'ryanvade'
 # Program to be run on the raspberry pi
 # import os
-#import sys
+# import sys
 # import curses
 import time
 # import array
 
-#import Base
+# import Base
 import serialCommunication
 
 # # is this an Arm system (raspberry pi)
@@ -61,7 +61,8 @@ import serialCommunication
 # stdscr.addstr(0, 10, "Hit 'q' to quit")
 # stdscr.refresh()
 
-waitTime = 5 #seconds
+# seconds
+waitTime = 5
 serial = serialCommunication.BaseSerial("/dev/ttyAMA0", 19200)
 serial.flush()
 print(serial.get_connection_info())
@@ -80,8 +81,6 @@ print(serial.get_response())
 # stop = base.stop()
 
 serial.close_connection()
-
-
 
 # while (key != ord('q')): #and (distance > 18.0):
 #     key = stdscr.getch()

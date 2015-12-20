@@ -2,6 +2,8 @@ __author__ = 'ryanvade'
 
 import sys
 import serial
+import time
+import threading
 
 
 # try:
@@ -19,6 +21,7 @@ class BaseSerial:
         self.__baud_rate = baud_rate
         self.__expecting_response = False
         self.__expecting_acknowledge = False
+        self.__wait_time_in_seconds = 3
 
         try:
             self.__connection = serial.Serial(port, baud_rate, timeout=1)
@@ -39,6 +42,7 @@ class BaseSerial:
             print("Connection Established on:" + self.__port + " At " + str(self.__baud_rate))
 
     def send_command(self, character_code, parameter1=None, parameter2=None):
+        # TODO put send code in seperate thread
         try:
             self.__connection.write(str(character_code).encode())
             # self.character_code_list.append(str(character_code))
@@ -60,12 +64,16 @@ class BaseSerial:
             except serial.SerialTimeoutException as e:
                 print(e)
         self.__expecting_acknowledge = True
+        time.sleep(self.__wait_time_in_seconds)
 
     def start_constant_communication(self):
         # TODO process for constant listening on separate thread
         self.constant_communication = True
 
     def get_response(self):
+        # TODO make a private get response thread to update the queue
+        # get_response should then pop the last item on the queue
+        # TODO should the __expecting_reponse always be true to receive a respons?
         while self.__connection.inWaiting() == 0 and self.__expecting_response:
             print("Waiting for response")
         response = self.__connection.read(self.__connection.inWaiting())
@@ -74,6 +82,7 @@ class BaseSerial:
         self.__expecting_acknowledge = False
         return str(response)
 
+    # TODO get_last methods should be replaced
     def get_last_response(self):
         return self.__response_list[-1]
 
@@ -83,6 +92,7 @@ class BaseSerial:
     def get_last_parameter(self):
         return self.__parameter_list[-1]
 
+    # TODO implement try/catch and finally clause
     def close_connection(self):
         print("Closing Port")
         self.flush()

@@ -47,5 +47,10 @@ class Base:
         response_ack = self.__serial_connection.get_response()
         return response_ack
 
+    def get_ping_distance(self):
+        self.__serial_connection.send_command('p', '\r')
+        response_ack = self.__serial_connection.get_response()
+        return response_ack
+
     def close(self):
         self.__serial_connection.close_connection()
