@@ -42,7 +42,8 @@ class BaseSerial:
             print("Connection Established on:" + self.__port + " At " + str(self.__baud_rate))
 
     def send_command(self, character_code, parameter1=None, parameter2=None):
-        # TODO put send code in seperate thread
+        # TODO put send code in separate thread
+        # TODO should all of the try/catches be used? They are expensive.
         try:
             self.__connection.write(str(character_code).encode())
             # self.character_code_list.append(str(character_code))
