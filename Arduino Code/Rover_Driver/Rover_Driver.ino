@@ -76,11 +76,6 @@ volatile long  count2 = 0;
 volatile long  count3 = 0;
 volatile long  count4 = 0;
 
-int m1Spd = 0;
-int m2Spd = 0;
-int m3Spd = 0;
-int m4Spd = 0;
-
 volatile unsigned char new1;
 volatile unsigned char old1;
 volatile unsigned char new2;
@@ -95,28 +90,10 @@ double Input2, Output2, Setpoint2;
 double Input3, Output3, Setpoint3;
 double Input4, Output4, Setpoint4;
 
-double KiTerm1, lastInput1;
-double KiTerm2, lastInput2;
-double KiTerm3, lastInput3;
-double KiTerm4, lastInput4;
-
-double kp1, ki1, kd1;
-double kp2, ki2, kd2;
-double kp3, ki3, kd3;
-double kp4, ki4, kd4;
-
-unsigned long lastTime1, lastTime2, lastTime3, lastTime4;
-
-PID m1PID(&Input1, &Output1, &Setpoint1, kp1, ki1, kd1, DIRECT);
-PID m2PID(&Input2, &Output2, &Setpoint2, kp2, ki2, kd2, DIRECT);
-PID m3PID(&Input3, &Output3, &Setpoint3, kp3, ki3, kd3, DIRECT);
-PID m4PID(&Input4, &Output4, &Setpoint4, kp4, ki4, kd4, DIRECT);
-
-//int[] speeds = {0, 0, 0, 0};
-//byte[] dirs = {1, 0, 1, 0};
-
-int SampleInterval = 50;
-double outMin, outMax;
+PID m1PID(&Input1, &Output1, &Setpoint1, 0, 0, 0, DIRECT);
+PID m2PID(&Input2, &Output2, &Setpoint2, 0, 0, 0, DIRECT);
+PID m3PID(&Input3, &Output3, &Setpoint3, 0, 0, 0, DIRECT);
+PID m4PID(&Input4, &Output4, &Setpoint4, 0, 0, 0, DIRECT);
 
 // Quadrature Encoder Matrix
 int QEM [16] = {0, -1, 1, 2, 1, 0, 2, -1, -1, 2, 0, 1, 2, 1, -1, 0};
@@ -125,7 +102,7 @@ int j = 0;
 
 double tol = 1.0;
 
-double encodInes = 1000.0 / 3.0;
+double encodRes = 1000.0 / 3.0;
 
 char currentDir = 'f';
 
@@ -392,7 +369,6 @@ void drive(int spd, char dir)
     analogWrite(M3_PWM, 0);
     analogWrite(M4_PWM, 0);
   }
-  m1Spd = m2Spd = m3Spd = m4Spd = spd;
   haltFlag = false;
   delay(250);
 }
@@ -505,7 +481,7 @@ double speed1()
 
   long numCounts = countB - countA;
 
-  double RPM = ((numCounts / encodInes) * 60) / (0.015);
+  double RPM = ((numCounts / encodRes) * 60) / (0.015);
 
   return RPM;
 }
@@ -518,7 +494,7 @@ double speed2()
 
   long numCounts = countB - countA;
 
-  double RPM = ((numCounts / encodInes) * 60) / (0.015);
+  double RPM = ((numCounts / encodRes) * 60) / (0.015);
 
   return RPM;
 }
@@ -531,7 +507,7 @@ double speed3()
 
   long numCounts = countB - countA;
 
-  double RPM = ((numCounts / encodInes) * 60) / (0.015);
+  double RPM = ((numCounts / encodRes) * 60) / (0.015);
 
   return RPM;
 }
@@ -544,7 +520,7 @@ double speed4()
 
   long numCounts = countB - countA;
 
-  double RPM = ((numCounts / encodInes) * 60) / (0.015);
+  double RPM = ((numCounts / encodRes) * 60) / (0.015);
 
   return RPM;
 }
