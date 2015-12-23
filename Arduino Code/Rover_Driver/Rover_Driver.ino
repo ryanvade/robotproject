@@ -107,13 +107,16 @@ double kp4, ki4, kd4;
 
 unsigned long lastTime1, lastTime2, lastTime3, lastTime4;
 
-PID m1PID(&Input1, &Output1, &Setpoint1, 2, 5, 1, DIRECT);
-PID m2PID(&Input2, &Output2, &Setpoint2, 2, 5, 1, DIRECT);
-PID m3PID(&Input3, &Output3, &Setpoint3, 2, 5, 1, DIRECT);
-PID m4PID(&Input4, &Output4, &Setpoint4, 2, 5, 1, DIRECT);
+PID m1PID(&Input1, &Output1, &Setpoint1, kp1, ki1, kd1, DIRECT);
+PID m2PID(&Input2, &Output2, &Setpoint2, kp2, ki2, kd2, DIRECT);
+PID m3PID(&Input3, &Output3, &Setpoint3, kp3, ki3, kd3, DIRECT);
+PID m4PID(&Input4, &Output4, &Setpoint4, kp4, ki4, kd4, DIRECT);
+
+//int[] speeds = {0, 0, 0, 0};
+//byte[] dirs = {1, 0, 1, 0};
 
 int SampleInterval = 50;
-double outMin, outMax; 
+double outMin, outMax;
 
 // Quadrature Encoder Matrix
 int QEM [16] = {0, -1, 1, 2, 1, 0, 2, -1, -1, 2, 0, 1, 2, 1, -1, 0};
@@ -124,8 +127,7 @@ double tol = 1.0;
 
 double encodInes = 1000.0 / 3.0;
 
-double wheelDiam = 2.5;
-double vConversionFactor = 0.0423333;
+char currentDir = 'f';
 
 boolean haltFlag = true;
 
@@ -170,12 +172,12 @@ void setup()
   pinMode(SONAR_ECHO, INPUT);
 
   /*
-   XXX
-   Sets the PWM timers to 488hz on each side.
-   */
+    XXX
+    Sets the PWM timers to 488hz on each side.
+  */
   TCCR2B = TCCR2B & 0b11111000 | 0x04;
   TCCR1B = TCCR1B & 0b11111000 | 0x03;
-  
+
   attachInterrupt(2, ecount1, CHANGE);
   attachInterrupt(3, ecount2, CHANGE);
   attachInterrupt(4, ecount3, CHANGE);
@@ -195,6 +197,36 @@ void setup()
   */
   pinMode(13, OUTPUT);
   digitalWrite(13, HIGH);
+
+
+  m1PID.SetTunings(.4, 1, 1);
+  m1PID.SetSampleTime(50);
+  m1PID.SetOutputLimits(0, 255);
+  m1PID.SetMode(AUTOMATIC);
+  m1PID.SetControllerDirection(DIRECT);
+
+  m2PID.SetTunings(.4, 1, 1);
+  m2PID.SetSampleTime(50);
+  m2PID.SetOutputLimits(0, 255);
+  m2PID.SetMode(AUTOMATIC);
+  m2PID.SetControllerDirection(DIRECT);
+
+  m3PID.SetTunings(.4, 1, 1);
+  m3PID.SetSampleTime(50);
+  m3PID.SetOutputLimits(0, 255);
+  m3PID.SetMode(AUTOMATIC);
+  m3PID.SetControllerDirection(DIRECT);
+
+  m4PID.SetTunings(.4, 1, 1);
+  m4PID.SetSampleTime(50);
+  m4PID.SetOutputLimits(0, 255);
+  m4PID.SetMode(AUTOMATIC);
+  m4PID.SetControllerDirection(DIRECT);
+
+  Setpoint1 = 0;
+  Setpoint2 = 0;
+  Setpoint3 = 0;
+  Setpoint4 = 0;
 
   /*
     Wait for serial to initialize before proceeding.
@@ -282,6 +314,28 @@ void loop()
   if (!haltFlag)
   {
     veerCorrection();
+    m1PID.Compute();
+    m2PID.Compute();
+    m3PID.Compute();
+    m4PID.Compute();
+  }
+
+  switch (currentDir)
+  {
+    case 'f':
+      drive(Setpoint1, 'f');
+      break;
+    case 'b':
+      drive(Setpoint1, 'b');
+      break;
+    case 'l':
+      turn(Setpoint1, 'l');
+      break;
+    case 'r':
+      drive(Setpoint1, 'r');
+      break;
+    default:
+      break;
   }
 
   Serial.flush(); //clear the buffer
@@ -295,31 +349,41 @@ void loop()
 */
 void drive(int spd, char dir)
 {
+  Setpoint1 = (double)spd;
+  Setpoint2 = (double)spd;
+  Setpoint3 = (double)spd;
+  Setpoint4 = (double)spd;
+  currentDir = dir;
+
   Serial.println("drive ack"); //acknowledge the command
   if (dir == 'f')
   {
-    analogWrite(M1_PWM, spd);
+    analogWrite(M1_PWM, Output1);
     digitalWrite(M1_DIR, 1);
-    analogWrite(M2_PWM, spd);
+    analogWrite(M2_PWM, Output2);
     digitalWrite(M2_DIR, 0);
-    analogWrite(M3_PWM, spd);
+    analogWrite(M3_PWM, Output3);
     digitalWrite(M3_DIR, 1);
-    analogWrite(M4_PWM, spd);
+    analogWrite(M4_PWM, Output4);
     digitalWrite(M4_DIR, 0);
   }
   else if (dir == 'b')
   {
-    analogWrite(M1_PWM, spd);
+    analogWrite(M1_PWM, Output1);
     digitalWrite(M1_DIR, 0);
-    analogWrite(M2_PWM, spd);
+    analogWrite(M2_PWM, Output2);
     digitalWrite(M2_DIR, 1);
-    analogWrite(M3_PWM, spd);
+    analogWrite(M3_PWM, Output3);
     digitalWrite(M3_DIR, 0);
-    analogWrite(M4_PWM, spd);
+    analogWrite(M4_PWM, Output4);
     digitalWrite(M4_DIR, 1);
   }
   else
   {
+    Setpoint1 = 0;
+    Setpoint2 = 0;
+    Setpoint3 = 0;
+    Setpoint4 = 0;
     Serial.println(ERR_CODE);
     Serial.println(spd);
     Serial.println(dir);
@@ -338,6 +402,10 @@ void drive(int spd, char dir)
 */
 void halt()
 {
+  Setpoint1 = 0;
+  Setpoint2 = 0;
+  Setpoint3 = 0;
+  Setpoint4 = 0;
   Serial.println("halt ack");
   analogWrite(M1_PWM, 0);
   analogWrite(M2_PWM, 0);
@@ -377,31 +445,41 @@ void ping()
 */
 void turn(int rate, char dir)
 {
+  Setpoint1 = (double)rate;
+  Setpoint2 = (double)rate;
+  Setpoint3 = (double)rate;
+  Setpoint4 = (double)rate;
+  currentDir = dir;
+
   Serial.println("turn ack");
   if (dir == 'r')
   {
-    analogWrite(M1_PWM, rate);
+    analogWrite(M1_PWM, Output1);
     digitalWrite(M1_DIR, 1);
-    analogWrite(M2_PWM, rate);
+    analogWrite(M2_PWM, Output2);
     digitalWrite(M2_DIR, 0);
-    analogWrite(M3_PWM, rate);
+    analogWrite(M3_PWM, Output3);
     digitalWrite(M3_DIR, 0);
-    analogWrite(M4_PWM, rate);
+    analogWrite(M4_PWM, Output4);
     digitalWrite(M4_DIR, 1);
   }
   else if (dir == 'l')
   {
-    analogWrite(M1_PWM, rate);
+    analogWrite(M1_PWM, Output1);
     digitalWrite(M1_DIR, 0);
-    analogWrite(M2_PWM, rate);
+    analogWrite(M2_PWM, Output2);
     digitalWrite(M2_DIR, 1);
-    analogWrite(M3_PWM, rate);
+    analogWrite(M3_PWM, Output3);
     digitalWrite(M3_DIR, 1);
-    analogWrite(M4_PWM, rate);
+    analogWrite(M4_PWM, Output4);
     digitalWrite(M4_DIR, 0);
   }
   else
   {
+    Setpoint1 = 0;
+    Setpoint2 = 0;
+    Setpoint3 = 0;
+    Setpoint4 = 0;
     Serial.println(ERR_CODE);
     Serial.println(rate);
     Serial.println(dir);
@@ -415,10 +493,10 @@ void turn(int rate, char dir)
 }
 
 /*
- XXX
- Changed all speed functions to calculate speed in RPMs to make it easier for 
- future calculations.
- */
+  XXX
+  Changed all speed functions to calculate speed in RPMs to make it easier for
+  future calculations.
+*/
 double speed1()
 {
   long countA = count1;
@@ -472,199 +550,15 @@ double speed4()
 }
 
 /*
- XXX
- Attempted implementation of PID for veer correction
- */
+  XXX
+  Attempted implementation of PID for veer correction
+*/
 void veerCorrection()
 {
-    
-}
-
-void computePID()
-{
-   /*Channel 1*/
-   /*======================================================================*/
-   /*How long since we last calculated*/
-   unsigned long now = millis();
-   double timeChange = (double)(now - lastTime1);
-   double dIn, error;
-
-   if(timeChange >= SampleInterval)
-   {
-       /*Compute all the working error variables*/
-       error = Setpoint1 - Input1;
-       KiTerm1 += ki1 * error;
-       
-       if(KiTerm1 > outMax)
-           KiTerm1 = outMax;
-       else if(KiTerm1 < outMin)
-           KiTerm1 = outMin;
-           
-       dIn = (Input1 - lastInput1) / timeChange;
-      
-       /*Compute PID Output*/
-       Output1 = kp1 * error + KiTerm1 - kd1 * dIn;
-      
-       /*Remember some variables for next time*/
-       lastInput1 = Input1;
-       lastTime1 = now;
-   }
-   /*======================================================================*/
-   /*Channel 2*/
-   /*======================================================================*/
-   /*How long since we last calculated*/
-   now = millis();
-   timeChange = (double)(now - lastTime2);
-
-   if(timeChange >= SampleInterval)
-   {
-       /*Compute all the working error variables*/
-       error = Setpoint2 - Input2;
-       KiTerm2 += ki2 * error;
-       
-       if(KiTerm2 > outMax)
-           KiTerm2 = outMax;
-       else if(KiTerm2 < outMin)
-           KiTerm2 = outMin;
-           
-       dIn = (Input2 - lastInput2) / timeChange;
-      
-       /*Compute PID Output*/
-       Output2 = kp2 * error + KiTerm2 - kd2 * dIn;
-      
-       /*Remember some variables for next time*/
-       lastInput2 = Input2;
-       lastTime2 = now;
-   }
-   /*======================================================================*/
-   /*Channel 3*/
-   /*======================================================================*/
-   /*How long since we last calculated*/
-   now = millis();
-   timeChange = (double)(now - lastTime3);
-
-   if(timeChange >= SampleInterval)
-   {
-       /*Compute all the working error variables*/
-       error = Setpoint3 - Input3;
-       KiTerm3 += ki3 * error;
-       
-       if(KiTerm3 > outMax)
-           KiTerm3 = outMax;
-       else if(KiTerm3 < outMin)
-           KiTerm3 = outMin;
-           
-       dIn = (Input3 - lastInput3) / timeChange;
-      
-       /*Compute PID Output*/
-       Output3 = kp3 * error + KiTerm3 - kd3 * dIn;
-      
-       /*Remember some variables for next time*/
-       lastInput3 = Input3;
-       lastTime3 = now;
-   }
-   /*======================================================================*/
-   /*Channel 4*/
-   /*======================================================================*/
-   /*How long since we last calculated*/
-   now = millis();
-   timeChange = (double)(now - lastTime4);
-
-   if(timeChange >= SampleInterval)
-   {
-       /*Compute all the working error variables*/
-       error = Setpoint4 - Input4;
-       KiTerm4 += ki4 * error;
-       
-       if(KiTerm4 > outMax)
-           KiTerm4 = outMax;
-       else if(KiTerm4 < outMin)
-           KiTerm4 = outMin;
-           
-       dIn = (Input4 - lastInput4) / timeChange;
-      
-       /*Compute PID Output*/
-       Output4 = kp4 * error + KiTerm2 - kd4 * dIn;
-      
-       /*Remember some variables for next time*/
-       lastInput4 = Input4;
-       lastTime4 = now;
-   }
-   /*======================================================================*/
-}
-
-void setPID(double Kp1, double Kp2, double Kp3, double Kp4, 
-            double Ki1, double Ki2, double Ki3, double Ki4, 
-            double Kd1, double Kd2, double Kd3, double Kd4)
-{
-   double SampleTimeInSec = ((double)SampleInterval)/1000;
-   
-   kp1 = Kp1;
-   ki1 = Ki1 * SampleTimeInSec;
-   kd1 = Kd1 / SampleTimeInSec;
-   
-   kp2 = Kp2;
-   ki2 = Ki2 * SampleTimeInSec;
-   kd2 = Kd2 / SampleTimeInSec;
-   
-   kp3 = Kp3;
-   ki3 = Ki3 * SampleTimeInSec;
-   kd3 = Kd3 / SampleTimeInSec;
-   
-   kp4 = Kp4;
-   ki4 = Ki4 * SampleTimeInSec;
-   kd4 = Kd4 / SampleTimeInSec;
-}
-
-void SetSampleInterval(int NewInterval)
-{
-    if(NewInterval > 0)
-    {
-        double ratio = (double)NewInterval/(double)SampleInterval;
-
-        ki1 *= ratio;
-        kd1 /= ratio;
-
-        ki2 *= ratio;
-        kd2 /= ratio;
-
-        ki3 *= ratio;
-        kd3 /= ratio;
-
-        ki4 *= ratio;
-        kd4 /= ratio;
-
-        SampleInterval = (unsigned long)NewInterval;
-    }
-}
-
-void SetOuputLimits(double Min, double Max)
-{
-    //In case some clown tries to make Min > Max. "Always beware of clowns" - Dr. Noble
-    if(Min > Max) return;
-
-    outMin = Min;
-    outMax = Max;
-
-    if(Output1 > outMax)
-        Output1 = outMax;
-    else if(Output1 < outMin)
-        Output1 = outMin;
-
-    if(Output2 > outMax)
-        Output2 = outMax;
-    else if(Output2 < outMin)
-        Output2 = outMin;
-
-    if(Output3 > outMax)
-        Output3 = outMax;
-    else if(Output3 < outMin)
-        Output3 = outMin;
-
-    if(Output4 > outMax)
-        Output4 = outMax;
-    else if(Output4 < outMin)
-        Output4 = outMin;
+  Input1 = speed1();
+  Input2 = speed2();
+  Input3 = speed3();
+  Input4 = speed4();
 }
 
 double dist()
