@@ -259,6 +259,7 @@ void loop()
       Serial.readBytesUntil(TERMINATOR, data, 8);
       spd = atoi(&data[1]); //convert lower bytes to int and store in spd
       drive(spd, data[0]); //transfer to drive function   if(m1 == slowest + tolerance)
+      break;
     case HALT_CODE: //halt request made
       halt();
       break;
@@ -297,23 +298,23 @@ void loop()
     m4PID.Compute();
   }
 
-  switch (currentDir)
-  {
-    case 'f':
-      drive(Setpoint1, 'f');
-      break;
-    case 'b':
-      drive(Setpoint1, 'b');
-      break;
-    case 'l':
-      turn(Setpoint1, 'l');
-      break;
-    case 'r':
-      drive(Setpoint1, 'r');
-      break;
-    default:
-      break;
-  }
+//  switch (currentDir)
+//  {
+//    case 'f':
+//      drive(Setpoint1, 'f');
+//      break;
+//    case 'b':
+//      drive(Setpoint1, 'b');
+//      break;
+//    case 'l':
+//      turn(Setpoint1, 'l');
+//      break;
+//    case 'r':
+//      drive(Setpoint1, 'r');
+//      break;
+//    default:
+//      break;
+//  }
 
   Serial.flush(); //clear the buffer
 }
