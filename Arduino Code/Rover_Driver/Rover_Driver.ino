@@ -104,7 +104,7 @@ double tol = 1.0;
 
 double encodRes = 1000.0 / 3.0;
 
-char currentDir = 'f';
+char currentDir = '\0';
 
 boolean haltFlag = true;
 
@@ -296,25 +296,26 @@ void loop()
     m2PID.Compute();
     m3PID.Compute();
     m4PID.Compute();
+    switch (currentDir)
+    {
+      case 'f':
+        drive(Setpoint1, 'f');
+        break;
+      case 'b':
+        drive(Setpoint1, 'b');
+        break;
+      case 'l':
+        turn(Setpoint1, 'l');
+        break;
+      case 'r':
+        drive(Setpoint1, 'r');
+        break;
+      default:
+        break;
+    }
   }
 
-//  switch (currentDir)
-//  {
-//    case 'f':
-//      drive(Setpoint1, 'f');
-//      break;
-//    case 'b':
-//      drive(Setpoint1, 'b');
-//      break;
-//    case 'l':
-//      turn(Setpoint1, 'l');
-//      break;
-//    case 'r':
-//      drive(Setpoint1, 'r');
-//      break;
-//    default:
-//      break;
-//  }
+
 
   Serial.flush(); //clear the buffer
 }
