@@ -15,21 +15,21 @@
   PWM = pulse width modulation, used to control speed
   direction = CW or CCW rotation of the motors
 */
-#define    M1_PWM                12 //changed from 46 - XXX
+#define    M1_PWM                 12 //changed from 46 - XXX
 #define    M2_PWM                 9
-#define    M3_PWM                11 //changed from 44 - XXX
+#define    M3_PWM                 11 //changed from 44 - XXX
 #define    M4_PWM                 10 //changed from 3 - XXX
-#define    M1_DIR                 7
-#define    M2_DIR                 2
-#define    M3_DIR                 8
-#define    M4_DIR                3 //changed from 10 - XXX
+#define    M1_DIR                   7
+#define    M2_DIR                   2
+#define    M3_DIR                   8
+#define    M4_DIR                   3 //changed from 10 - XXX
 
 /*
   Pins for the HC-SR04 ultrasonic sensor
   Trigger pin to send out a ultrasonic pulse.
   Echo pin to listen for the pulse echo.
 */
-#define    SONAR_TRIG             6
+#define    SONAR_TRIG              6
 #define    SONAR_ECHO             5
 
 /*
@@ -37,16 +37,16 @@
 */
 #define    ENCODER_1_A              22
 #define    ENCODER_1_B              23
-#define    ENCODER_2_A             24
+#define    ENCODER_2_A              24
 #define    ENCODER_2_B              25
-#define    ENCODER_3_A             26
+#define    ENCODER_3_A              26
 #define    ENCODER_3_B              27
-#define    ENCODER_4_A             28
+#define    ENCODER_4_A              28
 #define    ENCODER_4_B              29
 #define    ENCODER_INT_1          21
 #define    ENCODER_INT_2          20
-#define    ENCODER_INT_3           19
-#define    ENCODER_INT_4           18
+#define    ENCODER_INT_3          19
+#define    ENCODER_INT_4          18
 
 /*
   Command characters and event characters:
@@ -60,8 +60,8 @@
   \r = terminating character for packet data
 */
 const char     DRIVE_CODE    =    'd';
-const char     PING_CODE     =    'p';
-const char     HALT_CODE     =    'h';
+const char     PING_CODE      =    'p';
+const char     HALT_CODE      =    'h';
 const char     TURN_CODE     =    't';
 const char     ENC_CODE      =    'e';
 const char     ERR_CODE      =    'x';
