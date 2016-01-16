@@ -1,17 +1,17 @@
 
 
-unsigned int motor1PWM = 5;
-unsigned int motor3PWM = 6;
+unsigned int motor1PWM = 12;
+unsigned int motor3PWM = 11;
 unsigned int motor2PWM = 9;
-unsigned int motor4PWM = 3;
+unsigned int motor4PWM = 10;
 
-unsigned int dir1 = 4;
+unsigned int dir1 = 7;
 unsigned int dir2 = 2;
-unsigned int dir3 = 7;
-unsigned int dir4 = 10;
+unsigned int dir3 = 8;
+unsigned int dir4 = 3;
 
-unsigned int GND1 = 12;
-unsigned int GND2 = 11;
+//unsigned int GND1 = 12;
+//unsigned int GND2 = 11;
 
 void setup()
 {
@@ -20,17 +20,10 @@ void setup()
   pinMode(dir3, OUTPUT);
   pinMode(dir4, OUTPUT);
   
-  
   pinMode(motor1PWM, OUTPUT);
   pinMode(motor2PWM, OUTPUT);
   pinMode(motor3PWM, OUTPUT);
   pinMode(motor4PWM, OUTPUT);
-  
-  pinMode(GND1, OUTPUT);
-  pinMode(GND2, OUTPUT);
- 
-  digitalWrite(GND1, LOW);
-  digitalWrite(GND2, LOW); 
 }
 
 void loop()
@@ -45,12 +38,12 @@ void loop()
   digitalWrite(motor3PWM, 35);
   digitalWrite(motor4PWM, 35);
   
-  delay(5000);
+  delay(1000);
   
   digitalWrite(dir1, LOW);
   digitalWrite(dir2, HIGH);
   digitalWrite(dir3, HIGH);
   digitalWrite(dir4, LOW);
   
-  delay(5000);
+  delay(1000);
 }

@@ -95,6 +95,13 @@ PID m2PID(&Input2, &Output2, &Setpoint2, 0, 0, 0, DIRECT);
 PID m3PID(&Input3, &Output3, &Setpoint3, 0, 0, 0, DIRECT);
 PID m4PID(&Input4, &Output4, &Setpoint4, 0, 0, 0, DIRECT);
 
+double kpC = .4;
+double kiC = .1;
+double kdC = .2;
+double kpA = 3;
+double kiA = 2;
+double kdA = 1;
+
 // Quadrature Encoder Matrix
 int QEM [16] = {0, -1, 1, 2, 1, 0, 2, -1, -1, 2, 0, 1, 2, 1, -1, 0};
 
@@ -108,10 +115,14 @@ char currentDir = '\0';
 
 boolean haltFlag = true;
 
+long int timeOld = 0;
+
 void setup()
 {
   interrupts();
-  Serial.begin(19200);  //start UART0 with a baud of 19200 Bps
+  Serial.begin(19200);
+  TCCR2B = TCCR2B & 0b11111000 | 0x04;
+  TCCR1B = TCCR1B & 0b11111000 | 0x03;  //start UART0 with a baud of 19200 Bps
   //wdt_enable (WDTO_8S); //enable the watchdog timer at 8S countdown
 
   /*
@@ -176,26 +187,26 @@ void setup()
   digitalWrite(13, HIGH);
 
 
-  m1PID.SetTunings(.4, 1, 1);
-  m1PID.SetSampleTime(50);
+  m1PID.SetTunings(kpC, kiC, kdC);
+  //m1PID.SetSampleTime(50);
   m1PID.SetOutputLimits(0, 255);
   m1PID.SetMode(AUTOMATIC);
   m1PID.SetControllerDirection(DIRECT);
 
-  m2PID.SetTunings(.4, 1, 1);
+  m2PID.SetTunings(kpC, kiC, kdC);
   m2PID.SetSampleTime(50);
   m2PID.SetOutputLimits(0, 255);
   m2PID.SetMode(AUTOMATIC);
   m2PID.SetControllerDirection(DIRECT);
 
-  m3PID.SetTunings(.4, 1, 1);
-  m3PID.SetSampleTime(50);
+  m3PID.SetTunings(kpC, kiC, kdC);
+  //m3PID.SetSampleTime(50);
   m3PID.SetOutputLimits(0, 255);
   m3PID.SetMode(AUTOMATIC);
   m3PID.SetControllerDirection(DIRECT);
 
-  m4PID.SetTunings(.4, 1, 1);
-  m4PID.SetSampleTime(50);
+  m4PID.SetTunings(kpC, kiC, kdC);
+  //m4PID.SetSampleTime(50);
   m4PID.SetOutputLimits(0, 255);
   m4PID.SetMode(AUTOMATIC);
   m4PID.SetControllerDirection(DIRECT);
@@ -252,7 +263,7 @@ void loop()
   {
     case DRIVE_CODE: //drive request made
       /*
-        Read an 8 byte packet. 8 bytes not really needed, just gives extra padding
+        Read an 8 normalizeMotors();byte packet. 8 bytes not really needed, just gives extra padding
         to ensure terminator '\r' is received. If terminator is received then
         only bytes up to the terminator are read and the terminator is thrown away
       */
@@ -288,13 +299,20 @@ void loop()
       break;
   }
 
-
-  if (!haltFlag)
+  if(!haltFlag)
   {
-    veerCorrection();
+    if(millis() - timeOld >= 100)
+    {
+      normalizeMotors();
+      timeOld = millis();
+    }
+  }
+
+  /*if (!haltFlag)
+  {
     m1PID.Compute();
     m2PID.Compute();
-    m3PID.Compute();
+    m3PID.Compute();5000
     m4PID.Compute();
     switch (currentDir)
     {
@@ -313,7 +331,7 @@ void loop()
       default:
         break;
     }
-  }
+  }*/
 
 
 
@@ -332,29 +350,33 @@ void drive(int spd, char dir)
   Setpoint2 = (double)spd;
   Setpoint3 = (double)spd;
   Setpoint4 = (double)spd;
-  currentDir = dir;
+  //currentDir = dir;
+
+  Serial.println(Setpoint1);
+  Serial.println(Input1);
+  Serial.println(Output1);
 
   Serial.println("drive ack"); //acknowledge the command
   if (dir == 'f')
   {
-    analogWrite(M1_PWM, Output1);
+    analogWrite(M1_PWM, spd);
     digitalWrite(M1_DIR, 1);
-    analogWrite(M2_PWM, Output2);
+    analogWrite(M2_PWM, spd);
     digitalWrite(M2_DIR, 0);
-    analogWrite(M3_PWM, Output3);
+    analogWrite(M3_PWM, spd);
     digitalWrite(M3_DIR, 1);
-    analogWrite(M4_PWM, Output4);
+    analogWrite(M4_PWM, spd);
     digitalWrite(M4_DIR, 0);
   }
   else if (dir == 'b')
   {
-    analogWrite(M1_PWM, Output1);
+    analogWrite(M1_PWM, spd);
     digitalWrite(M1_DIR, 0);
-    analogWrite(M2_PWM, Output2);
+    analogWrite(M2_PWM, spd);
     digitalWrite(M2_DIR, 1);
-    analogWrite(M3_PWM, Output3);
+    analogWrite(M3_PWM, spd);
     digitalWrite(M3_DIR, 0);
-    analogWrite(M4_PWM, Output4);
+    analogWrite(M4_PWM, spd);
     digitalWrite(M4_DIR, 1);
   }
   else
@@ -372,7 +394,60 @@ void drive(int spd, char dir)
     analogWrite(M4_PWM, 0);
   }
   haltFlag = false;
-  delay(250);
+  //delay(250);
+}
+
+void normalizeMotors()
+{
+  Input1 = speed1();
+  Input2 = speed2();
+  Input3 = speed3();
+  Input4 = speed4();
+
+  if(abs(Setpoint1 - Input1) > 50)
+  {
+    m1PID.SetTunings(kpA, kiA, kdA);
+  }
+  else
+  {
+    m1PID.SetTunings(kpC, kiC, kdC);
+  }
+
+  if(abs(Setpoint2 - Input2) > 50)
+  {
+    m2PID.SetTunings(kpA, kiA, kdA);
+  }
+  else
+  {
+    m2PID.SetTunings(kpC, kiC, kdC);
+  }
+
+  if(abs(Setpoint3 - Input3) > 50)
+  {
+    m3PID.SetTunings(kpA, kiA, kdA);
+  }
+  else
+  {
+    m3PID.SetTunings(kpC, kiC, kdC);
+  }
+
+  if(abs(Setpoint4 - Input4) > 50)
+  {
+    m4PID.SetTunings(kpA, kiA, kdA);
+  }
+  else
+  {
+    m4PID.SetTunings(kpC, kiC, kdC);
+  }
+  
+  m4PID.Compute();
+  m3PID.Compute();
+  m2PID.Compute();
+  m1PID.Compute();
+  analogWrite(M1_PWM, Output1);
+  analogWrite(M2_PWM, Output2);
+  analogWrite(M3_PWM, Output3);
+  analogWrite(M4_PWM, Output4);
 }
 
 /*
@@ -416,7 +491,8 @@ void ping()
 }
 
 /*
-  Functionally the same as drive, but motors turn in a
+  Functionally the same a
+  m1PID.Compute();s drive, but motors turn in a
   different configuration to allow turning.
   rate = turn rate (speed) between 0 and 255
   dir = direction of rotation r = right, l = left
@@ -427,29 +503,28 @@ void turn(int rate, char dir)
   Setpoint2 = (double)rate;
   Setpoint3 = (double)rate;
   Setpoint4 = (double)rate;
-  currentDir = dir;
 
   Serial.println("turn ack");
   if (dir == 'r')
   {
-    analogWrite(M1_PWM, Output1);
+    analogWrite(M1_PWM, rate);
     digitalWrite(M1_DIR, 1);
-    analogWrite(M2_PWM, Output2);
+    analogWrite(M2_PWM, rate);
     digitalWrite(M2_DIR, 0);
-    analogWrite(M3_PWM, Output3);
+    analogWrite(M3_PWM, rate);
     digitalWrite(M3_DIR, 0);
-    analogWrite(M4_PWM, Output4);
+    analogWrite(M4_PWM, rate);
     digitalWrite(M4_DIR, 1);
   }
   else if (dir == 'l')
   {
-    analogWrite(M1_PWM, Output1);
+    analogWrite(M1_PWM, rate);
     digitalWrite(M1_DIR, 0);
-    analogWrite(M2_PWM, Output2);
+    analogWrite(M2_PWM, rate);
     digitalWrite(M2_DIR, 1);
-    analogWrite(M3_PWM, Output3);
+    analogWrite(M3_PWM, rate);
     digitalWrite(M3_DIR, 1);
-    analogWrite(M4_PWM, Output4);
+    analogWrite(M4_PWM, rate);
     digitalWrite(M4_DIR, 0);
   }
   else
@@ -467,7 +542,7 @@ void turn(int rate, char dir)
     analogWrite(M4_PWM, 0);
   }
   haltFlag = false;
-  delay(10);
+  //delay(10);
 }
 
 /*
@@ -525,18 +600,6 @@ double speed4()
   double RPM = ((numCounts / encodRes) * 60) / (0.015);
 
   return RPM;
-}
-
-/*
-  XXX
-  Attempted implementation of PID for veer correction
-*/
-void veerCorrection()
-{
-  Input1 = speed1();
-  Input2 = speed2();
-  Input3 = speed3();
-  Input4 = speed4();
 }
 
 double dist()
