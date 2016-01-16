@@ -1,4 +1,3 @@
-#include <PID_v1.h>
 #include <avr/wdt.h> //library to use watchdog timers for AVR chips
 
 /*
@@ -85,23 +84,6 @@ volatile unsigned char old3;
 volatile unsigned char new4;
 volatile unsigned char old4;
 
-double Input1, Output1, Setpoint1;
-double Input2, Output2, Setpoint2;
-double Input3, Output3, Setpoint3;
-double Input4, Output4, Setpoint4;
-
-PID m1PID(&Input1, &Output1, &Setpoint1, 0, 0, 0, DIRECT);
-PID m2PID(&Input2, &Output2, &Setpoint2, 0, 0, 0, DIRECT);
-PID m3PID(&Input3, &Output3, &Setpoint3, 0, 0, 0, DIRECT);
-PID m4PID(&Input4, &Output4, &Setpoint4, 0, 0, 0, DIRECT);
-
-double kpC = .4;
-double kiC = .1;
-double kdC = .2;
-double kpA = 3;
-double kiA = 2;
-double kdA = 1;
-
 // Quadrature Encoder Matrix
 int QEM [16] = {0, -1, 1, 2, 1, 0, 2, -1, -1, 2, 0, 1, 2, 1, -1, 0};
 
@@ -116,6 +98,10 @@ char currentDir = '\0';
 boolean haltFlag = true;
 
 long int timeOld = 0;
+
+int m1Spd, m2Spd, m3Spd, m4Spd;
+
+double RPMs[4] = {0, 0, 0, 0};
 
 void setup()
 {
@@ -185,36 +171,6 @@ void setup()
   */
   pinMode(13, OUTPUT);
   digitalWrite(13, HIGH);
-
-
-  m1PID.SetTunings(kpC, kiC, kdC);
-  //m1PID.SetSampleTime(50);
-  m1PID.SetOutputLimits(0, 255);
-  m1PID.SetMode(AUTOMATIC);
-  m1PID.SetControllerDirection(DIRECT);
-
-  m2PID.SetTunings(kpC, kiC, kdC);
-  m2PID.SetSampleTime(50);
-  m2PID.SetOutputLimits(0, 255);
-  m2PID.SetMode(AUTOMATIC);
-  m2PID.SetControllerDirection(DIRECT);
-
-  m3PID.SetTunings(kpC, kiC, kdC);
-  //m3PID.SetSampleTime(50);
-  m3PID.SetOutputLimits(0, 255);
-  m3PID.SetMode(AUTOMATIC);
-  m3PID.SetControllerDirection(DIRECT);
-
-  m4PID.SetTunings(kpC, kiC, kdC);
-  //m4PID.SetSampleTime(50);
-  m4PID.SetOutputLimits(0, 255);
-  m4PID.SetMode(AUTOMATIC);
-  m4PID.SetControllerDirection(DIRECT);
-
-  Setpoint1 = 0;
-  Setpoint2 = 0;
-  Setpoint3 = 0;
-  Setpoint4 = 0;
 
   /*
     Wait for serial to initialize before proceeding.
@@ -301,40 +257,8 @@ void loop()
 
   if(!haltFlag)
   {
-    if(millis() - timeOld >= 100)
-    {
-      normalizeMotors();
-      timeOld = millis();
-    }
+    normalizeMotors();
   }
-
-  /*if (!haltFlag)
-  {
-    m1PID.Compute();
-    m2PID.Compute();
-    m3PID.Compute();5000
-    m4PID.Compute();
-    switch (currentDir)
-    {
-      case 'f':
-        drive(Setpoint1, 'f');
-        break;
-      case 'b':
-        drive(Setpoint1, 'b');
-        break;
-      case 'l':
-        turn(Setpoint1, 'l');
-        break;
-      case 'r':
-        drive(Setpoint1, 'r');
-        break;
-      default:
-        break;
-    }
-  }*/
-
-
-
   Serial.flush(); //clear the buffer
 }
 
@@ -346,16 +270,10 @@ void loop()
 */
 void drive(int spd, char dir)
 {
-  Setpoint1 = (double)spd;
-  Setpoint2 = (double)spd;
-  Setpoint3 = (double)spd;
-  Setpoint4 = (double)spd;
-  //currentDir = dir;
-
-  Serial.println(Setpoint1);
-  Serial.println(Input1);
-  Serial.println(Output1);
-
+  m1Spd = spd;
+  m2Spd = spd;
+  m3Spd = spd;
+  m4Spd = spd;
   Serial.println("drive ack"); //acknowledge the command
   if (dir == 'f')
   {
@@ -381,10 +299,6 @@ void drive(int spd, char dir)
   }
   else
   {
-    Setpoint1 = 0;
-    Setpoint2 = 0;
-    Setpoint3 = 0;
-    Setpoint4 = 0;
     Serial.println(ERR_CODE);
     Serial.println(spd);
     Serial.println(dir);
@@ -397,68 +311,15 @@ void drive(int spd, char dir)
   //delay(250);
 }
 
-void normalizeMotors()
-{
-  Input1 = speed1();
-  Input2 = speed2();
-  Input3 = speed3();
-  Input4 = speed4();
-
-  if(abs(Setpoint1 - Input1) > 50)
-  {
-    m1PID.SetTunings(kpA, kiA, kdA);
-  }
-  else
-  {
-    m1PID.SetTunings(kpC, kiC, kdC);
-  }
-
-  if(abs(Setpoint2 - Input2) > 50)
-  {
-    m2PID.SetTunings(kpA, kiA, kdA);
-  }
-  else
-  {
-    m2PID.SetTunings(kpC, kiC, kdC);
-  }
-
-  if(abs(Setpoint3 - Input3) > 50)
-  {
-    m3PID.SetTunings(kpA, kiA, kdA);
-  }
-  else
-  {
-    m3PID.SetTunings(kpC, kiC, kdC);
-  }
-
-  if(abs(Setpoint4 - Input4) > 50)
-  {
-    m4PID.SetTunings(kpA, kiA, kdA);
-  }
-  else
-  {
-    m4PID.SetTunings(kpC, kiC, kdC);
-  }
-  
-  m4PID.Compute();
-  m3PID.Compute();
-  m2PID.Compute();
-  m1PID.Compute();
-  analogWrite(M1_PWM, Output1);
-  analogWrite(M2_PWM, Output2);
-  analogWrite(M3_PWM, Output3);
-  analogWrite(M4_PWM, Output4);
-}
-
 /*
   Halt function to stop the rover.
 */
 void halt()
 {
-  Setpoint1 = 0;
-  Setpoint2 = 0;
-  Setpoint3 = 0;
-  Setpoint4 = 0;
+  m1Spd = 0;
+  m2Spd = 0;
+  m3Spd = 0;
+  m4Spd = 0;
   Serial.println("halt ack");
   analogWrite(M1_PWM, 0);
   analogWrite(M2_PWM, 0);
@@ -499,11 +360,10 @@ void ping()
 */
 void turn(int rate, char dir)
 {
-  Setpoint1 = (double)rate;
-  Setpoint2 = (double)rate;
-  Setpoint3 = (double)rate;
-  Setpoint4 = (double)rate;
-
+  m1Spd = rate;
+  m2Spd = rate;
+  m3Spd = rate;
+  m4Spd = rate;
   Serial.println("turn ack");
   if (dir == 'r')
   {
@@ -529,10 +389,6 @@ void turn(int rate, char dir)
   }
   else
   {
-    Setpoint1 = 0;
-    Setpoint2 = 0;
-    Setpoint3 = 0;
-    Setpoint4 = 0;
     Serial.println(ERR_CODE);
     Serial.println(rate);
     Serial.println(dir);
@@ -545,61 +401,38 @@ void turn(int rate, char dir)
   //delay(10);
 }
 
-/*
-  XXX
-  Changed all speed functions to calculate speed in RPMs to make it easier for
-  future calculations.
-*/
-double speed1()
+void speed()
 {
-  long countA = count1;
-  delay(15);
-  long countB = count1;
+  double countAs[4] = {(double)count1, (double)count2, (double)count3 ,(double)count4};
+  delay(50);
+  double countBs[4] = {(double)count1, (double)count2, (double)count3, (double)count4};
 
-  long numCounts = countB - countA;
-
-  double RPM = ((numCounts / encodRes) * 60) / (0.015);
-
-  return RPM;
+  double diffs[4] = {countBs[0]-countAs[0], countBs[1]-countAs[1], countBs[2]-countAs[2], countBs[3]-countAs[3]};
+  
+  RPMs[0] = ((diffs[0]/encodRes) * 60.0) / (0.05);
+  RPMs[1] = ((diffs[1]/encodRes) * 60.0) / (0.05);
+  RPMs[2] = ((diffs[2]/encodRes) * 60.0) / (0.05);
+  RPMs[3] = ((diffs[3]/encodRes) * 60.0) / (0.05);
 }
 
-double speed2()
+void normalizeMotors()
 {
-  long countA = count2;
-  delay(15);
-  long countB = count2;
-
-  long numCounts = countB - countA;
-
-  double RPM = ((numCounts / encodRes) * 60) / (0.015);
-
-  return RPM;
-}
-
-double speed3()
-{
-  long countA = count3;
-  delay(15);
-  long countB = count3;
-
-  long numCounts = countB - countA;
-
-  double RPM = ((numCounts / encodRes) * 60) / (0.015);
-
-  return RPM;
-}
-
-double speed4()
-{
-  long countA = count4;
-  delay(15);
-  long countB = count4;
-
-  long numCounts = countB - countA;
-
-  double RPM = ((numCounts / encodRes) * 60) / (0.015);
-
-  return RPM;
+  speed();
+  
+  if(RPMs[1] - RPMs[0] >= 15)
+    analogWrite(M2_PWM, --m2Spd);
+  else if(RPMs[1] - RPMs[0] <= -15)
+    analogWrite(M2_PWM, ++m2Spd);
+  
+  if(RPMs[2] - RPMs[0] >= 15)
+    analogWrite(M3_PWM, --m3Spd);
+  else if(RPMs[2] - RPMs[0] <= -15)
+    analogWrite(M3_PWM, ++m3Spd);
+  
+  if(RPMs[3] - RPMs[0] >= 15)
+    analogWrite(M4_PWM, --m4Spd);
+  else if(RPMs[3] - RPMs[0] <= -15)
+    analogWrite(M4_PWM, ++m4Spd);
 }
 
 double dist()
