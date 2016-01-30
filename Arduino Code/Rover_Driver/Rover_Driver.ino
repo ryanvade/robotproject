@@ -95,12 +95,16 @@ PID m2PID(&Input2, &Output2, &Setpoint2, 0, 0, 0, DIRECT);
 PID m3PID(&Input3, &Output3, &Setpoint3, 0, 0, 0, DIRECT);
 PID m4PID(&Input4, &Output4, &Setpoint4, 0, 0, 0, DIRECT);
 
-double kpC = .4;
-double kiC = .1;
-double kdC = .2;
-double kpA = 3;
-double kiA = 2;
-double kdA = 1;
+// Values from Github Project - should work
+// kp=0.2, ki=1.5, kd=0;
+
+double kpC = .2;
+double kiC = 1.5;
+double kdC = 0;
+
+double kpA = 0.2;
+double kiA = 1.5;
+double kdA = 0;
 
 // Quadrature Encoder Matrix
 int QEM [16] = {0, -1, 1, 2, 1, 0, 2, -1, -1, 2, 0, 1, 2, 1, -1, 0};
