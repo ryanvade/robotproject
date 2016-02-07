@@ -75,6 +75,13 @@ print(serial.get_response())
 serial.send_command("h", "\r")
 print(serial.get_response())
 
+serial.send_command("db", "255", "\r")
+time.sleep(waitTime)
+
+print(serial.get_response())
+serial.send_command("h", "\r")
+print(serial.get_response())
+
 # back = base.reverse(100)
 # lack = base.left(100)
 # rack = base.right(100)
