@@ -97,14 +97,15 @@ PID m4PID(&Input4, &Output4, &Setpoint4, 0, 0, 0, DIRECT);
 
 // Values from Github Project - should work
 // kp=0.2, ki=1.5, kd=0;
+// kp has a large effect, ki = 1.7 is the best we have found so far. 
+// c = conservative, A = agressive
+double kpC = 0.05;
+double kiC = 1.7;
+double kdC = 0.01;
 
-double kpC = .2;
-double kiC = 1.5;
-double kdC = 0;
-
-double kpA = 0.2;
-double kiA = 1.5;
-double kdA = 0;
+double kpA = 0.05;
+double kiA = 1.7;
+double kdA = 0.01;
 
 // Quadrature Encoder Matrix
 int QEM [16] = {0, -1, 1, 2, 1, 0, 2, -1, -1, 2, 0, 1, 2, 1, -1, 0};
@@ -192,7 +193,7 @@ void setup()
 
 
   m1PID.SetTunings(kpC, kiC, kdC);
-  //m1PID.SetSampleTime(50);
+  m1PID.SetSampleTime(50);
   m1PID.SetOutputLimits(0, 255);
   m1PID.SetMode(AUTOMATIC);
   m1PID.SetControllerDirection(DIRECT);
@@ -204,13 +205,13 @@ void setup()
   m2PID.SetControllerDirection(DIRECT);
 
   m3PID.SetTunings(kpC, kiC, kdC);
-  //m3PID.SetSampleTime(50);
+  m3PID.SetSampleTime(50);
   m3PID.SetOutputLimits(0, 255);
   m3PID.SetMode(AUTOMATIC);
   m3PID.SetControllerDirection(DIRECT);
 
   m4PID.SetTunings(kpC, kiC, kdC);
-  //m4PID.SetSampleTime(50);
+  m4PID.SetSampleTime(50);
   m4PID.SetOutputLimits(0, 255);
   m4PID.SetMode(AUTOMATIC);
   m4PID.SetControllerDirection(DIRECT);
@@ -305,11 +306,11 @@ void loop()
 
   if(!haltFlag)
   {
-    if(millis() - timeOld >= 100)
-    {
+    //if(millis() - timeOld >= 100)
+    //{
       normalizeMotors();
-      timeOld = millis();
-    }
+      //timeOld = millis();
+    //}
   }
 
   /*if (!haltFlag)
@@ -403,12 +404,12 @@ void drive(int spd, char dir)
 
 void normalizeMotors()
 {
-  Input1 = speed1();
-  Input2 = speed2();
-  Input3 = speed3();
-  Input4 = speed4();
+  Input1 = abs(speed1());
+  Input2 = abs(speed2());
+  Input3 = abs(speed3());
+  Input4 = abs(speed4());
 
-  if(abs(Setpoint1 - Input1) > 50)
+/*  if(abs(Setpoint1 - Input1) > 50)
   {
     m1PID.SetTunings(kpA, kiA, kdA);
   }
@@ -443,7 +444,7 @@ void normalizeMotors()
   {
     m4PID.SetTunings(kpC, kiC, kdC);
   }
-  
+  */
   m4PID.Compute();
   m3PID.Compute();
   m2PID.Compute();
