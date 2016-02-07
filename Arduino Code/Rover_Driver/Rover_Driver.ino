@@ -99,11 +99,11 @@ PID m4PID(&Input4, &Output4, &Setpoint4, 0, 0, 0, DIRECT);
 // kp=0.2, ki=1.5, kd=0;
 // kp has a large effect, ki = 1.7 is the best we have found so far. 
 // c = conservative, A = agressive
-double kpC = 0.05;
+double kpC = 0.005;
 double kiC = 1.7;
 double kdC = 0.01;
 
-double kpA = 0.05;
+double kpA = 0.005;
 double kiA = 1.7;
 double kdA = 0.01;
 
@@ -125,7 +125,7 @@ long int timeOld = 0;
 void setup()
 {
   interrupts();
-  Serial.begin(19200);
+  Serial3.begin(19200);
   TCCR2B = TCCR2B & 0b11111000 | 0x04;
   TCCR1B = TCCR1B & 0b11111000 | 0x03;  //start UART0 with a baud of 19200 Bps
   //wdt_enable (WDTO_8S); //enable the watchdog timer at 8S countdown
@@ -222,21 +222,21 @@ void setup()
   Setpoint4 = 0;
 
   /*
-    Wait for serial to initialize before proceeding.
+    Wait for Serial3 to initialize before proceeding.
   */
-  while (!Serial);
-  Serial.println("Ready!");
+  while (!Serial3);
+  Serial3.println("Ready!");
 }
 
 void loop()
 {
   char command = 0; //char to hold command byte
 
-  //if a byte is waiting in the serial buffer
-  if (Serial.available() > 0)
+  //if a byte is waiting in the Serial3 buffer
+  if (Serial3.available() > 0)
   {
     //wdt_reset(); //reset the watchdog timer (prevents shutdown!)
-    command = Serial.read(); //read the byte and store it.
+    command = Serial3.read(); //read the byte and store it.
   }
 
   char data[8]; //data packet
@@ -272,7 +272,7 @@ void loop()
         to ensure terminator '\r' is received. If terminator is received then
         only bytes up to the terminator are read and the terminator is thrown away
       */
-      Serial.readBytesUntil(TERMINATOR, data, 8);
+      Serial3.readBytesUntil(TERMINATOR, data, 8);
       spd = atoi(&data[1]); //convert lower bytes to int and store in spd
       drive(spd, data[0]); //transfer to drive function   if(m1 == slowest + tolerance)
       break;
@@ -281,7 +281,7 @@ void loop()
       break;
     case TURN_CODE: //turn request made
       {
-        Serial.readBytesUntil(TERMINATOR, data, 8);
+        Serial3.readBytesUntil(TERMINATOR, data, 8);
         rate = atoi(&data[1]);
         turn(rate, data[0]);
         break;
@@ -293,14 +293,14 @@ void loop()
     //            encoder_request();
     //            break;
     //case HTBT_CODE: //heartbeat received
-    //  Serial.println("I am still alive");
+    //  Serial3.println("I am still alive");
     // break;
     case 0: //special cases. if nothing in the buffer 0 is constantly read.
     case TERMINATOR: //some commands do not handle terminator '\r' leaving it in buffer
       //in either of these events we do not want to throw an error, merely toss out the command.
       break;
     default: //an invalid command received or problem in transmission.
-      Serial.write(ERR_CODE); //reply with error event character
+      Serial3.write(ERR_CODE); //reply with error event character
       break;
   }
 
@@ -340,7 +340,7 @@ void loop()
 
 
 
-  Serial.flush(); //clear the buffer
+  Serial3.flush(); //clear the buffer
 }
 
 
@@ -357,11 +357,11 @@ void drive(int spd, char dir)
   Setpoint4 = (double)spd;
   //currentDir = dir;
 
-  Serial.println(Setpoint1);
-  Serial.println(Input1);
-  Serial.println(Output1);
+  Serial3.println(Setpoint1);
+  Serial3.println(Input1);
+  Serial3.println(Output1);
 
-  Serial.println("drive ack"); //acknowledge the command
+  Serial3.println("drive ack"); //acknowledge the command
   if (dir == 'f')
   {
     analogWrite(M1_PWM, spd);
@@ -390,9 +390,9 @@ void drive(int spd, char dir)
     Setpoint2 = 0;
     Setpoint3 = 0;
     Setpoint4 = 0;
-    Serial.println(ERR_CODE);
-    Serial.println(spd);
-    Serial.println(dir);
+    Serial3.println(ERR_CODE);
+    Serial3.println(spd);
+    Serial3.println(dir);
     analogWrite(M1_PWM, 0);
     analogWrite(M2_PWM, 0);
     analogWrite(M3_PWM, 0);
@@ -464,7 +464,7 @@ void halt()
   Setpoint2 = 0;
   Setpoint3 = 0;
   Setpoint4 = 0;
-  Serial.println("halt ack");
+  Serial3.println("halt ack");
   analogWrite(M1_PWM, 0);
   analogWrite(M2_PWM, 0);
   analogWrite(M3_PWM, 0);
@@ -478,7 +478,7 @@ void halt()
 */
 void ping()
 {
-  Serial.println("ping ack");
+  Serial3.println("ping ack");
   digitalWrite(SONAR_TRIG, LOW); //drive trigger low to settle the pin
   delayMicroseconds(2); //wait for it to settle.
   digitalWrite(SONAR_TRIG, HIGH); //start a pulse
@@ -491,7 +491,7 @@ void ping()
   duration = pulseIn(SONAR_ECHO, HIGH); //listen for echo and record time in microseconds
   cm = duration / 29.0 / 2.0; //convert time to distance in centimeters.
 
-  Serial.println(cm); //send the distance.
+  Serial3.println(cm); //send the distance.
 
 }
 
@@ -509,7 +509,7 @@ void turn(int rate, char dir)
   Setpoint3 = (double)rate;
   Setpoint4 = (double)rate;
 
-  Serial.println("turn ack");
+  Serial3.println("turn ack");
   if (dir == 'r')
   {
     analogWrite(M1_PWM, rate);
@@ -538,9 +538,9 @@ void turn(int rate, char dir)
     Setpoint2 = 0;
     Setpoint3 = 0;
     Setpoint4 = 0;
-    Serial.println(ERR_CODE);
-    Serial.println(rate);
-    Serial.println(dir);
+    Serial3.println(ERR_CODE);
+    Serial3.println(rate);
+    Serial3.println(dir);
     analogWrite(M1_PWM, 0);
     analogWrite(M2_PWM, 0);
     analogWrite(M3_PWM, 0);
