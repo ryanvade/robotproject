@@ -3,7 +3,6 @@
  * the rover to function.
  */
 
-#include <Arduino.h>
 
 /*
  * Motor pins in order:

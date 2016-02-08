@@ -9,7 +9,7 @@
  * =======================================================================================================================================================================
  * Top level global variables.
  * 
- * These are the non-constant global variables only used in the top level. They are declared here to avoid unnecessary user of extern.
+ * These are the non-constant global variables only used in the top level. They are declared here to avoid unnecessary use of extern.
  * =======================================================================================================================================================================
  * =======================================================================================================================================================================
   */
@@ -58,7 +58,7 @@ double RPMs[4] = {0, 0, 0, 0};
  * =======================================================================================================================================================================
  * PID functions and variables
  * 
- * These need to be included at the top level whereh the PID_v1.h file is visible.
+ * These need to be included at the top level where the PID_v1.h file is visible.
  * =======================================================================================================================================================================
  * =======================================================================================================================================================================
   */
@@ -88,7 +88,7 @@ double Input4, Output4, Setpoint4;
  * C - conservative
  * 
  * best results thus far with:
- * kp = 0
+ * kp = 0.005
  * ki = 1.7
  * kd = 0
  */
@@ -101,13 +101,13 @@ double kiA = 1.7;
 double kdA = 0.01;
 
 /*
- * PID objects used to independantly comput the PID algorithm
+ * PID objects used to independantly compute the PID algorithm
  * on each of the motors.
  * 
  * Syntax: PID pidObj(&in, &out, &set, kp, ki, kd, MODE)
- * Mode: DIRECT or REVERSE determines whetehr the PID
+ * Mode: DIRECT or REVERSE determines whether the PID
  *       algorithm increases or decreases the output
- *       if it is above the setpoint.
+ *       when it is above the setpoint.
  */
 PID m1PID(&Input1, &Output1, &Setpoint1, 0, 0, 0, DIRECT);
 PID m2PID(&Input2, &Output2, &Setpoint2, 0, 0, 0, DIRECT);
@@ -443,7 +443,7 @@ void loop()
  * ______/""""\____/""""\____/""""\__   B
  * 
  * 
- * The encoder readings are first converted from binary to decimal with A being the most significatn bit
+ * The encoder readings are first converted from binary to decimal with A being the most significant bit
  * ie.
  * AB | Dec
  * 00 |  0

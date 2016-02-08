@@ -4,6 +4,7 @@
  */
 
 
+#include <Arduino.h>
 #include "rover_system.h"
 #include "rover_params.h"
  
