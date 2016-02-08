@@ -38,9 +38,4 @@ void ping();
  */
 double dist();
 
-/*
- * Initializes the PID parameters.
- */
-void pidInit();
-
 #endif
